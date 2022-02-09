@@ -1,9 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
 a {
   text-decoration: none;
 }
 
 a:visited {
   text-decoration: none;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
 }
 
 .header {
@@ -17,6 +24,7 @@ a:visited {
 }
 
 .header__logo {
+  font-family: 'Alegreya', serif;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -31,6 +39,7 @@ a:visited {
 .header__signinup {
   margin-right: 26px;
   font-size: 18px;
+  font-weight: 500;
   color: #FFFFFF;
 }
 
@@ -39,8 +48,9 @@ a:visited {
 }
 
 .login__title {
+  font-family: 'Alegreya', serif;
   position: absolute;
-  width: 900px;
+  width: 800px;
   font-size: 82px;
   color: #000000;
 }
@@ -49,7 +59,8 @@ a:visited {
   position: absolute;
   width: 200px;
   margin-top: 230px;
-  font-size: 18px;
+  font-size: 20px;
+  font-weight: 600;
   color: #000000;
 }
 
@@ -57,7 +68,7 @@ a:visited {
   position: absolute;
   width: 350px;
   height: auto;
-  margin: 190px 0px 0px 500px;
+  margin: 200px 0px 0px 500px;
 }
 
 .login__area {
@@ -74,6 +85,7 @@ a:visited {
 }
 
 .login__area__title {
+  font-family: 'Alegreya', serif;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -96,13 +108,23 @@ a:visited {
   align-items: center;
 }
 
+::placeholder { 
+  padding-left: 5px;
+  color: #9CBDBD;
+}
+
+label {
+  padding-bottom: 10px;
+}
+
 .login__area__form input:not(.login__area__form__submit) {
+  font-family: 'Nunito', sans-serif;
   width: 270px;
   height: 30px;
   margin-top: 10px;
   border: 1px solid #9CBDBD;
   font-size: 14px;
-  color: #9CBDBD;
+  font-weight: 550;
   border-radius: 3px;
 }
 

@@ -61,9 +61,13 @@ const Login = () => {
           <hr></hr>
         </div>
           <form className="login__area__form">
-            <input type="text" name="email" placeholder="Email Address"></input><br></br>
-            <input type="password" name="password" placeholder="Password"></input><br></br>
-            <input type="submit" className="login__area__form__submit" value="Sign In"></input>
+            <label>
+              <input type="text" name="email" placeholder="Email Address"></input><br></br>
+            </label>
+            <label>
+              <input type="password" name="password" placeholder="Password"></input><br></br>
+            </label>
+              <input type="submit" className="login__area__form__submit" value="Sign In"></input>
           </form>
       </div>
     </div>
