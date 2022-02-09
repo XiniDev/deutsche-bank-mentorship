@@ -24,6 +24,7 @@ body {
 }
 
 .header__logo {
+  cursor: pointer;
   font-family: 'Alegreya', serif;
   display: flex;
   flex-direction: row;
@@ -37,10 +38,15 @@ body {
 }
 
 .header__signinup {
-  margin-right: 26px;
+  margin-right: 2px;
   font-size: 18px;
   font-weight: 500;
   color: #FFFFFF;
+  padding: 22px;
+}
+
+.header__signinup:hover {
+  background-color: #9CBDBD; 
 }
 
 .login {
@@ -136,11 +142,15 @@ label {
   background-color: #124040;
   font-size: 16px;
   color: #FFFFFF;
-  border-radius: 5px;
+  border: 4px solid #124040;
+  border-style: outset;
 }
 
 .login__area__form__submit:hover {
   cursor: pointer;
+  background-color: #9CBDBD; 
+  border: 4px solid #9CBDBD;
+  border-style: inset;
 }
 
 /* .App-logo {
