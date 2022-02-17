@@ -80,6 +80,14 @@ body {
   margin: 200px 0px 0px 500px;
 }
 
+.frontpage__background {
+  position: absolute;
+  width: 1440px;
+  height: 950px;
+  left: 0px;
+  top: 74px;
+}
+
 .login__form__area {
   position: absolute;
   display: flex;
@@ -238,4 +246,180 @@ label {
   background-color: #9CBDBD; 
   border: 4px solid #9CBDBD;
   border-style: inset;
+}
+
+.bar__from__background {
+  position: absolute;
+  width: 265px;
+  height: 876px;
+  left: 178px;
+  top: 148px;
+  background-color: #124040;
+  border-radius: 5px 0px 0px 0px;
+}
+
+.bar__from__learning {
+  position: absolute;
+  width: 86px;
+  height: 29px;
+  left: 280px;
+  top: 195px;
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 25px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.bar__from__mentoring {
+  position: absolute;
+  width: 106px;
+  height: 29px;
+  left: 269px;
+  top: 257px;
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 25px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.bar__from__timetable {
+  position: absolute;
+  width: 102px;
+  height: 29px;
+  left: 269px;
+  top: 319px;
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 25px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.bar__from__myProfile {
+  position: absolute;
+  width: 86px;
+  height: 29px;
+  left: 279px;
+  top: 915px;
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 25px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.bar__from__feedback {
+  position: absolute;
+  width: 86px;
+  height: 29px;
+  left: 278px;
+  top: 974px;
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 25px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.bar__from__icon1 {
+  /* Icon/Outline/academic-cap */
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  left: 229px;
+  top: 192px;
+  border: 1px solid #000000;
+  /* Icon */
+  position: absolute;
+  left: 12.5%;
+  right: 12.5%;
+  top: 16.67%;
+  bottom: 16.44%;
+  border: 2px solid #FFFFFF;
+}
+
+.bar__from__icon2 {
+  /* Icon/Outline/presentation-chart-bar */
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  left: 229px;
+  top: 254px;
+  /* Icon */
+  position: absolute;
+  left: 12.5%;
+  right: 12.5%;
+  top: 16.67%;
+  bottom: 12.5%;
+  border: 2px solid #FFFFFF;
+}
+
+.bar__from__icon3 {
+  /* Icon/Outline/calendar */
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  left: 229px;
+  top: 316px;
+  /* Icon */
+  position: absolute;
+  left: 12.5%;
+  right: 12.5%;
+  top: 12.5%;
+  bottom: 12.5%;
+  border: 2px solid #FFFFFF;
+}
+
+.bar__from__icon4 {
+  /* Icon/Outline/user-circle */
+  position: absolute;
+  left: 15.9%;
+  right: 81.67%;
+  top: 89.06%;
+  bottom: 7.52%;
+  /* Icon */
+  position: absolute;
+  left: 12.5%;
+  right: 12.5%;
+  top: 12.5%;
+  bottom: 12.5%;
+  border: 2px solid #FFFFFF;
+}
+
+.bar__from__icon5 {
+  /* Icon/Outline/clipboard-list */
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  left: 229px;
+  top: 971px;
+  /* Icon */
+  position: absolute;
+  left: 20.83%;
+  right: 20.83%;
+  top: 12.5%;
+  bottom: 12.5%;
+  border: 2px solid #FFFFFF;
 }
