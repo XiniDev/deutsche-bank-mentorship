@@ -10,12 +10,17 @@ const Header = () => {
                 <img src={Rattus1} alt="Rattus1"/>
                 Rattus
             </div>
+            <div className='header_links'>
                 <div className="header__signinup">
                     <Link to="/">Sign in</Link>
                 </div>
                 <div className="header__signinup">
                     <Link to="/register">Register</Link>
                 </div>
+                <div className="header__signinup">
+                    <Link to="/profile">Profile</Link>
+                </div>
+            </div>
         </header>
     );
 }
