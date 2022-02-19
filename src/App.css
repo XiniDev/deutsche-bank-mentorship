@@ -16,6 +16,7 @@ body > #root > div {
 
 body {
   font-family: 'Nunito', sans-serif;
+  overflow: auto;
 }
 
 h1 {
@@ -286,6 +287,7 @@ label {
   min-height: calc(100vh - 74px);
   display: flex;
   justify-content: center;
+  background-attachment: fixed;
 }
 
 .container {
@@ -297,10 +299,18 @@ label {
 }
 
 .content__background {
+  overflow-y: scroll;
   height: 100%;
   width: 950px;
   background-color: #FFFFFF;
   border-radius: 0px 5px 0px 0px;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.content__background::-webkit-scrollbar {
+  display: none;
 }
 
 .content {
@@ -370,6 +380,8 @@ label {
   border-radius: 3px;
   color: #FFFFFF;
   padding: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .bar {

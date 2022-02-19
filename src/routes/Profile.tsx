@@ -39,6 +39,14 @@ const Profile = () => {
                         <hr />
                         <h2>Interested In</h2>
                         <div className='profile__interests'>
+                            <div className='tag__wrapper'>
+                                <div className='interest__tag'>Fine Art</div>
+                                <p>Interested in picking up life drawing.</p>
+                            </div>
+                            <div className='tag__wrapper'>
+                                <div className='interest__tag'>Fortune Telling</div>
+                                <p>Want to learn how to read tarot cards.</p>
+                            </div>
                         </div>
                         <hr />
                     </div>
