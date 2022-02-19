@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Cat from '../Cat.svg';
+import Cat from '../images/Cat.svg';
 
 const Register = () => {
     return (

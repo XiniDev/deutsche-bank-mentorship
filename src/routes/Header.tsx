@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
-import Rattus1 from '../Rat Logo.svg';
+import Rattus1 from '../images/Rat Logo.svg';
 
 const Header = () => {
     return (

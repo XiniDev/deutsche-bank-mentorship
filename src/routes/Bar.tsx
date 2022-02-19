@@ -1,42 +1,43 @@
 import React from 'react';
 
-import portrait from '../portrait.svg';
-import calendar from '../calendar.svg';
-import chartBar from '../chartBar.svg';
-import academicCap from '../academicCap.svg';
-import boardlist from '../boardlist.svg';
+import portrait from '../images/portrait.svg';
+import calendar from '../images/calendar.svg';
+import chartBar from '../images/chartBar.svg';
+import academicCap from '../images/academicCap.svg';
+import boardList from '../images/boardList.svg';
 
 import { Link } from "react-router-dom";
 
 const Bar = () => {
     return (
         <div className="bar">
-            <div className="bar__from__background">
+            <div className='bar__options__top'>
+                <div className="bar__option">
+                    <img src={academicCap} className="bar__icon"/>
+                    <Link to="/Learning">Learning</Link>
+                </div>
+
+                <div className="bar__option">
+                    <img src={chartBar} className="bar__icon"/>
+                    <Link to="/Mentoring">Mentoring</Link>
+                </div>
+
+                <div className="bar__option">
+                    <img src={calendar} className="bar__icon"/>  
+                    <Link to="/Timetable">Timetable</Link>
+                </div>
             </div>
-            <img src={academicCap} className="bar__from__icon1"/>
-            <div className="bar__from__learning">
-                Learning
-                <Link to="/Learning">Sign in</Link>
-            </div>
-            <img src={chartBar} className="bar__from__icon2"/>
-            <div className="bar__from__mentoring">
-                Mentoring
-                <Link to="/Mentoring">Sign in</Link>
-            </div>
-            <img src={calendar} className="bar__from__icon3"/>
-            <div className="bar__from__timetable">
-                Timetable
-                <Link to="/Timetable">Sign in</Link>
-            </div>
-            <img src={portrait} className="bar__from__icon4"/>
-            <div className="bar__from__myProfile">
-                My Profile
-                <Link to="/Profile">Sign in</Link>
-            </div>
-            <img src={boardlist} className="bar__from__icon5"/>
-            <div className="bar__from__feedback">
-                Feedback
-                <Link to="/Feedback">Sign in</Link>
+
+            <div className='bar__options__bottom'>
+                <div className="bar__option">
+                    <img src={portrait} className="bar__icon"/>
+                    <Link to="/Profile">My Profile</Link>
+                </div>
+
+                <div className="bar__option">
+                    <img src={boardList} className="bar__icon"/>
+                    <Link to="/Feedback">Feedback</Link>
+                </div>
             </div>
         </div>
       );
