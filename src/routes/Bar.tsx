@@ -14,29 +14,29 @@ const Bar = () => {
             <div className='bar__options__top'>
                 <div className="bar__option">
                     <img src={academicCap} className="bar__icon"/>
-                    <Link to="/Learning">Learning</Link>
+                    <Link to="/learning">Learning</Link>
                 </div>
 
                 <div className="bar__option">
                     <img src={chartBar} className="bar__icon"/>
-                    <Link to="/Mentoring">Mentoring</Link>
+                    <Link to="/mentees">Mentoring</Link>
                 </div>
 
                 <div className="bar__option">
                     <img src={calendar} className="bar__icon"/>  
-                    <Link to="/Timetable">Timetable</Link>
+                    <Link to="/timetable">Timetable</Link>
                 </div>
             </div>
 
             <div className='bar__options__bottom'>
                 <div className="bar__option">
                     <img src={portrait} className="bar__icon"/>
-                    <Link to="/Profile">My Profile</Link>
+                    <Link to="/profile">My Profile</Link>
                 </div>
 
                 <div className="bar__option">
                     <img src={boardList} className="bar__icon"/>
-                    <Link to="/Feedback">Feedback</Link>
+                    <Link to="/feedback">Feedback</Link>
                 </div>
             </div>
         </div>
