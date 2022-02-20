@@ -1,6 +1,6 @@
 import React from 'react';
 import Bar from './Bar';
-import beeProfile from '../images/beeProfile.png';
+import snalProfile from '../images/snalProfile.png';
 
 const Inbox = () => {
     return (
