@@ -75,10 +75,12 @@ hr {
   color: #FFFFFF;
   padding: 22px;
   text-decoration: none;
+  transition-duration: 0.2s;
 }
 
 .header__signinup:hover {
   background-color: #9CBDBD; 
+  transition-duration: 0.2s;
 }
 
 .frontpage {
@@ -272,6 +274,7 @@ label {
   color: #FFFFFF;
   border: 4px solid #124040;
   border-style: outset;
+  transition-duration: 0.3s;
 }
 
 .register__form__submit:hover {
@@ -279,6 +282,7 @@ label {
   background-color: #9CBDBD; 
   border: 4px solid #9CBDBD;
   border-style: inset;
+  transition-duration: 0.3s;
 }
 
 .background {
@@ -389,11 +393,24 @@ label {
   background-color: #9CBDBD;
   border-radius: 3px;
   border: 2px solid #124040;
-  height: 150px;
+  color: #000000;
+  height: 100px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: start;
+  transition-duration: 0.3s;
+  margin: 20px;
+}
+
+.user__box:hover {
+  background-color: #124040;
+  color: #FFFFFF;
+  transition-duration: 0.3s;
+}
+
+.user__box:hover .user__box__tag {
+  background-color: #9CBDBD;
 }
 
 .user__box__icon {
@@ -401,6 +418,7 @@ label {
   width: auto;
   padding: 10px;
   padding-left: 20px;
+  padding-right: 20px;
 }
 
 .user__box__info {
@@ -415,6 +433,64 @@ label {
 
 .user__box__title {
   font-size: 18px;
+}
+
+.user__box__topic {
+  display: flex;
+  flex-direction: row;
+}
+
+.user__box__tag {
+  color: #FFFFFF;
+  font-size: 14px;
+  background-color: #124040;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 3px;
+}
+
+.mentee__box {
+  width: 95%;
+  background-color: #9CBDBD;
+  border-radius: 3px;
+  border: 2px solid #124040;
+  color: #000000;
+  height: 130px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  transition-duration: 0.3s;
+  margin: 20px;
+}
+
+.session__box {
+  border: 2px solid #9CBDBD;
+  border-radius: 3px;
+  width: 95%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 15px;
+}
+
+.session__info {
+  display: flex;
+  flex-direction: column;
+}
+
+.session__title {
+  display: flex;
+  flex-direction: row;
+  color: #124040;
+  padding-bottom: 10px;
+}
+
+
+.session__expand {
+  display: flex;
 }
 
 .bar {
@@ -455,10 +531,12 @@ label {
   color: #FFFFFF;
   padding-top: 10px;
   padding-bottom: 10px;
+  transition-duration: 0.2s;
 }
 
 .bar__option:hover {
   background-color: #9CBDBD;
+  transition-duration: 0.2s;
 }
 
 .bar__icon {
