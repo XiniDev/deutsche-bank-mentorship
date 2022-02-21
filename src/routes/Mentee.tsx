@@ -1,6 +1,7 @@
 import React from 'react';
 import Bar from './Bar';
 import snalProfile from '../images/snalProfile.png';
+import plus from '../images/plus.svg';
 
 const Mentee = () => {
     return (
@@ -22,13 +23,17 @@ const Mentee = () => {
                         <hr />
                         <h1>Upcoming Sessions</h1>
                         <div className='session__box'>
-                            <div className='session__info'>
-                                <div className='session__title'>
-                                    Wednesday, Feburary 2nd 
-                                    <div className='user__box__tag'>Jump</div>
+                            <div className='session__overview'>
+                                <div className='session__info'>
+                                    <div className='session__title'>
+                                        Wednesday, Feburary 2nd 
+                                        <div className='user__box__tag'>Jump</div>
+                                    </div>
+                                    Focus: Jumping vertically, from flat ground
                                 </div>
-                                Focus: Jumping vertically, from flat ground
+                                <img src={plus} className="expand__button"/>
                             </div>
+                            
                         </div>
                         <hr />
                         <h1>Previous Sessions</h1>

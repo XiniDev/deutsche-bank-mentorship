@@ -12,6 +12,7 @@ const Bar = () => {
     return (
         <div className="bar">
             <div className='bar__options__top'>
+
                 <div className="bar__option">
                     <img src={academicCap} className="bar__icon"/>
                     <Link to="/learning">Learning</Link>

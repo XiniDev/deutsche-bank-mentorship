@@ -11,15 +11,25 @@ const Header = () => {
                 Rattus
             </div>
             <div className='header_links'>
-                <div className="header__signinup">
-                    <Link to="/">Sign in</Link>
-                </div>
-                <div className="header__signinup">
-                    <Link to="/register">Register</Link>
-                </div>
-                <div className="header__signinup">
-                    <Link to="/profile">Profile</Link>
-                </div>
+
+                <Link to="/">
+                    <div className="header__signinup">
+                        Sign in
+                    </div>
+                </Link>
+
+                <Link to="/register">
+                    <div className="header__signinup">
+                        Register
+                    </div>
+                </Link>
+
+                <Link to="/profile">
+                    <div className="header__signinup">
+                        Profile
+                    </div>
+                </Link>
+                
             </div>
         </header>
     );

@@ -489,6 +489,14 @@ label {
   padding: 15px;
 }
 
+.session__overview {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .session__info {
   display: flex;
   flex-direction: column;
@@ -501,9 +509,13 @@ label {
   padding-bottom: 10px;
 }
 
-
-.session__expand {
+.expand__button {
   display: flex;
+  transition-duration: 0.5s;
+}
+
+.expand__button:hover {
+  transition-duration: 0.5s;
 }
 
 .bar {
@@ -596,4 +608,10 @@ label {
   height: 25px;
   left: 501px;
   top: 370px;
+}
+
+.error__box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
