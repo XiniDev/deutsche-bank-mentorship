@@ -51,6 +51,6 @@ class Chat(models.Model):
 class ChatMessages(models.Model):
     messageID = models.BigAutoField(primary_key=True)
     chatID = models.ForeignKey(Chat, on_delete=models.CASCADE)
-    userID = models.ForeignKey(Events, on_delete=models.CASCADE)
+    userID = models.ForeignKey(Users, on_delete=models.CASCADE)
     content = models.CharField(max_length=200)
     date_sent = models.DateTimeField()
