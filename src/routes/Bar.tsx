@@ -13,32 +13,45 @@ const Bar = () => {
         <div className="bar">
             <div className='bar__options__top'>
 
-                <div className="bar__option">
-                    <img src={academicCap} className="bar__icon"/>
-                    <Link to="/learning">Learning</Link>
-                </div>
+                <Link to="/learning">
+                    <div className="bar__option">
+                        <img src={academicCap} className="bar__icon"/>
+                        Learning
+                    </div>
+                </Link>
 
-                <div className="bar__option">
-                    <img src={chartBar} className="bar__icon"/>
-                    <Link to="/mentees">Mentoring</Link>
-                </div>
+                <Link to="/mentees">
+                    <div className="bar__option">
+                        <img src={chartBar} className="bar__icon"/>
+                        Mentoring
+                    </div>
+                </Link>
 
-                <div className="bar__option">
-                    <img src={calendar} className="bar__icon"/>  
-                    <Link to="/timetable">Timetable</Link>
-                </div>
+                <Link to="/timetable">
+                    <div className="bar__option">
+                        <img src={calendar} className="bar__icon"/>
+                        Timetable
+                    </div>
+                </Link>
+
             </div>
 
             <div className='bar__options__bottom'>
-                <div className="bar__option">
-                    <img src={portrait} className="bar__icon"/>
-                    <Link to="/profile">My Profile</Link>
-                </div>
 
-                <div className="bar__option">
-                    <img src={boardList} className="bar__icon"/>
-                    <Link to="/feedback">Feedback</Link>
-                </div>
+                <Link to="/profile">
+                    <div className="bar__option">
+                        <img src={portrait} className="bar__icon"/>
+                        My Profile
+                    </div>
+                </Link>
+
+                <Link to="/feedback">
+                    <div className="bar__option">
+                        <img src={boardList} className="bar__icon"/>
+                        Feedback
+                    </div>
+                </Link>
+                
             </div>
         </div>
       );

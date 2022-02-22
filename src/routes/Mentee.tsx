@@ -31,9 +31,11 @@ const Mentee = () => {
                                     </div>
                                     Focus: Jumping vertically, from flat ground
                                 </div>
-                                <img src={plus} className="expand__button"/>
+                                <img src={plus} className="add__item__button"/>
                             </div>
-                            
+                            <div className="plan__of__action">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                            </div>
                         </div>
                         <hr />
                         <h1>Previous Sessions</h1>
@@ -43,6 +45,20 @@ const Mentee = () => {
             </div>
         </div>
     );
+}
+
+var coll = document.getElementsByClassName("session__box");
+var i;
+for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function(this:any) {
+        this.classList.toggle("active");
+        var content = this.lastChild;
+        if (content.style.maxHeight){
+        content.style.maxHeight = null;
+        } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+        } 
+    });
 }
 
 export default Mentee;
