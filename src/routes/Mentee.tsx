@@ -3,6 +3,8 @@ import Bar from './Bar';
 import snalProfile from '../images/snalProfile.png';
 import plus from '../images/plus.svg';
 
+import FormDialog from './test';
+
 const Mentee = () => {
     return (
         <div className='background'>
@@ -31,13 +33,16 @@ const Mentee = () => {
                                     </div>
                                     Focus: Jumping vertically, from flat ground
                                 </div>
-                                <img src={plus} className="add__item__button"/>
+                                <img src={plus} className="expand__button"/>
                             </div>
                             <div className="plan__of__action">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                <div className='plan__tag'>Straighten back</div>
+                                <div className='plan__tag'>Jumping position</div>
+                                <div className='plan__tag'>Make the jump</div>
+                                <div className='plan__tag'>Land without fail</div>
                             </div>
                         </div>
-                        <hr />
+                        <hr/>
                         <h1>Previous Sessions</h1>
                         <hr />
                     </div>
@@ -47,16 +52,16 @@ const Mentee = () => {
     );
 }
 
-var coll = document.getElementsByClassName("session__box");
+var coll = document.getElementsByClassName("expand__button");
 var i;
 for (i = 0; i < coll.length; i++) {
     coll[i].addEventListener("click", function(this:any) {
-        this.classList.toggle("active");
-        var content = this.lastChild;
+        this.parentElement.parentElement.classList.toggle("active");
+        var content = this.parentElement.parentElement.lastChild;
         if (content.style.maxHeight){
-        content.style.maxHeight = null;
+            content.style.maxHeight = null;
         } else {
-        content.style.maxHeight = content.scrollHeight + "px";
+            content.style.maxHeight = content.scrollHeight + "px";
         } 
     });
 }

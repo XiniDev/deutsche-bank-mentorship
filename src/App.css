@@ -487,9 +487,9 @@ label {
   flex-direction: column;
   justify-content: space-between;
   padding: 15px;
+  padding-bottom: 5px;
   margin-top: 20px;
   margin-bottom: 20px;
-  cursor: pointer;
 }
 
 .session__box:focus {
@@ -503,6 +503,7 @@ label {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 10px;
 }
 
 .session__info {
@@ -517,9 +518,10 @@ label {
   padding-bottom: 10px;
 }
 
-.add__item__button {
+.expand__button {
   display: flex;
   transition-duration: 0.5s;
+  cursor: pointer;
 }
 
 .tooltiptext {
@@ -539,6 +541,24 @@ label {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
+  display: flex;
+  flex-direction: column;
+}
+
+.plan__tag {
+  background-color: #9CBDBD;
+  border-radius: 3px;
+  color: #FFFFFF;
+  padding: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 5px;
+  width:auto;
+}
+
+.plan__tag:hover {
+  border: 2px solid #124040;
+  margin: 3px;
 }
 
 .bar {
