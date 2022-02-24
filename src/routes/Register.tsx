@@ -37,7 +37,7 @@ const Register = () => {
                         <label>
                             <input type="cpassword" name="cpassword" placeholder="Confirm Password"/><br/>
                         </label>
-                        <input type="submit" className="register__form__submit" value="Sign In"/>
+                        <input type="submit" className="register__form__submit" value="Register"/>
                     </form>
                 </div>
             </div>

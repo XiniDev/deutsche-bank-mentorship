@@ -13,7 +13,7 @@ const Bar = () => {
         <div className="bar">
             <div className='bar__options__top'>
 
-                <Link to="/learning">
+                <Link to="/mentors">
                     <div className="bar__option">
                         <img src={academicCap} className="bar__icon"/>
                         Learning

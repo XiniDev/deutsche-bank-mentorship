@@ -6,6 +6,10 @@ import Register from './routes/Register';
 import Profile from './routes/Profile';
 import Mentees from './routes/Mentees';
 import Mentee from './routes/Mentee';
+import AddSession from './routes/AddSession';
+import Mentors from './routes/Mentors';
+import Mentor from './routes/Mentor';
+import RequestSession from './routes/RequestSession';
 import Inbox from './routes/Inbox';
 import Error from './routes/Error';
 import './App.css';
@@ -21,6 +25,10 @@ function App() {
                     <Route path="/profile" element={<Profile/>}/>
                     <Route path="/mentees" element={<Mentees/>}/>
                     <Route path="/mentee" element={<Mentee/>}/>
+                    <Route path="/addsession" element={<AddSession/>}/>
+                    <Route path="/mentors" element={<Mentors/>}/>
+                    <Route path="/mentor" element={<Mentor/>}/>
+                    <Route path="/requestsession" element={<RequestSession/>}/>
                     <Route path="/inbox" element={<Inbox/>}/>
                     <Route element={<Error/>}/>
                 </Routes>
