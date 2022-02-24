@@ -27,7 +27,7 @@ const AddSession = () => {
                                     <option value="1">Jump</option>
                                     <option value="2">Cheese and Wine</option>
                                 </select><br/>
-                                <input type="submit" className="new__session__form__submit" value="Create Session"/>
+                                <input type="submit" className="submit__button" value="Create Session"/>
                             </form>
                         </div>
                         <hr />

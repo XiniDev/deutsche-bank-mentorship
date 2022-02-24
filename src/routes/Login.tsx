@@ -26,7 +26,7 @@ const Login = () => {
                         <label>
                             <input type="password" name="password" placeholder="Password"/><br/>
                         </label>
-                        <input type="submit" className="login__form__submit" value="Sign In"/>
+                        <input type="submit" className="submit__button" value="Sign In"/>
                     </form>
                 </div>
             </div>

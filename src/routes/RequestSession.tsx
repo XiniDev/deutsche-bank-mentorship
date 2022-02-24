@@ -29,7 +29,7 @@ const RequestSession = () => {
                                 <input type="time" name="endtime1"/>
                                 <span className='subtext'>+ Add alternative time range...</span><br/>
                                 <textarea name="message"></textarea><br/>
-                                <input type="submit" className="new__session__form__submit" value="Create Session"/>
+                                <input type="submit" className="submit__button" value="Request Session"/>
                             </form>
                         </div>
                         <hr />

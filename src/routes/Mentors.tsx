@@ -27,6 +27,13 @@ const Mentors = () => {
                             </div>
                         </Link>
                         <hr />
+                        <div className='suggest__button__container'>
+                            <Link to="/suggestmentor">
+                                <div className='suggest__button'>
+                                    Suggest New Mentor
+                                </div>
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </div>
