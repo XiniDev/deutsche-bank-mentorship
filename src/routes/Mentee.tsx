@@ -44,7 +44,7 @@ const Mentee = () => {
                                     </div>
                                     Focus: Jumping vertically, from flat ground
                                 </div>
-                                <img src={plus} className="expand__button"/>
+                                <img src={plus} className="expand__button" onClick={expandPlanOfAction}/>
                             </div>
                             <div className="plan__of__action">
                                 <div className='plan__tag'>Straighten back</div>
@@ -100,6 +100,22 @@ const Mentee = () => {
             </div>
         </div>
     );
+}
+
+//lol just do this haha:
+
+function expandPlanOfAction() {
+    var hi = document.getElementsByClassName("expand__button");
+    hi[0].addEventListener("click", function(this:any) {
+        console.log("I have been clicked");
+        this.parentElement.parentElement.classList.toggle("active");
+        var content = this.parentElement.parentElement.lastChild;
+        if (content.style.maxHeight){
+            content.style.maxHeight = null;
+        } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+        } 
+    });
 }
 
 var coll = document.getElementsByClassName("expand__button");
