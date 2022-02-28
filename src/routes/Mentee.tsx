@@ -23,6 +23,17 @@ class Mentee extends Component {
                 } 
             });
         });
+        $(function() {
+            $(".plan__tag").on("click", function() {
+                console.log("I have been clicked");
+                if ($(this).hasClass("active")) {
+                    $(this).css("background-color", "#9CBDBD");
+                } else {
+                    $(this).css("background-color", "#124040");
+                }
+                $(this).toggleClass("active");
+            });
+        });
     }
     render() {
         return (
@@ -119,21 +130,6 @@ class Mentee extends Component {
             </div>
         );
     }
-}
-
-var plans = document.getElementsByClassName("plan__tag");
-var j;
-for (j = 0; j < plans.length; j++) {
-    console.log("Adding event listener for: " + j);
-    plans[j].addEventListener("click", function(this:any) {
-        console.log("I have been clicked");
-        if (this.classList.contains('active')){
-            this.style.backgroundColor = "#9CBDBD";
-        } else {
-            this.style.backgroundColor = "#124040";
-        } 
-        this.classList.toggle("active");
-    });
 }
 
 export default Mentee;
