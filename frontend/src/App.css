@@ -77,6 +77,7 @@ hr {
   padding: 22px;
   text-decoration: none;
   transition-duration: 0.2s;
+  cursor: pointer;
 }
 
 .header__signinup:hover {
@@ -668,6 +669,26 @@ label {
 .suggested__mentor__profile {
   width: 130px;
 }
+
+.feedback__form__container {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.feedback__form__labels {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.feedback__form input, .feedback__form select, textarea {
+  padding: 5px;
+  margin: 10px;
+}
+
 
 .bar {
   display: flex;

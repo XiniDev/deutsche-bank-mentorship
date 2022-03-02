@@ -12,6 +12,7 @@ import Mentor from './routes/Mentor';
 import RequestSession from './routes/RequestSession';
 import SuggestMentor from './routes/SuggestMentor';
 import Timetable from './routes/Timetable';
+import Feedback from './routes/Feedback';
 import Inbox from './routes/Inbox';
 import Error from './routes/Error';
 import './App.css';
@@ -33,6 +34,7 @@ function App() {
                     <Route path="/requestsession" element={<RequestSession/>}/>
                     <Route path="/suggestmentor" element={<SuggestMentor/>}/>
                     <Route path="/timetable" element={<Timetable/>}/>
+                    <Route path="/feedback" element={<Feedback/>}/>
                     <Route path="/inbox" element={<Inbox/>}/>
                     <Route element={<Error/>}/>
                 </Routes>
