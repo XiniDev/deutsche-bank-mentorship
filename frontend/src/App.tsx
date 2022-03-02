@@ -4,6 +4,7 @@ import Header from './routes/Header';
 import Login from './routes/Login';
 import Register from './routes/Register';
 import Profile from './routes/Profile';
+import EditProfile from './routes/EditProfile';
 import Mentees from './routes/Mentees';
 import Mentee from './routes/Mentee';
 import AddSession from './routes/AddSession';
@@ -26,6 +27,7 @@ function App() {
                     <Route path="/" element={<Login />}/>
                     <Route path="/register" element={<Register/>}/>
                     <Route path="/profile" element={<Profile/>}/>
+                    <Route path="/editprofile" element={<EditProfile/>}/>
                     <Route path="/mentees" element={<Mentees/>}/>
                     <Route path="/mentee" element={<Mentee/>}/>
                     <Route path="/addsession" element={<AddSession/>}/>

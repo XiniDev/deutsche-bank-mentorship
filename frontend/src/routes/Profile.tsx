@@ -1,6 +1,9 @@
 import React from 'react';
 import Bar from './Bar';
 import rattusProfile from '../images/rattusProfile.png';
+import pencil from '../images/pencil.svg';
+
+import { Link } from "react-router-dom";
 
 const Profile = () => {
     return (
@@ -9,7 +12,13 @@ const Profile = () => {
                 <Bar />
                 <div className='content__background'>
                     <div className='content'>
-                        <h1>My Profile</h1>
+                        <div className="profile__headers">
+                            <h1>My Profile</h1>
+                            <Link to="/editprofile" className="editprofile">
+                                <img src={pencil} className="editprofile__img"/>
+                                Edit
+                            </Link>
+                        </div>
                         <hr />
                         <div className='profile__overview'>
                             <img src={rattusProfile} className="profile__picture"/>

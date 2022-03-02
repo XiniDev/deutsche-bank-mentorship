@@ -317,6 +317,32 @@ label {
   padding-right: 30px;
 }
 
+.profile__headers {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.profile__headers--edit {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+.profile__headers--edit > h2 {
+  margin-bottom: 2px;
+}
+
+.profile__headers--edit__cheveron {
+  display: flex;
+  width: 24px;
+  height: 24px;
+  margin: 0px 0px 10px 5px;
+  cursor: pointer;
+}
+
 .profile__overview {
   display: flex;
   flex-direction: row;
@@ -350,6 +376,82 @@ label {
   padding: 5px;
   display: flex;
   flex-direction: column;
+}
+
+.editprofile {
+  height: 20px;
+  margin-bottom: 11px;
+  display: flex;
+  flex-direction: row;
+  font-size: 18px;
+  color: #124040;
+}
+
+.editprofile__img {
+  display: flex;
+  width: 21px;
+  height: 21px;
+  margin: 0px 5px 0px 5px;
+  cursor: pointer;
+}
+
+.editprofile__form {
+  margin: 30px 0px 0px 0px;
+}
+
+.editprofile__form > hr {
+  margin: 20px 0px;
+}
+
+.editprofile__form__labels {
+  display: block;
+  float: left;
+  width: 170px;
+  margin-right: 10px;
+  text-align: right;
+  font-size: 24px;
+}
+
+.editprofile__form__labels:after {
+  content: ' : ';
+}
+
+.editprofile__form__inputs {
+  display: block;
+  width: 710px;
+  height: 30px;
+  background: #FFFFFF;
+  border: 1px solid #9CBDBD;
+  box-sizing: border-box;
+  font-size: 18px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.editprofile__form__buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.editprofile__form__buttons__cancel {
+  width: 150px;
+  height: auto;
+  margin: 10px 0px 25px 0px;
+  padding: 8px 0px;
+  background-color: #9CBDBD;
+  text-align: center;
+  font-size: 16px;
+  color: #FFFFFF;
+  border: 4px solid #9CBDBD;
+  border-style: outset;
+  border-radius: 3px;
+}
+
+.editprofile__form__buttons__cancel:hover {
+  cursor: pointer;
+  background-color: #9CBDBD; 
+  border: 4px solid #9CBDBD;
+  border-style: inset;
 }
 
 .tag__wrapper {
