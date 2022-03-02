@@ -14,19 +14,22 @@ const Inbox = () => {
                         <h1>Messages</h1>
                         <hr/>
                         <Link to='/message'>
-                            <div className='user__box'>
+                            <div className='inbox__box'>
                                 <img src={snalProfile} className="user__box__icon"/>
                                 <div className='user__box__info'>
                                     <h2>Snal</h2>
                                     <div className='user__box__topic'>Hi!!! I’ve been practicing jumping at home and...</div>
+                                </div>                                    
+                                <div className='inbox__box__reminder'>
                                     <div className='inbox__ellipse'>
                                         <div className='inbox__number'>1</div>
                                     </div>
                                 </div>
                             </div>
                         </Link>
+                        
                         <Link to ='/message'>
-                            <div className='user__box'>
+                            <div className='inbox__box'>
                                 <img src={beaProfile} className="user__box__icon"/>
                                 <div className='user__box__info'>
                                     <h2>Bea</h2>

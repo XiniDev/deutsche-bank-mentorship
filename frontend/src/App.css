@@ -850,21 +850,33 @@ label {
   bottom: 16.44%;
 }
 
+.inbox__box__reminder {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+.inbox__box {
+  width: 95%;
+  border-radius: 3px;
+  border: 2px solid #124040;
+  color: #000000;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  transition-duration: 0.1s;
+  margin: 20px;
+}
 .inbox__ellipse {
-  position: absolute;
-  width: 27px;
-  height: 27px;
-  left: 1175px;
-  top: 289px;
+  display: flex;
+  border-radius: 100%;
+  padding-right: 10px;
   background: #FFB61D;
 }
 
 .inbox__number {
-  position: absolute;
-  width: 14.12px;
-  height: 26.35px;
-  left: 1182px;
-  top: 290px;
   font-family: Nunito;
   font-style: normal;
   font-weight: 600;
