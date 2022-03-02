@@ -5,6 +5,7 @@ import calendar from '../images/calendar.svg';
 import chartBar from '../images/chartBar.svg';
 import academicCap from '../images/academicCap.svg';
 import boardList from '../images/boardList.svg';
+import inbox from '../images/inbox.svg';
 
 import { Link } from "react-router-dom";
 
@@ -31,6 +32,13 @@ const Bar = () => {
                     <div className="bar__option">
                         <img src={calendar} className="bar__icon"/>
                         Timetable
+                    </div>
+                </Link>
+
+                <Link to="/inbox">
+                    <div className="bar__option">
+                        <img src={inbox} className="bar__icon"/>
+                        Inbox
                     </div>
                 </Link>
 

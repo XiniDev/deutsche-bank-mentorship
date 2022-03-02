@@ -850,42 +850,30 @@ label {
   bottom: 16.44%;
 }
 
-.inbox__box1 {
+.inbox__ellipse {
   position: absolute;
-  width: 737px;
-  height: 70px;
-  left: 488px;
-  top: 266px;
-  border: 2px solid #9CBDBD;
-  box-sizing: border-box;
-  border-radius: 5px;
+  width: 27px;
+  height: 27px;
+  left: 1175px;
+  top: 289px;
+  background: #FFB61D;
 }
 
-.inbox__box2 {
+.inbox__number {
   position: absolute;
-  width: 737px;
-  height: 70px;
-  left: 488px;
-  top: 361px;
-  border: 2px solid #9CBDBD;
-  box-sizing: border-box;
-  border-radius: 5px;
-}
-
-.inbox__snalProfile {
-  position: absolute;
-  width: 29px;
-  height: 25px;
-  left: 501px;
-  top: 275px;
-}
-
-.inbox__beaProfile {
-  position: absolute;
-  width: 29px;
-  height: 25px;
-  left: 501px;
-  top: 370px;
+  width: 14.12px;
+  height: 26.35px;
+  left: 1182px;
+  top: 290px;
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #124040;
 }
 
 .error__box {
