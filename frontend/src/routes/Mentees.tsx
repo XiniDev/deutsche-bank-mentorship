@@ -37,6 +37,13 @@ const Mentees = () => {
                             </div>
                         </Link>
                         <hr />
+                        <div className='general__button__container'>
+                            <Link to="/addgroupsession">
+                                <div className='general__button'>
+                                    Create Group Session
+                                </div>
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </div>

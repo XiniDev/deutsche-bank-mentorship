@@ -101,6 +101,13 @@ class Mentor extends Component {
                                     <div className='plan__tag'>Jumping position</div>
                                     <div className='plan__tag'>Make the jump</div>
                                     <div className='plan__tag'>Land without fail</div>
+                                    <hr/>
+                                    <div className="session__feedback__title">Session Feedback</div>
+                                    <div className='session__feedback'>
+                                        <div className='session__feedback__text'>
+                                            Talked about famous artists and their lives. Rattus has some good knowledge and that can be further expanded by reading some of the books I recommended to them. They should also have a look art supplies that fall into their budget.
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <hr />

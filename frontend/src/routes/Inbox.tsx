@@ -15,11 +15,13 @@ const Inbox = () => {
                         <hr/>
                         <Link to='/message'>
                             <div className='inbox__box'>
-                                <img src={snalProfile} className="user__box__icon"/>
-                                <div className='user__box__info'>
-                                    <h2>Snal</h2>
-                                    <div className='user__box__topic'>Hi!!! I’ve been practicing jumping at home and...</div>
-                                </div>                                    
+                                <div className='user__box__wrapper'>
+                                    <img src={snalProfile} className="user__box__icon"/>
+                                    <div className='user__box__info'>
+                                        <h2>Snal</h2>
+                                        <div className='user__box__topic'>Hi!!! I’ve been practicing jumping at home and...</div>
+                                    </div>        
+                                </div>                            
                                 <div className='inbox__box__reminder'>
                                     <div className='inbox__ellipse'>
                                         <div className='inbox__number'>1</div>
@@ -30,11 +32,15 @@ const Inbox = () => {
                         
                         <Link to ='/message'>
                             <div className='inbox__box'>
-                                <img src={beaProfile} className="user__box__icon"/>
-                                <div className='user__box__info'>
-                                    <h2>Bea</h2>
-                                    <div className='user__box__topic'>Thanks for today, are we meeting at the same...</div>
-                                </div>   
+                                <div className='user__box__wrapper'>
+                                    <img src={beaProfile} className="user__box__icon"/>
+                                    <div className='user__box__info'>
+                                        <h2>Bea</h2>
+                                        <div className='user__box__topic'>Thanks for today, are we meeting at the same...</div>
+                                    </div>
+                                </div>
+                                <div className='inbox__box__reminder'>
+                                </div>
                             </div>
                         </Link>
                         <hr/>
