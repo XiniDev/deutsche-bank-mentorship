@@ -64,7 +64,7 @@ hr {
   color: #FFFFFF;
 }
 
-.header_links {
+.header__links {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -82,7 +82,26 @@ hr {
 }
 
 .header__signinup:hover {
-  background-color: #9CBDBD; 
+  background-color: #9CBDBD;
+  transition-duration: 0.2s;
+}
+
+.signout__button {
+  padding: 0px;
+  margin-right: 2px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #FFFFFF;
+  background-color: #124040;
+  padding: 23px;
+  text-decoration: none;
+  transition-duration: 0.2s;
+  border: none;
+  cursor: pointer;
+}
+
+.signout__button:hover {
+  background-color: #9CBDBD;
   transition-duration: 0.2s;
 }
 

@@ -43,7 +43,7 @@ const Header = () => {
                 Rattus
             </div>
             
-            <div className='header_links'>
+            <div className='header__links'>
             
             {isLogin2 ? 
                 <Link to="/">
@@ -66,7 +66,7 @@ const Header = () => {
                     </div>
                 </Link>
                 : 
-                <button onClick={ () => removeToken('mytoken')}>
+                <button className="signout__button" onClick={ () => removeToken('mytoken')}>
                 
                 <div className="header__signinUp">
                     Signout
