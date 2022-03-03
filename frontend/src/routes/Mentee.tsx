@@ -121,6 +121,13 @@ class Mentee extends Component {
                                     <div className='plan__tag'>Jumping position</div>
                                     <div className='plan__tag'>Make the jump</div>
                                     <div className='plan__tag'>Land without fail</div>
+                                    <hr/>
+                                    <div className="session__feedback__title">Session Feedback</div>
+                                    <div className='session__feedback__form'>
+                                        <br/>
+                                        <input type="text" name="feedback"/>
+                                        <button>Send Feedback</button>
+                                    </div>
                                 </div>
                             </div>
                             <hr />

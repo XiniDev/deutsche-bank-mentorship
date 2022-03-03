@@ -15,6 +15,7 @@ import SuggestMentor from './routes/SuggestMentor';
 import Timetable from './routes/Timetable';
 import Feedback from './routes/Feedback';
 import Inbox from './routes/Inbox';
+import AddGroupSession from './routes/AddGroupSession';
 import Error from './routes/Error';
 import './App.css';
 
@@ -38,6 +39,7 @@ function App() {
                     <Route path="/timetable" element={<Timetable/>}/>
                     <Route path="/feedback" element={<Feedback/>}/>
                     <Route path="/inbox" element={<Inbox/>}/>
+                    <Route path="/addgroupsession" element={<AddGroupSession/>}/>
                     <Route element={<Error/>}/>
                 </Routes>
             </Router>
