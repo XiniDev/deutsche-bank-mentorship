@@ -28,14 +28,10 @@ const Header = () => {
 
     
     useEffect(() => {
-        if ( window.location.href != "http://localhost:3000/"){
-            if(!token['mytoken']) {
-                console.log(token)
-                navigate('/')
-    
-            }
+        if (window.location.pathname != "/" && !token['mytoken']) {
+            console.log(token)
+            navigate('/')
         }
-        
     }, [token])
     
     return (

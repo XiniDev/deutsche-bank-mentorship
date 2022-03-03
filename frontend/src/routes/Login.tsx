@@ -7,7 +7,7 @@ import Cat from '../images/Cat.svg';
 
 const Login = () => {
 
-    const [username, setEmail] = useState('')
+    const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [token, setToken,removeToken] = useCookies(['mytoken'])
     const [isLogin, setLogin] = useState(false)
@@ -17,25 +17,27 @@ const Login = () => {
     //removeToken('mytoken');
    
 
-    const loginBtn = () => {
+    const loginBtn = async (e: React.FormEvent<HTMLInputElement>) => {
+        e.preventDefault()
         APIService.LoginUser({username, password})
-        .then(resp => setToken('mytoken',resp.token))
-        .catch(error => console.log(error))
+        .then(resp => {
+            console.log(resp.token)
+            if (resp.token) setToken('mytoken',resp.token)
+            else console.log(resp)
+        }).catch(error => console.log(error))
         console.log(token)
     }
     
-    const RegisterBtn = () => {
-        
+    const RegisterBtn = async (e: React.FormEvent<HTMLInputElement>) => {
+        e.preventDefault()
         APIService.RegisterUser({username, password})
-        .then( () => loginBtn())
+        .then( () => loginBtn(e))
         .catch( error => console.log(error))
     }
     
     useEffect(() => {
-        
         if(token['mytoken']) {
             navigate('/profile')
-
         }
     }, [token])
     
@@ -59,7 +61,7 @@ const Login = () => {
                     <form className="login__form">
                         <label>
                             <input type="username" name="username" id="username" placeholder="username"
-                            value = {username} onChange = {e => setEmail(e.target.value)}/><br/>
+                            value = {username} onChange = {e => setUsername(e.target.value)}/><br/>
                         </label>
                         <label>
                             <input type="password" name="password" id="password" placeholder="Password"
