@@ -398,6 +398,10 @@ label {
   flex-direction: column;
 }
 
+.myprofile__link {
+  color: #000000;
+}
+
 .editprofile {
   height: 20px;
   margin-bottom: 11px;
@@ -445,6 +449,39 @@ label {
   box-sizing: border-box;
   font-size: 18px;
   color: rgba(0, 0, 0, 0.5);
+}
+
+.editprofile__form__inputs--file {
+  display: block;
+  width: 710px;
+  height: 30px;
+  margin: 15px 0px 0px 180px;
+  background: #FFFFFF;
+  border: 1px solid #9CBDBD;
+  box-sizing: border-box;
+  font-size: 18px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.editprofile__avatar__previews {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.editprofile__avatar__preview--large {
+  width: 250px;
+  height: auto;
+}
+
+.editprofile__avatar__preview--medium {
+  width: 175px;
+  height: auto;
+}
+
+.editprofile__avatar__preview--small {
+  width: 100px;
+  height: auto;
 }
 
 .editprofile__form__buttons {

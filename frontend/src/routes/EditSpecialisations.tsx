@@ -14,7 +14,7 @@ const EditSpecialisations = () => {
                 <div className='content__background'>
                     <div className='content'>
                         <div className="profile__headers--edit">
-                            <h1>My Profile</h1>
+                            <Link className="myprofile__link" to="/profile"><h1>My Profile</h1></Link>
                             <img src={cheveronRight} className="profile__headers--edit__cheveron"/>
                             <h2>Edit Specialisations</h2>
                         </div>

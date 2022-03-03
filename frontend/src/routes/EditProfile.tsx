@@ -13,7 +13,7 @@ const EditProfile = () => {
                 <div className='content__background'>
                     <div className='content'>
                         <div className="profile__headers--edit">
-                            <h1>My Profile</h1>
+                            <Link className="myprofile__link" to="/profile"><h1>My Profile</h1></Link>
                             <img src={cheveronRight} className="profile__headers--edit__cheveron"/>
                             <h2>Edit Profile</h2>
                         </div>
@@ -29,7 +29,12 @@ const EditProfile = () => {
                             <input type="text" className="editprofile__form__inputs" name="email" id="editEmail" placeholder="Your Email" value="rattus.rattus@rattus.com"/><br/>
                             <hr />
                             <label htmlFor="editAvatar" className="editprofile__form__labels">Avatar</label>
-                            <input type="file" className="editprofile__form__inputs" name="avatar" id="editAvatar"/><br/>
+                            <div className="editprofile__avatar__previews">
+                                <img src={rattusProfile} className="editprofile__avatar__preview--large"/>
+                                <img src={rattusProfile} className="editprofile__avatar__preview--medium"/>
+                                <img src={rattusProfile} className="editprofile__avatar__preview--small"/>
+                            </div>
+                            <input type="file" className="editprofile__form__inputs--file" name="avatar" id="editAvatar"/><br/>
                             <hr />
                             <div className="editprofile__form__buttons">
                                 <Link to="/profile" className="editprofile__form__buttons__cancel">Cancel</Link>
