@@ -4,13 +4,14 @@ import { Link } from "react-router-dom";
 import Rattus1 from '../images/Rat Logo.svg';
 import { Console } from 'console';
 import { useCookies } from 'react-cookie';
+import {useNavigate} from 'react-router-dom';
 
 const Header = () => {
 
     const [token, setToken,removeToken] = useCookies(['mytoken'])
-    const [isLogin, setLogin] = useState(true)
-    //const myCookie = cookies.get('myCookie');
-    //console.log(myCookie);
+    const [isLogin2, setLogin] = useState(true)
+    let navigate = useNavigate()
+    
     useEffect(() => {
         console.log(window.location.href)
         if(window.location.href == "http://localhost:3000/") {
@@ -19,16 +20,28 @@ const Header = () => {
         } else if(window.location.href == "http://localhost:3000/register") {
             setLogin(true)
 
-        } else {
+        } else if(window.location.href == "http://localhost:3000/profile") {
             setLogin(false)
+
+        } 
+    })
+
+    
+    useEffect(() => {
+        if ( window.location.href != "http://localhost:3000/"){
+            if(!token['mytoken']) {
+                console.log(token)
+                navigate('/')
+    
+            }
         }
         
-    })
+    }, [token])
     
     return (
         
         <header className="header">
-            {isLogin ? <h1>Please Login </h1> : <h1>Please Register </h1>}
+           
             <div className="header__logo">
                 <img src={Rattus1} alt="Rattus1"/>
                 Rattus
@@ -36,7 +49,7 @@ const Header = () => {
             
             <div className='header_links'>
             
-            {isLogin ? 
+            {isLogin2 ? 
                 <Link to="/">
                     
                     <div className="header__signinup">
@@ -50,19 +63,19 @@ const Header = () => {
                     </div>
                 </Link> 
             }
-            {isLogin ? 
+            {isLogin2 ? 
                 <Link to="/register">
                     <div className="header__signinup">
                         Register
                     </div>
                 </Link>
                 : 
-                <Link to="/">
-                    <span onClick={ () => removeToken('mytoken')}></span>
-                    <div className="header__signinUp">
-                        Signout
-                    </div>
-                </Link> 
+                <button onClick={ () => removeToken('mytoken')}>
+                
+                <div className="header__signinUp">
+                    Signout
+                </div>
+                </button>
             }
             </div>
             

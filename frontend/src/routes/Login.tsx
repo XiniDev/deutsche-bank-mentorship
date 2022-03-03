@@ -7,11 +7,12 @@ import Cat from '../images/Cat.svg';
 
 const Login = () => {
 
-    const [username, setUsername] = useState('')
+    const [username, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [token, setToken,removeToken] = useCookies(['mytoken'])
+    const [isLogin, setLogin] = useState(false)
     let navigate = useNavigate()
-
+    
     
     //removeToken('mytoken');
    
@@ -38,7 +39,7 @@ const Login = () => {
         }
     }, [token])
     
-    console.log(token)
+    
     return (
         <div className="frontpage">
             <div className="frontpage__block">
@@ -57,8 +58,8 @@ const Login = () => {
                     </div>
                     <form className="login__form">
                         <label>
-                            <input type="text" name="username" id="username" placeholder="Username"
-                            value = {username} onChange = {e => setUsername(e.target.value)}/><br/>
+                            <input type="username" name="username" id="username" placeholder="username"
+                            value = {username} onChange = {e => setEmail(e.target.value)}/><br/>
                         </label>
                         <label>
                             <input type="password" name="password" id="password" placeholder="Password"
