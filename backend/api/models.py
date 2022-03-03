@@ -26,9 +26,14 @@ class Users(models.Model):
 
 
 class MentorMentees(models.Model):
+    pairingID = models.BigAutoField(primary_key=True)
     mentorID = models.ForeignKey(Users, related_name = "mentor", on_delete=models.CASCADE)
     menteeID = models.ForeignKey(Users, related_name = "mentee", on_delete=models.CASCADE)
 
+class Milestones(models.Model):
+    pairingID = models.ForeignKey(MentorMentees, on_delete=models.CASCADE)
+    description = models.CharField(max_length=100)
+    completed = models.SmallIntegerField()
 class Events(models.Model):
     eventID = models.BigAutoField(primary_key=True)
     mentorID = models.ForeignKey(Users, on_delete=models.CASCADE)
