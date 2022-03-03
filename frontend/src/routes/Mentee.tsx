@@ -45,12 +45,15 @@ class Mentee extends Component {
                             <h1>Mentee</h1>
                             <hr />
                             <div className='mentee__box'>
-                                <img src={snalProfile} className="user__box__icon"/>
-                                <div className='user__box__info'>
-                                    <h2>Snal</h2>
-                                    <p>He/Him</p>
-                                    <div className='user__box__title'>IT (Invertebrate Technology)</div>
+                                <div className='user__info'>
+                                    <img src={snalProfile} className="user__box__icon"/>
+                                    <div className='user__box__info'>
+                                        <h2>Snal</h2>
+                                        <p>He/Him</p>
+                                        <div className='user__box__title'>IT (Invertebrate Technology)</div>
+                                    </div>
                                 </div>
+                                <div className='cancel__relationship__button'>Cancel Relationship</div>
                             </div>
                             <hr />
 

@@ -44,12 +44,15 @@ class Mentor extends Component {
                             <h1>Mentor</h1>
                             <hr />
                             <div className='mentee__box'>
-                                <img src={beaProfile} className="user__box__icon"/>
-                                <div className='user__box__info'>
-                                    <h2>Bea</h2>
-                                    <p>She/Her</p>
-                                    <div className='user__box__title'>HR (Honey Resources)</div>
+                                <div className='user__info'>
+                                    <img src={beaProfile} className="user__box__icon"/>
+                                    <div className='user__box__info'>
+                                        <h2>Bea</h2>
+                                        <p>She/Her</p>
+                                        <div className='user__box__title'>HR (Honey Resources)</div>
+                                    </div>
                                 </div>
+                                <div className='cancel__relationship__button'>Cancel Relationship</div>
                             </div>
                             <hr />
 
