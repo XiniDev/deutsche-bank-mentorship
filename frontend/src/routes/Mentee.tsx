@@ -3,6 +3,8 @@ import Bar from './Bar';
 import snalProfile from '../images/snalProfile.png';
 import plus from '../images/plus.svg';
 import FormDialog from './test';
+import pencil from '../images/pencil.svg';
+import pin from '../images/pin.svg';
 
 import { Link } from "react-router-dom";
 
@@ -42,8 +44,16 @@ class Mentee extends Component {
                     <Bar />
                     <div className='content__background'>
                         <div className='content'>
-                            <h1>Mentee</h1>
+
+                            <div className='upcoming__sessions'>
+                                <h1>Mentee</h1>
+                                <Link to="/timeline" className="timeline__link">
+                                    <img src={pin} className="timeline__img"/>
+                                    View Timeline
+                                </Link>
+                            </div>
                             <hr />
+
                             <div className='mentee__box'>
                                 <div className='user__info'>
                                     <img src={snalProfile} className="user__box__icon"/>
@@ -54,6 +64,22 @@ class Mentee extends Component {
                                     </div>
                                 </div>
                                 <div className='cancel__relationship__button'>Cancel Relationship</div>
+                            </div>
+                            <hr />
+
+                            <div className='upcoming__sessions'>
+                                <h1>Course Information</h1>
+                            </div>
+
+                            <div className='relationship__info__box'>
+                                <p>Topic: Jump</p>
+                                <p>Started course on: 25/01/2022</p>
+                                <p>Milestones:</p>
+                                <ol>
+                                    <li>Successfully separate self from ground</li>
+                                    <li>Jump through first hoop</li>
+                                    <li>Jump through hoop on fire</li>
+                                </ol>
                             </div>
                             <hr />
 

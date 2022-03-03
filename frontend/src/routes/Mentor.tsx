@@ -3,6 +3,8 @@ import Bar from './Bar';
 import beaProfile from '../images/beaProfile.png';
 import plus from '../images/plus.svg';
 import FormDialog from './test';
+import pencil from '../images/pencil.svg';
+import pin from '../images/pin.svg';
 
 import { Link } from "react-router-dom";
 
@@ -41,8 +43,16 @@ class Mentor extends Component {
                     <Bar />
                     <div className='content__background'>
                         <div className='content'>
-                            <h1>Mentor</h1>
+
+                            <div className='upcoming__sessions'>
+                                <h1>Mentor</h1>
+                                <Link to="/timeline" className="timeline__link">
+                                    <img src={pin} className="timeline__img"/>
+                                    View Timeline
+                                </Link>
+                            </div>
                             <hr />
+
                             <div className='mentee__box'>
                                 <div className='user__info'>
                                     <img src={beaProfile} className="user__box__icon"/>
@@ -53,6 +63,26 @@ class Mentor extends Component {
                                     </div>
                                 </div>
                                 <div className='cancel__relationship__button'>Cancel Relationship</div>
+                            </div>
+                            <hr />
+                            
+                            <div className='upcoming__sessions'>
+                                <h1>Course Information</h1>
+                                <div className='edit__milestone__button'>
+                                    <img src={pencil} className="edit__symbol"/>
+                                    Edit Milestones
+                                </div>
+                            </div>
+
+                            <div className='relationship__info__box'>
+                                <p>Topic: Fine Art</p>
+                                <p>Started course on: 22/01/2022</p>
+                                <p>Milestones:</p>
+                                <ol>
+                                    <li>Make 10 sketches</li>
+                                    <li>Make 5 oil paintings</li>
+                                    <li>Hold small exhibition at office</li>
+                                </ol>
                             </div>
                             <hr />
 

@@ -6,6 +6,7 @@
   "dependencies": {
     "@emotion/react": "^11.8.1",
     "@emotion/styled": "^11.8.1",
+    "@merc/react-timeline": "^0.1.42",
     "@mui/material": "^5.4.3",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.2",
@@ -24,6 +25,7 @@
     "react-moment": "^1.1.1",
     "react-scripts": "^5.0.0",
     "react-select": "^5.2.2",
+    "vertical-timeline-component-react": "^2.1.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

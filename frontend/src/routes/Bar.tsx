@@ -35,13 +35,6 @@ const Bar = () => {
                     </div>
                 </Link>
 
-                <Link to="/inbox">
-                    <div className="bar__option">
-                        <img src={inbox} className="bar__icon"/>
-                        Inbox
-                    </div>
-                </Link>
-
             </div>
 
             <div className='bar__options__bottom'>

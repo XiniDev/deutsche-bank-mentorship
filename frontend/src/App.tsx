@@ -18,6 +18,7 @@ import Timetable from './routes/Timetable';
 import Feedback from './routes/Feedback';
 import Inbox from './routes/Inbox';
 import AddGroupSession from './routes/AddGroupSession';
+import Timeline from './routes/Timeline';
 import Error from './routes/Error';
 import './App.css';
 
@@ -44,6 +45,7 @@ function App() {
                     <Route path="/feedback" element={<Feedback/>}/>
                     <Route path="/inbox" element={<Inbox/>}/>
                     <Route path="/addgroupsession" element={<AddGroupSession/>}/>
+                    <Route path="/timeline" element={<Timeline/>}/>
                     <Route element={<Error/>}/>
                 </Routes>
             </Router>

@@ -5,6 +5,7 @@ import Rattus1 from '../images/Rat Logo.svg';
 import { Console } from 'console';
 import { useCookies } from 'react-cookie';
 import {useNavigate} from 'react-router-dom';
+import inbox from '../images/inbox.svg';
 
 const Header = () => {
 
@@ -53,9 +54,9 @@ const Header = () => {
                     </div>
                 </Link> 
                 : 
-                <Link to="/profile">
-                    <div className="header__signinup">
-                        Profile
+                <Link to="/inbox">
+                    <div className="inbox__icon__container">
+                        <img src={inbox} className="inbox__icon"/>
                     </div>
                 </Link> 
             }
