@@ -8,15 +8,6 @@ import pencil from '../images/pencil.svg';
 import { Link, Navigate } from "react-router-dom";
 
 const Profile = () => {
-    const [token, setToken,removeToken] = useCookies(['mytoken'])
-    let navigate = useNavigate()
-    //removeToken('mytoken');
-    console.log(token)
-    useEffect(() => {
-        if(!token['mytoken']) {
-            navigate('/')
-        }
-    }, [token])
     return (
         <div className='background'>
             <div className='container'>
@@ -41,7 +32,13 @@ const Profile = () => {
                             </div>
                         </div>
                         <hr />
-                        <h2>Specialisations</h2>
+                        <div className="profile__headers">
+                            <h2>Specialisations</h2>
+                            <Link to="/editspecialisations" className="editprofile">
+                                <img src={pencil} className="editprofile__img"/>
+                                Edit
+                            </Link>
+                        </div>
                         <div className='profile__specialisations'>
                             <div className='tag__wrapper'>
                                 <div className='specialisation__tag'>Jump</div>
@@ -57,7 +54,13 @@ const Profile = () => {
                             </div>
                         </div>
                         <hr />
-                        <h2>Interested In</h2>
+                        <div className="profile__headers">
+                            <h2>Interested In</h2>
+                            <Link to="/editinterests" className="editprofile">
+                                <img src={pencil} className="editprofile__img"/>
+                                Edit
+                            </Link>
+                        </div>
                         <div className='profile__interests'>
                             <div className='tag__wrapper'>
                                 <div className='interest__tag'>Fine Art</div>

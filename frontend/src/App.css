@@ -6,6 +6,7 @@ a {
   color: #FFFFFF;
 }
 /*Tianxing*/
+/*hi tianxing :)*/
 
 a:visited {
   text-decoration: none;
@@ -483,6 +484,91 @@ label {
   padding: 10px;
   padding-left: 15px;
   padding-right: 15px;
+}
+
+.specialisations {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.specialisations__existing {
+  width: 150px;
+  height: auto;
+  margin: 10px 38px 25px 0px;
+  padding: 8px 0px;
+  background-color: #124040;
+  text-align: center;
+  font-size: 16px;
+  color: #FFFFFF;
+  border: 4px solid #124040;
+  border-style: outset;
+  border-radius: 3px;
+}
+
+.specialisations__existing:hover {
+  cursor: pointer;
+  background-color: #9CBDBD; 
+  border: 4px solid #9CBDBD;
+  border-style: inset;
+}
+
+.editprofile__form--other {
+  margin: 0px;
+}
+
+.editprofile__form__inputs--other {
+  display: block;
+  padding-left: 27px;
+  width: 710px;
+  height: 30px;
+  background: #FFFFFF;
+  border: 1px solid #9CBDBD;
+  box-sizing: border-box;
+  font-size: 18px;
+  color: rgba(0, 0, 0, 0.5);
+  background-image: url(images/search.svg);
+  background-repeat: no-repeat;
+  background-position: 6px center;
+}
+
+.editprofile__form__textarea--other {
+  display: block;
+  width: 710px;
+  height: 100px;
+  margin-left: 0px;
+  background: #FFFFFF;
+  border: 1px solid #9CBDBD;
+  box-sizing: border-box;
+  font-size: 18px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.interests {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.interests__existing {
+  width: 150px;
+  height: auto;
+  margin: 10px 38px 25px 0px;
+  padding: 8px 0px;
+  background-color: #9CBDBD;
+  text-align: center;
+  font-size: 16px;
+  color: #FFFFFF;
+  border: 4px solid #9CBDBD;
+  border-style: outset;
+  border-radius: 3px;
+}
+
+.interests__existing:hover {
+  cursor: pointer;
+  background-color: #9CBDBD; 
+  border: 4px solid #9CBDBD;
+  border-style: inset;
 }
 
 .user__info {

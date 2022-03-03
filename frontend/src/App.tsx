@@ -5,6 +5,8 @@ import Login from './routes/Login';
 import Register from './routes/Register';
 import Profile from './routes/Profile';
 import EditProfile from './routes/EditProfile';
+import EditSpecialisations from './routes/EditSpecialisations';
+import EditInterests from './routes/EditInterests';
 import Mentees from './routes/Mentees';
 import Mentee from './routes/Mentee';
 import AddSession from './routes/AddSession';
@@ -29,6 +31,8 @@ function App() {
                     <Route path="/register" element={<Register/>}/>
                     <Route path="/profile" element={<Profile/>}/>
                     <Route path="/editprofile" element={<EditProfile/>}/>
+                    <Route path="/editspecialisations" element={<EditSpecialisations/>}/>
+                    <Route path="/editinterests" element={<EditInterests/>}/>
                     <Route path="/mentees" element={<Mentees/>}/>
                     <Route path="/mentee" element={<Mentee/>}/>
                     <Route path="/addsession" element={<AddSession/>}/>

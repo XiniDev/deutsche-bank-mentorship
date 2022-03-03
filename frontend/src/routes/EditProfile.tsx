@@ -5,7 +5,7 @@ import cheveronRight from '../images/cheveronRight.svg';
 
 import { Link } from "react-router-dom";
 
-const Profile = () => {
+const EditProfile = () => {
     return (
         <div className='background'>
             <div className='container'>
@@ -44,4 +44,4 @@ const Profile = () => {
     );
 }
 
-export default Profile;
+export default EditProfile;
