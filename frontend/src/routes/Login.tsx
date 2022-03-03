@@ -10,20 +10,17 @@ const Login = () => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [token, setToken,removeToken] = useCookies(['mytoken'])
-    const [isLogin, setLogin] = useState(true)
     let navigate = useNavigate()
 
     
-    removeToken('mytoken');
+    //removeToken('mytoken');
+   
 
     const loginBtn = () => {
         APIService.LoginUser({username, password})
         .then(resp => setToken('mytoken',resp.token))
         .catch(error => console.log(error))
-        
-        navigate('/profile')
-       
-        
+        console.log(token)
     }
     
     const RegisterBtn = () => {
@@ -32,7 +29,7 @@ const Login = () => {
         .then( () => loginBtn())
         .catch( error => console.log(error))
     }
-
+    
     useEffect(() => {
         
         if(token['mytoken']) {
@@ -40,7 +37,8 @@ const Login = () => {
 
         }
     }, [token])
-
+    
+    console.log(token)
     return (
         <div className="frontpage">
             <div className="frontpage__block">

@@ -1,11 +1,22 @@
-import React from 'react';
+import React, {useEffect}from 'react';
+import {useCookies} from 'react-cookie';
+import {useNavigate} from 'react-router-dom';
 import Bar from './Bar';
 import rattusProfile from '../images/rattusProfile.png';
 import pencil from '../images/pencil.svg';
 
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 const Profile = () => {
+    const [token, setToken,removeToken] = useCookies(['mytoken'])
+    let navigate = useNavigate()
+    //removeToken('mytoken');
+    console.log(token)
+    useEffect(() => {
+        if(!token['mytoken']) {
+            navigate('/')
+        }
+    }, [token])
     return (
         <div className='background'>
             <div className='container'>
