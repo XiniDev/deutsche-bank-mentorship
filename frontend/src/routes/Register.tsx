@@ -15,7 +15,7 @@ const Register = () => {
     const [isLogin, setLogin] = useState(false)
     let navigate = useNavigate()
 
-    const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    const emailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
     const RegisterBtn = async (e: React.FormEvent<HTMLInputElement>) => {
         e.preventDefault()
@@ -24,9 +24,21 @@ const Register = () => {
             conditions += 1
             console.log("PLEASE FILL IN ALL DETAILS")
         }
-        if (!email.match(mailformat)) {
+        if (!email.match(emailformat)) {
             conditions += 1
             console.log("Email invalid")
+        }
+        if (firstpassword.length < 8) {
+            conditions += 1
+            console.log("Passwords must be at least 8 characters long")
+        }
+        if (firstpassword.search(/[a-zA-Z]/) == -1) {
+            conditions += 1
+            console.log("Passwords must contain at least one letter")
+        }
+        if (firstpassword.search(/\d/) == -1) {
+            conditions += 1
+            console.log("Passwords must contain at least one number")
         }
         if (firstpassword != confpassword) {
             conditions += 1
