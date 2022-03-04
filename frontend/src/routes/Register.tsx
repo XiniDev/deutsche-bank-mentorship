@@ -30,15 +30,15 @@ const Register = () => {
         }
         if (firstpassword.length < 8) {
             conditions += 1
-            console.log("Passwords must be at least 8 characters long")
+            console.log("Password must be at least 8 characters long")
         }
         if (firstpassword.search(/[a-zA-Z]/) == -1) {
             conditions += 1
-            console.log("Passwords must contain at least one letter")
+            console.log("Password must contain at least one letter")
         }
         if (firstpassword.search(/\d/) == -1) {
             conditions += 1
-            console.log("Passwords must contain at least one number")
+            console.log("Password must contain at least one number")
         }
         if (firstpassword != confpassword) {
             conditions += 1
