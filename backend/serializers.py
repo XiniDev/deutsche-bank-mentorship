@@ -35,8 +35,6 @@ class UserDetailSerializer(serializers.ModelSerializer):
         fields = ['userID','department','is_mentor']
 
 
-
-
 class MentorMenteeSerializer(serializers.ModelSerializer):
     class Meta:
         model = MentorMentees

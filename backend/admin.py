@@ -16,7 +16,7 @@ from .models import ChatMessages
 @admin.register(UserDetails)
 class User(admin.ModelAdmin):
     list_filter = ("userID","department","is_mentor")
-    list_display = ("userID","department","is_mentor")
+    list_display = ("userID","department","pronouns","title","is_mentor")
 @admin.register(MentorMentees)
 class MentorMentees(admin.ModelAdmin):
     list_filter = ("mentorID","menteeID")

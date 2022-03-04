@@ -23,6 +23,7 @@ router.register('messages', MessageViewSet)
 
 urlpatterns = [
     path('api/', include(router.urls))
+    
     #path('articles/', ArticleList.as_view()),
     #path('articles/<int:id>/', ArticleDetails.as_view())
     #path('articles/', article_list),
