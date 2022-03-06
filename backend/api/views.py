@@ -17,12 +17,22 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework import status
 from django.shortcuts import get_object_or_404
+from rest_framework.authtoken.models import Token
 
 class UserID(viewsets.ModelViewSet):
-    queryset = UserDetails.objects.filter(userID_id = 1)
+    queryset = Token.objects.all()
     serializer_class = authToken
     authentication_classes = (TokenAuthentication,)
     #permission_classes = [IsAuthenticated]
+    
+class UserIDviewSet(viewsets.ViewSet):
+    def retrieve(self, request, pk=None):
+        queryset = Token.objects.all()
+        article = get_object_or_404(queryset, pk=pk)
+        serializer = authToken
+        return Response(serializer.data)
+
+
 
 
 
@@ -33,7 +43,7 @@ class UserViewSet(viewsets.ModelViewSet):
     #permission_classes = [IsAuthenticated]
 
 class UserDetailsViewSet(viewsets.ModelViewSet):
-    queryset = UserDetails.objects.filter(userID_id = 5)
+    queryset = UserDetails.objects.all()
     serializer_class = UserDetailSerializer
     authentication_classes = (TokenAuthentication,)
     #permission_classes = [IsAuthenticated]

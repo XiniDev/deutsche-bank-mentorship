@@ -10,28 +10,23 @@ import APIService from '../APIService';
 
 const Profile = () => {
 
-    const [profiles, setProfile] = useState<any>([])
+    const [userID, setID] = useState<any>([])
     const [token] = useCookies(['mytoken'])
 
-    useEffect(() => {
-        fetch('http://127.0.0.1:8000/api/userdetails/', {
-          'method':'GET',
-          headers: {
-            'Content-Type':'application/json',
-            'Authorization':`Token ${token['mytoken']}` 
-          },
-          body: JSON.stringify({
-            'key': token
-        }),
-        })
-        .then(resp => resp.json())
-        .then(resp => {
-            if (resp.id) setProfile(resp.id)
-            else console.log(resp)})
-        .then(resp => setProfile(resp))
-        .catch(error => console.log(error))
     
-      }, [])
+   
+    const requestOptions = {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+        
+    };
+    useEffect(() => {
+        //console.log()
+        fetch('http://127.0.0.1:8000/api/userID/'+`${token['mytoken']}`, requestOptions)
+            .then(resp => resp.json())
+            .then(resp => setID(resp.user));
+            
+    }, [])   
 
     
     return (
@@ -51,7 +46,7 @@ const Profile = () => {
                         <div className='profile__overview'>
                             <img src={rattusProfile} className="profile__picture"/>
                             <div className='profile__info'>
-                                <h1>{profiles}
+                                <h1>{userID}
                                 </h1>
                                 <hr />
                                 <div className='profile__title'>CEO (Cheese Executive Officer)</div>

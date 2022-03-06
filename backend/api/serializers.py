@@ -16,7 +16,7 @@ from rest_framework.authtoken.views import Token
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['id', 'username', 'password','email']
+        fields = ['id', 'username', 'password','email', 'first_name', 'last_name']
 
         extra_kwargs = {'password':{
             'write_only':True,
@@ -31,7 +31,8 @@ class UserSerializer(serializers.ModelSerializer):
 class authToken(serializers.ModelSerializer):
     class Meta:
         model = Token
-        fields = ['key','created','user_id']
+        fields = ['key','user']
+    
 
 class UserDetailSerializer(serializers.ModelSerializer):
     class Meta:
