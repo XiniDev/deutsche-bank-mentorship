@@ -6,8 +6,8 @@ import {useNavigate} from 'react-router-dom';
 import Cat from '../images/Cat.svg';
 
 const Register = () => {
-    const [firstname, setFirstName] = useState('')
-    const [lastname, setLastName] = useState('')
+    const [first_name, setFirstName] = useState('')
+    const [last_name, setLastName] = useState('')
     const [email, setEmail] = useState('')
     const [firstpassword, firstPassword] = useState('')
     const [confpassword, confPassword] = useState('')
@@ -20,7 +20,7 @@ const Register = () => {
     const RegisterBtn = async (e: React.FormEvent<HTMLInputElement>) => {
         e.preventDefault()
         var conditions = 0
-        if (!firstname || !lastname || !email || !firstpassword || !confpassword) {
+        if (!first_name || !last_name || !email || !firstpassword || !confpassword) {
             conditions += 1
             console.log("PLEASE FILL IN ALL DETAILS")
         }
@@ -47,7 +47,7 @@ const Register = () => {
         if (conditions == 0) {
             const username = email.split("@")[0]
             const password = confpassword
-            APIService.RegisterUser({firstname, lastname, email, username, password})
+            APIService.RegisterUser({first_name, last_name, email, username, password})
             .then( () => {
                 navigate('/')
                 console.log()
@@ -76,11 +76,11 @@ const Register = () => {
                         <div className="register__names">
                             <label>
                                 <input type="text" name="fname" placeholder="First Name"
-                                value = {firstname} onChange = {e => setFirstName(e.target.value)}/><br/>
+                                value = {first_name} onChange = {e => setFirstName(e.target.value)}/><br/>
                             </label>
                             <label>
                                 <input type="text" name="lname" placeholder="Last Name"
-                                value = {lastname} onChange = {e => setLastName(e.target.value)}/><br/>
+                                value = {last_name} onChange = {e => setLastName(e.target.value)}/><br/>
                             </label>
                         </div>
                         <label>
