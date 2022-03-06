@@ -4,7 +4,7 @@ import {useNavigate} from 'react-router-dom';
 import Bar from './Bar';
 import rattusProfile from '../images/rattusProfile.png';
 import pencil from '../images/pencil.svg';
-import axios from "axios";
+
 import { Link, Navigate } from "react-router-dom";
 import APIService from '../APIService';
 
