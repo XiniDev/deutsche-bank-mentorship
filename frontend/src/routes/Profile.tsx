@@ -1,13 +1,36 @@
-import React, {useEffect}from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import {useCookies} from 'react-cookie';
 import {useNavigate} from 'react-router-dom';
 import Bar from './Bar';
 import rattusProfile from '../images/rattusProfile.png';
 import pencil from '../images/pencil.svg';
-
+import axios from "axios";
 import { Link, Navigate } from "react-router-dom";
+import APIService from '../APIService';
 
 const Profile = () => {
+
+    const [profiles, setProfile] = useState<any>([])
+    const [token] = useCookies(['mytoken'])
+
+    useEffect(() => {
+        fetch('http://127.0.0.1:8000/api/userdetails/', {
+          'method':'GET',
+          headers: {
+            'Content-Type':'application/json',
+            'Authorization':`Token ${token['mytoken']}` 
+          }
+        })
+        .then(resp => resp.json())
+        .then(resp => {
+            if (resp.id) setProfile(resp.id)
+            else console.log(resp)})
+        .then(resp => setProfile(resp))
+        .catch(error => console.log(error))
+    
+      }, [])
+
+    
     return (
         <div className='background'>
             <div className='container'>
@@ -25,7 +48,8 @@ const Profile = () => {
                         <div className='profile__overview'>
                             <img src={rattusProfile} className="profile__picture"/>
                             <div className='profile__info'>
-                                <h1>Rattus Rattus</h1>
+                                <h1>{profiles}
+                                </h1>
                                 <hr />
                                 <div className='profile__title'>CEO (Cheese Executive Officer)</div>
                                 <div className='profile__email'>rattus.rattus@rattus.com</div>
