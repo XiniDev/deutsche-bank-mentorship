@@ -1,3 +1,4 @@
+from lib2to3.pgen2 import token
 from django.contrib.auth.models import User
 from .models import UserDetails
 from .models import MentorMentees
@@ -9,7 +10,7 @@ from .models import Interests
 from .models import Reviews
 from .models import Chat
 from .models import ChatMessages
-from .serializers import UserSerializer,UserDetailSerializer,MentorMenteeSerializer, MilestoneSerializer,EventSerializer,EventMenteesSerializer,SpecialtySerializer,InterestSerializer,ReviewsSerializer,ChatSerializer,MessageSerializer
+from .serializers import UserSerializer,UserDetailSerializer,MentorMenteeSerializer, MilestoneSerializer,EventSerializer,EventMenteesSerializer,SpecialtySerializer,InterestSerializer,ReviewsSerializer,ChatSerializer,MessageSerializer, authToken
 from rest_framework import viewsets
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
@@ -18,8 +19,8 @@ from rest_framework import status
 from django.shortcuts import get_object_or_404
 
 class UserID(viewsets.ModelViewSet):
-    queryset = UserDetails.objects.filter(key = 'mytoken')
-    serializer_class = UserDetailSerializer
+    queryset = UserDetails.objects.filter(userID_id = 1)
+    serializer_class = authToken
     authentication_classes = (TokenAuthentication,)
     #permission_classes = [IsAuthenticated]
 

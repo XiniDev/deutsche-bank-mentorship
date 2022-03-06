@@ -28,6 +28,10 @@ class UserSerializer(serializers.ModelSerializer):
         Token.objects.create(user=user)
         return user
 
+class authToken(serializers.ModelSerializer):
+    class Meta:
+        model = Token
+        fields = ['key','created','user_id']
 
 class UserDetailSerializer(serializers.ModelSerializer):
     class Meta:
