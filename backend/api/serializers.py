@@ -16,7 +16,7 @@ from rest_framework.authtoken.views import Token
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['id', 'username', 'password','email', 'first_name', 'last_name']
+        fields = ['id', 'username', 'password','email']
 
         extra_kwargs = {'password':{
             'write_only':True,
@@ -33,8 +33,6 @@ class UserDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserDetails
         fields = ['userID','department','is_mentor']
-
-
 
 
 class MentorMenteeSerializer(serializers.ModelSerializer):
@@ -85,7 +83,7 @@ class ChatSerializer(serializers.ModelSerializer):
 class MessageSerializer(serializers.ModelSerializer):
     class Meta:
         model = ChatMessages
-        fields = ['messageID', 'chatID', 'userID','content','date_sent']
+        fields = ['id', 'chatID', 'userID','content','date_sent']
 
 
 
