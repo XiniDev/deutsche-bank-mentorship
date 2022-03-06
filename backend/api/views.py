@@ -17,17 +17,25 @@ from rest_framework.response import Response
 from rest_framework import status
 from django.shortcuts import get_object_or_404
 
+class UserID(viewsets.ModelViewSet):
+    queryset = UserDetails.objects.filter(key = 'mytoken')
+    serializer_class = UserDetailSerializer
+    authentication_classes = (TokenAuthentication,)
+    #permission_classes = [IsAuthenticated]
+
+
+
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
     authentication_classes = (TokenAuthentication,)
-    permission_classes = [IsAuthenticated]
+    #permission_classes = [IsAuthenticated]
 
 class UserDetailsViewSet(viewsets.ModelViewSet):
     queryset = UserDetails.objects.filter(userID_id = 5)
     serializer_class = UserDetailSerializer
     authentication_classes = (TokenAuthentication,)
-    permission_classes = [IsAuthenticated]
+    #permission_classes = [IsAuthenticated]
 
 class MentorMenteeViewSet(viewsets.ModelViewSet):
     queryset = MentorMentees.objects.all()

@@ -19,7 +19,10 @@ const Profile = () => {
           headers: {
             'Content-Type':'application/json',
             'Authorization':`Token ${token['mytoken']}` 
-          }
+          },
+          body: JSON.stringify({
+            'key': token
+        }),
         })
         .then(resp => resp.json())
         .then(resp => {

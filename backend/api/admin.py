@@ -14,7 +14,7 @@ from .models import ChatMessages
 #admin.site.register(Article)
 
 @admin.register(UserDetails)
-class User(admin.ModelAdmin):
+class UserDetails(admin.ModelAdmin):
     list_filter = ("userID","department","is_mentor")
     list_display = ("userID","department","pronouns","title","is_mentor")
 @admin.register(MentorMentees)

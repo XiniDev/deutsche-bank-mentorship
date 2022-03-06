@@ -1,7 +1,7 @@
 
 
 from django.urls import path, include
-from .views import UserViewSet,MentorMenteeViewSet,MilestoneViewSet,EventViewSet,EventMenteeViewSet,SpecialtyViewSet,InterestViewSet,ReviewViewSet,ChatViewSet,MessageViewSet
+from .views import UserViewSet,MentorMenteeViewSet,MilestoneViewSet,EventViewSet,EventMenteeViewSet,SpecialtyViewSet,InterestViewSet,ReviewViewSet,ChatViewSet,MessageViewSet,UserDetailsViewSet
 from rest_framework.routers import DefaultRouter
 
 #article_list, article_details, ArticleList, ArticleDetails
@@ -9,6 +9,7 @@ from rest_framework.routers import DefaultRouter
 router = DefaultRouter()
 
 router.register('users', UserViewSet)
+router.register('userDetails', UserDetailsViewSet)
 router.register('pairings', MentorMenteeViewSet)
 router.register('milestones', MilestoneViewSet)
 router.register('events', EventViewSet)
