@@ -15,14 +15,7 @@ const Profile = () => {
     const [profile, setProfile] = useState<any>([])
     const [specs, setSpecs] = useState<any>([])
     const [token] = useCookies(['mytoken'])
-
     
-   
-    const requestOptions = {
-        method: 'GET',
-        headers: { 'Content-Type': 'application/json' },
-        
-    };
     useEffect(() => {
 
         APIService.getUserID(`${token['mytoken']}`).then(resp => setID(resp.user));
