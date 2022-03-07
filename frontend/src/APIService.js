@@ -64,5 +64,27 @@ export default class APIService {
       .then(resp => resp.json())
     }
 
+    static getSpecialties(userID, token) {
+      return fetch('http://127.0.0.1:8000/api/specialties/'+userID, {
+        'method':'GET',
+        headers: {
+            'Content-Type':'application/json',
+            'Authorization':`Token ${token}` 
+        }
+      })
+      .then(resp => resp.json())
+    }
+
+    static getInterests(userID, token) {
+      return fetch('http://127.0.0.1:8000/api/interests/'+userID, {
+        'method':'GET',
+        headers: {
+            'Content-Type':'application/json',
+            'Authorization':`Token ${token}` 
+        }
+      })
+      .then(resp => resp.json())
+    }
+
 
 }

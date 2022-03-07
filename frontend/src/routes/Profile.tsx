@@ -15,15 +15,13 @@ const Profile = () => {
     const [profile, setProfile] = useState<any>([])
     const [specs, setSpecs] = useState<any>([])
     const [token] = useCookies(['mytoken'])
-
-    
-   
     
     useEffect(() => {
 
         APIService.getUserID(`${token['mytoken']}`,token['mytoken']).then(resp => setID(resp.user));
         APIService.getProfile(userID, token['mytoken']).then(resp => setProfile(resp));
         APIService.getUserDetails(userID, token['mytoken']).then(resp => setDetails(resp));
+        APIService.getSpecialties(userID, token['mytoken']).then(resp => setSpecs(resp));
     
     }, [userID])   
 
@@ -60,6 +58,15 @@ const Profile = () => {
                             </Link>
                         </div>
                         <div className='profile__specialisations'>
+                            {console.log(specs)}
+                            {specs && specs.map((spec:any) => {
+                                return (
+                                    <div className='tag__wrapper'>
+                                        <div className='specialisation__tag'>{spec.specialty}</div>
+                                        <p>{spec.description}</p>
+                                    </div>
+                                )
+                            })}
                             <div className='tag__wrapper'>
                                 <div className='specialisation__tag'>Jump</div>
                                 <p>I am very good at jumping especially through hoops.</p>
