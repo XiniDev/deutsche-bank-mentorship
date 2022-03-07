@@ -44,6 +44,7 @@ class UserDetailsViewSet(viewsets.ModelViewSet):
     queryset = UserDetails.objects.all()
     serializer_class = UserDetailSerializer
     authentication_classes = (TokenAuthentication,)
+    lookup_field = 'userID'
     #permission_classes = [IsAuthenticated]
 
 class MentorMenteeViewSet(viewsets.ModelViewSet):

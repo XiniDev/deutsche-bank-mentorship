@@ -29,7 +29,7 @@ const Profile = () => {
         APIService.getProfile(userID).then(resp => setProfile(resp));
         APIService.getUserDetails(userID).then(resp => setDetails(resp));
     
-    }, [profile,userID,userDetails])   
+    }, [userID])   
 
     
     return (
