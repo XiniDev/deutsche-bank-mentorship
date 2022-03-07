@@ -45,6 +45,10 @@ class Mentee extends Component {
                     <div className='content__background'>
                         <div className='content'>
 
+                            <Link to="/mentees">
+                                 <div className='back__button'>&#171; BACK</div>
+                            </Link>
+
                             <div className='upcoming__sessions'>
                                 <h1>Mentee</h1>
                                 <Link to="/timeline" className="timeline__link">

@@ -25,6 +25,7 @@ h1 {
   font-family: 'Alegreya', serif;
   font-size: 36px;
   font-weight: 300;
+  margin-top: 15px;
   margin-bottom: 2px;
 }
 
@@ -1487,5 +1488,6 @@ label {
 
 .back__button {
   color: #000000;
+  margin-top: 20px;
 }
 

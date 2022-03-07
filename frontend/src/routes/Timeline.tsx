@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Bar from './Bar';
+import { Link, Navigate } from "react-router-dom";
 
 import $ from 'jquery';
 
@@ -20,6 +21,11 @@ class Timeline extends Component {
                     <Bar />
                     <div className='content__background'>
                         <div className='content'>
+
+                            <Link to="/mentor">
+                                 <div className='back__button'>&#171; BACK</div>
+                            </Link>
+
                             <h1>Timeline with Bea</h1>
                             <hr />
 
