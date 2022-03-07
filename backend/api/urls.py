@@ -1,5 +1,6 @@
 
 
+from argparse import Namespace
 from django.urls import path, include
 from .views import UserViewSet,UserDetailsViewSet,MentorMenteeViewSet,MilestoneViewSet,EventViewSet,EventMenteeViewSet,SpecialtyViewSet,InterestViewSet,ReviewViewSet,ChatViewSet,MessageViewSet,UserID
 from rest_framework.routers import DefaultRouter
@@ -8,30 +9,24 @@ from rest_framework.routers import DefaultRouter
 
 router = DefaultRouter()
 
-router.register('users', UserViewSet)
-router.register('userDetails', UserDetailsViewSet)
-router.register('pairings', MentorMenteeViewSet)
-router.register('milestones', MilestoneViewSet)
-router.register('events', EventViewSet)
-router.register('attendees', EventMenteeViewSet)
-router.register('specialties', SpecialtyViewSet)
-router.register('interests', InterestViewSet)
-router.register('reviews', ReviewViewSet)
-router.register('chats', ChatViewSet)
-router.register('messages', MessageViewSet)
-router.register('userID', UserID)
+router.register('users', UserViewSet, basename = "users")
+router.register('userDetails', UserDetailsViewSet, basename = "userDetails")
+router.register('pairings', MentorMenteeViewSet, basename = "pairings")
+router.register('milestones', MilestoneViewSet, basename = "milestones")
+router.register('events', EventViewSet, basename = "events")
+router.register('attendees', EventMenteeViewSet, basename = "attendees")
+router.register('specialties', SpecialtyViewSet, basename = "specialties")
+router.register('interests', InterestViewSet, basename = "interests")
+router.register('reviews', ReviewViewSet, basename = "reviews")
+router.register('chats', ChatViewSet, basename = "chats")
+router.register('messages', MessageViewSet, basename = "messages")
+router.register('userID', UserID, basename = "userID")
 
 
 
 
 urlpatterns = [
-    path('api/', include(router.urls))
-    
-    #path('articles/', ArticleList.as_view()),
-    #path('articles/<int:id>/', ArticleDetails.as_view())
-    #path('articles/', article_list),
-    #path('articles/<int:pk>/', article_details),
-
+    path('api/', include((router.urls,'api'),namespace='api'),)
 ]
 
 

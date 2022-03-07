@@ -21,10 +21,11 @@ from rest_framework.authtoken.models import Token
 
 
 class UserID(viewsets.ModelViewSet):
+    
     queryset = Token.objects.all()
     serializer_class = authToken
     authentication_classes = (TokenAuthentication,)
-    permission_classes = [IsAuthenticated]
+    #permission_classes = [IsAuthenticated]
 
 
 
@@ -32,14 +33,14 @@ class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
     authentication_classes = (TokenAuthentication,)
-    permission_classes = [IsAuthenticated]
+    #permission_classes = [IsAuthenticated]
 
 class UserDetailsViewSet(viewsets.ModelViewSet):
     queryset = UserDetails.objects.all()
     serializer_class = UserDetailSerializer
     authentication_classes = (TokenAuthentication,)
     lookup_field = 'userID'
-    permission_classes = [IsAuthenticated]
+    #permission_classes = [IsAuthenticated]
 
 class MentorMenteeViewSet(viewsets.ModelViewSet):
     queryset = MentorMentees.objects.all()
