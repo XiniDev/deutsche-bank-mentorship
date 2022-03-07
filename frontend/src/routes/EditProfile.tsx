@@ -38,7 +38,7 @@ const EditProfile = () => {
                         <hr />
                         <form className="editprofile__form">
                             <label htmlFor="editProfileName" className="editprofile__form__labels">Profile Name</label>
-                            <input type="text" className="editprofile__form__inputs" name="profilename" id="editProfileName" placeholder="Your Profile Name" value={profile.first_name}/><br/>
+                            <input type="text" className="editprofile__form__inputs" name="profilename" id="editProfileName" placeholder="Your Profile Name" value={profile.first_name + " " + profile.last_name}/><br/>
                             <label htmlFor="editPronouns" className="editprofile__form__labels">Pronouns</label>
                             <input type="text" className="editprofile__form__inputs" name="pronouns" id="editPronouns" placeholder="Your Pronouns" value={userDetails.pronouns}/><br/>
                             <label htmlFor="editCompanyTitle" className="editprofile__form__labels">Company Title</label>
