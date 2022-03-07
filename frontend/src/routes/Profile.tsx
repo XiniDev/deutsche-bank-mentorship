@@ -18,16 +18,12 @@ const Profile = () => {
 
     
    
-    const requestOptions = {
-        method: 'GET',
-        headers: { 'Content-Type': 'application/json' },
-        
-    };
+    
     useEffect(() => {
 
-        APIService.getUserID(`${token['mytoken']}`).then(resp => setID(resp.user));
-        APIService.getProfile(userID).then(resp => setProfile(resp));
-        APIService.getUserDetails(userID).then(resp => setDetails(resp));
+        APIService.getUserID(`${token['mytoken']}`,token['mytoken']).then(resp => setID(resp.user));
+        APIService.getProfile(userID, token['mytoken']).then(resp => setProfile(resp));
+        APIService.getUserDetails(userID, token['mytoken']).then(resp => setDetails(resp));
     
     }, [userID])   
 

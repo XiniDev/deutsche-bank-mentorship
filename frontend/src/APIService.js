@@ -1,3 +1,4 @@
+
 export default class APIService {
     
     static LoginUser(body) {
@@ -29,31 +30,34 @@ export default class APIService {
 
     }
 
-    static getUserID(token) {
-      return fetch('http://127.0.0.1:8000/api/userID/'+token, {
+    static getUserID(tokenString,token) {
+      return fetch('http://127.0.0.1:8000/api/userID/'+tokenString, {
         'method':'GET',
         headers: {
             'Content-Type':'application/json',
+            'Authorization':`Token ${token}` 
         }
       })
       .then(resp => resp.json())
     }
 
-    static getProfile(userID) {
+    static getProfile(userID,token) {
       return fetch('http://127.0.0.1:8000/api/users/'+userID, {
         'method':'GET',
         headers: {
             'Content-Type':'application/json',
+            'Authorization':`Token ${token}` 
         }
       })
       .then(resp => resp.json())
     }
 
-    static getUserDetails(userID) {
+    static getUserDetails(userID, token) {
       return fetch('http://127.0.0.1:8000/api/userDetails/'+userID, {
         'method':'GET',
         headers: {
             'Content-Type':'application/json',
+            'Authorization':`Token ${token}` 
         }
       })
       .then(resp => resp.json())
