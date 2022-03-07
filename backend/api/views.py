@@ -70,14 +70,14 @@ class SpecialtyViewSet(viewsets.ModelViewSet):
     queryset = Specialties.objects.all()
     serializer_class = SpecialtySerializer
     authentication_classes = (TokenAuthentication,)
-    lookup_field = 'userID'
+    lookup_field = 'userID_id'
     #permission_classes = [IsAuthenticated]
 
 class InterestViewSet(viewsets.ModelViewSet):
     queryset = Interests.objects.all()
     serializer_class = InterestSerializer
     authentication_classes = (TokenAuthentication,)
-    lookup_field = 'userID'
+    lookup_field = 'userID_id'
     #permission_classes = [IsAuthenticated]
 
 class ReviewViewSet(viewsets.ModelViewSet):

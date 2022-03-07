@@ -64,19 +64,19 @@ class EventMenteesSerializer(serializers.ModelSerializer):
 class SpecialtySerializer(serializers.ModelSerializer):
     class Meta:
         model = Specialties
-        fields = ['id', 'userID', 'specialty']
+        fields = ['id', 'userID', 'specialty', 'description']
 
 
 class InterestSerializer(serializers.ModelSerializer):
     class Meta:
         model = Interests
-        fields = ['id', 'userID', 'interest']
+        fields = ['id', 'userID', 'interest', 'description']
 
 
 class ReviewsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Reviews
-        fields = ['id', 'reviewerID', 'reviewedID','rating','text']
+        fields = ['id', 'reviewerID', 'reviewedID','rating','description']
 
 
 class ChatSerializer(serializers.ModelSerializer):

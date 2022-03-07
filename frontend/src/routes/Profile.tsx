@@ -21,7 +21,7 @@ const Profile = () => {
         APIService.getUserID(`${token['mytoken']}`,token['mytoken']).then(resp => setID(resp.user));
         APIService.getProfile(userID, token['mytoken']).then(resp => setProfile(resp));
         APIService.getUserDetails(userID, token['mytoken']).then(resp => setDetails(resp));
-        APIService.getSpecialties(userID, token['mytoken']).then(resp => setSpecs(resp));
+        APIService.getSpecialties(userID, token['mytoken']).then(resp => setSpecs(resp)).catch(error => console.log(error));
     
     }, [userID])   
 
@@ -59,14 +59,14 @@ const Profile = () => {
                         </div>
                         <div className='profile__specialisations'>
                             {console.log(specs)}
-                            {specs && specs.map((spec:any) => {
+                            {/* {specs && specs.map((spec:any) => {
                                 return (
                                     <div className='tag__wrapper'>
                                         <div className='specialisation__tag'>{spec.specialty}</div>
                                         <p>{spec.description}</p>
                                     </div>
                                 )
-                            })}
+                            })} */}
                             <div className='tag__wrapper'>
                                 <div className='specialisation__tag'>Jump</div>
                                 <p>I am very good at jumping especially through hoops.</p>
