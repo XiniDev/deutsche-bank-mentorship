@@ -13,11 +13,8 @@ const Login = () => {
     const [token, setToken,removeToken] = useCookies(['mytoken'])
     const [isLogin, setLogin] = useState(false)
     let navigate = useNavigate()
-    
-    
-    //removeToken('mytoken');
-   
 
+    
     const loginBtn = async (e: React.FormEvent<HTMLInputElement>) => {
         e.preventDefault()
         APIService.LoginUser({username, password})
@@ -27,13 +24,6 @@ const Login = () => {
             else console.log(resp)
         }).catch(error => console.log(error))
         console.log(token)
-    }
-    
-    const RegisterBtn = async (e: React.FormEvent<HTMLInputElement>) => {
-        e.preventDefault()
-        APIService.RegisterUser({username, password})
-        .then( () => loginBtn(e))
-        .catch( error => console.log(error))
     }
     
     useEffect(() => {
