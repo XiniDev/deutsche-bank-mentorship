@@ -15,14 +15,14 @@ const Profile = () => {
     const [profile, setProfile] = useState<any>([])
     const [specs, setSpecs] = useState<any>([])
     const [token] = useCookies(['mytoken'])
-    
+
     useEffect(() => {
 
         APIService.getUserID(`${token['mytoken']}`).then(resp => setID(resp.user));
         APIService.getProfile(userID).then(resp => setProfile(resp));
         APIService.getUserDetails(userID).then(resp => setDetails(resp));
     
-    }, [userID])   
+    }, [userID])
 
     
     return (
