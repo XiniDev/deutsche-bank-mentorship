@@ -1,6 +1,7 @@
 import React from 'react';
 import Bar from './Bar';
 import Select from 'react-select'
+import { Link } from 'react-router-dom';
 
 const options = [
     { value: 'snal', label: 'Snal' },
@@ -14,6 +15,11 @@ const AddGroupSession = () => {
                 <Bar />
                 <div className='content__background'>
                     <div className='content'>
+
+                        <Link to="/mentees">
+                            <div className='back__button'>&#171; BACK</div>
+                        </Link>
+                            
                         <h1>New Group Session</h1>
                         <hr />
                         <div className='new__session__container'>

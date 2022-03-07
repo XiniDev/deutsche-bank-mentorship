@@ -10,6 +10,11 @@ const AddSession = () => {
                 <Bar />
                 <div className='content__background'>
                     <div className='content'>
+
+                        <Link to="/mentee">
+                                <div className='back__button'>&#171; BACK</div>
+                        </Link>
+
                         <h1>New Session with Snal</h1>
                         <hr />
                         <div className='new__session__container'>

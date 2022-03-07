@@ -10,6 +10,11 @@ const RequestSession = () => {
                 <Bar />
                 <div className='content__background'>
                     <div className='content'>
+
+                        <Link to="/mentor">
+                                <div className='back__button'>&#171; BACK</div>
+                        </Link>
+
                         <h1>Request Session</h1>
                         <hr />
                         <div className='new__session__container'>

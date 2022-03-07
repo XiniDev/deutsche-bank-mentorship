@@ -12,6 +12,11 @@ const SuggestMentor = () => {
                 <Bar />
                 <div className='content__background'>
                     <div className='content'>
+
+                        <Link to="/mentors">
+                            <div className='back__button'>&#171; BACK</div>
+                        </Link>
+
                         <h1>Mentor Suggestions</h1>
                         <hr />
 
