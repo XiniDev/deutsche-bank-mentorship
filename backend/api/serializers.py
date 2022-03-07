@@ -37,7 +37,7 @@ class authToken(serializers.ModelSerializer):
 class UserDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserDetails
-        fields = ['userID','department','is_mentor']
+        fields = ['userID','department','is_mentor', 'pronouns', 'title']
 
 
 class MentorMenteeSerializer(serializers.ModelSerializer):

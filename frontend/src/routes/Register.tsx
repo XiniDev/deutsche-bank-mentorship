@@ -92,7 +92,7 @@ const Register = () => {
                             value = {firstpassword} onChange = {e => firstPassword(e.target.value)}/><br/>
                         </label>
                         <label>
-                            <input type="cpassword" name="cpassword" placeholder="Confirm Password"
+                            <input type="password" name="cpassword" placeholder="Confirm Password"
                             value = {confpassword} onChange = {e => confPassword(e.target.value)}/><br/>
                         </label>
                         <input type="submit" className="submit__button" value="Register" onClick = {RegisterBtn}/>

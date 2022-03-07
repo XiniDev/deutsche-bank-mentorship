@@ -11,6 +11,9 @@ import APIService from '../APIService';
 const Profile = () => {
 
     const [userID, setID] = useState<any>([])
+    const [userDetails, setDetails] = useState<any>([])
+    const [profile, setProfile] = useState<any>([])
+    const [specs, setSpecs] = useState<any>([])
     const [token] = useCookies(['mytoken'])
 
     
@@ -21,12 +24,12 @@ const Profile = () => {
         
     };
     useEffect(() => {
-        //console.log()
-        fetch('http://127.0.0.1:8000/api/userID/'+`${token['mytoken']}`, requestOptions)
-            .then(resp => resp.json())
-            .then(resp => setID(resp.user));
-            
-    }, [])   
+
+        APIService.getUserID(`${token['mytoken']}`).then(resp => setID(resp.user));
+        APIService.getProfile(userID).then(resp => setProfile(resp));
+        APIService.getUserDetails(userID).then(resp => setDetails(resp));
+    
+    }, [profile,userID,userDetails])   
 
     
     return (
@@ -46,11 +49,10 @@ const Profile = () => {
                         <div className='profile__overview'>
                             <img src={rattusProfile} className="profile__picture"/>
                             <div className='profile__info'>
-                                <h1>{userID}
-                                </h1>
+                                <h1>{profile.first_name} {profile.last_name}</h1>
                                 <hr />
-                                <div className='profile__title'>CEO (Cheese Executive Officer)</div>
-                                <div className='profile__email'>rattus.rattus@rattus.com</div>
+                                <div className='profile__title'>{userDetails.department}</div>
+                                <div className='profile__email'>{profile.email}</div>
                             </div>
                         </div>
                         <hr />
