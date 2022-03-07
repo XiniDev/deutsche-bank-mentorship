@@ -1348,3 +1348,144 @@ label {
   border: 2px solid #124040;
   transition-duration: 0.2s;
 }
+
+.message__top__bar {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 20px 10px 10px 10px;
+}
+
+.message__participant {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.participant__info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-right: 10px;
+}
+
+.participant__name {
+  font-size: 18px;
+  color: #000000;
+}
+
+.participant__email {
+  font-size: 16px;
+  font-style: italic;
+  color: #124040;
+}
+
+.participant__icon {
+  width: 50px;
+}
+
+.message__window {
+  display: flex;
+  flex-direction: column;
+}
+
+.message__box__1 {
+  display: flex;
+  flex-direction: row;
+  color: #000000;
+  align-self: flex-start; 
+  padding: 5px;
+}
+
+.message__box__2 {
+  display: flex;
+  flex-direction: row;
+  color: #FFFFFF;
+  align-self: flex-end;
+  padding: 5px;
+}
+
+.message__text__1 {
+  background-color: #9CBDBD;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 15px;
+  margin-left: 15px;
+  border-radius: 3px;
+}
+
+.message__text__2 {
+  background-color: #124040;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 15px;
+  margin-right: 15px;
+  border-radius: 3px;
+}
+
+.message__divider {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: #124040;
+  margin: 10px 0px;
+}
+
+.message__divider p {
+  font-size: 12px;
+  color: #9CBDBD;
+  font-weight: 550;
+  padding: 0;
+  margin: 0px 10px;
+}
+
+.message__bar {
+  background-color: #9CBDBD;
+  width: 950px;
+  height: 60px;
+  bottom: 100px;
+  position: absolute;
+  top: calc(90vh + 14px);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.message__area {
+  width: 750px;
+  height: 33px;
+  border-radius: 3px;
+  border: none;
+  margin: 0px 15px;
+}
+
+.message__button1 {
+  width: 30px;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.message__button2 {
+  width: 30px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.message__button3 {
+  width: 30px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.back__button {
+  color: #000000;
+}
+
