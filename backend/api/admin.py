@@ -44,7 +44,7 @@ class Interests(admin.ModelAdmin):
 @admin.register(Reviews)
 class Reviews(admin.ModelAdmin):
     list_filter = ("reviewerID","reviewedID","rating")
-    list_display = ("reviewerID","reviewedID","rating","text")
+    list_display = ("reviewerID","reviewedID","rating","description")
 @admin.register(Chat)
 class Chat(admin.ModelAdmin):
     list_filter = ("userID1","userID2")

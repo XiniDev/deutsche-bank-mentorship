@@ -79,3 +79,6 @@ class ChatMessages(models.Model):
     date_sent = models.DateTimeField()
     def __str__(self):
         return str(self.chatID)  + ": " + str(self.userID) + " at " + str(self.date_sent)
+
+#class PlansofActions (models.Model):
+#    eventID = models.ForeignKey(Events.)
