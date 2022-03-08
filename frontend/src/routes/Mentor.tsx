@@ -72,10 +72,10 @@ class Mentor extends Component {
                             
                             <div className='upcoming__sessions'>
                                 <h1>Course Information</h1>
-                                <div className='edit__milestone__button'>
+                                <Link to="/editmilestones" className='edit__milestone__button'>
                                     <img src={pencil} className="edit__symbol"/>
                                     Edit Milestones
-                                </div>
+                                </Link>
                             </div>
 
                             <div className='relationship__info__box'>
@@ -147,7 +147,13 @@ class Mentor extends Component {
                                     </div>
                                 </div>
                             </div>
+
                             <hr />
+
+                            <Link to="/ratementor" className='center'>
+                                <div className='general__button'>Rate Mentor</div>
+                            </Link>
+
                         </div>
                     </div>
                 </div>

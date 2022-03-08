@@ -70,7 +70,7 @@ const Header = () => {
                 <button className="signout__button" onClick={ () => removeToken('mytoken')}>
                 
                 <div className="header__signinUp">
-                    Signout
+                    Sign Out
                 </div>
                 </button>
             }

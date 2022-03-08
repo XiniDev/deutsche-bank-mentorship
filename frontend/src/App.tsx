@@ -20,6 +20,9 @@ import Feedback from './routes/Feedback';
 import Inbox from './routes/Inbox';
 import AddGroupSession from './routes/AddGroupSession';
 import Timeline from './routes/Timeline';
+import NewMentor from './routes/NewMentor';
+import RateMentor from './routes/RateMentor';
+import EditMilestones from './routes/EditMilestones';
 import Error from './routes/Error';
 import './App.css';
 
@@ -48,6 +51,9 @@ function App() {
                     <Route path="/inbox" element={<Inbox/>}/>
                     <Route path="/addgroupsession" element={<AddGroupSession/>}/>
                     <Route path="/timeline" element={<Timeline/>}/>
+                    <Route path="/newmentor" element={<NewMentor/>}/>
+                    <Route path="/ratementor" element={<RateMentor/>}/>
+                    <Route path="/editmilestones" element={<EditMilestones/>}/>
                     <Route element={<Error/>}/>
                 </Routes>
             </Router>

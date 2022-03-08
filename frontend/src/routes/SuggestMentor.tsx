@@ -28,7 +28,7 @@ const SuggestMentor = () => {
 
                         <div className='suggestion__container'>
 
-                            <Link to="/mentor">
+                            <Link to="/newmentor">
                             <div className='suggestion__box'>
                                 <img src={beaProfile} className="suggested__mentor__profile"/>
                                 <h2>Beb</h2>
@@ -41,7 +41,7 @@ const SuggestMentor = () => {
                             </div>
                             </Link>
 
-                            <Link to="/mentor">
+                            <Link to="/newmentor">
                             <div className='suggestion__box'>
                                 <img src={snalProfile} className="suggested__mentor__profile"/>
                                 <h2>Snel</h2>
@@ -54,7 +54,7 @@ const SuggestMentor = () => {
                             </div>
                             </Link>
 
-                            <Link to="/mentor">
+                            <Link to="/newmentor">
                             <div className='suggestion__box'>
                                 <img src={beaProfile} className="suggested__mentor__profile"/>
                                 <h2>Bec</h2>

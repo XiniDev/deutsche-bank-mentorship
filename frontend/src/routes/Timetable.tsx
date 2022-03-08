@@ -58,7 +58,7 @@ class Timetable extends Component {
                                 </div>
                             </div>
                             <hr />
-                            <h2>Upcoming Sessionss</h2>
+                            <h2>Upcoming Sessions</h2>
                             <hr />
                         </div>
                     </div>
