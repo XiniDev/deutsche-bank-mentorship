@@ -152,20 +152,22 @@ class TestConstraints(TestCase):
             reviewer = User.objects.get(username = str(r.reviewerID))
             reviewee = User.objects.get(username = str(r.revieweeID))
             pairing = MentorMentees.objects.filter(mentorID = reviewer.id)
+            number = 0
             for p in pairing:
                 try:
                     EventMentees.objects.get(menteeID = reviewee.id)
-                    return
+                    number += 1
                 except EventMentees.DoesNotExist:
                     pass
             pairing = MentorMentees.objects.filter(mentorID = reviewee.id)
             for p in pairing:
                 try:
                     EventMentees.objects.get(menteeID = reviewer.id)
-                    return
+                    number += 1
                 except EventMentees.DoesNotExist:
                     pass
-            self.assertFalse(True)
+            if number != 1:
+                self.assertFalse(True)
 
 
 
