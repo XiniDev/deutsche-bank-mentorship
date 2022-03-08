@@ -6,7 +6,7 @@ from django.contrib.auth.models import AbstractBaseUser
 
 
 class UserDetails(models.Model):
-    userID =  models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    userID =  models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     department = models.CharField(max_length=50)
     is_mentor = models.BooleanField()
     pronouns = models.CharField(max_length=25)
