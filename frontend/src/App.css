@@ -78,13 +78,11 @@ hr {
   color: #FFFFFF;
   padding: 22px;
   text-decoration: none;
-  transition-duration: 0.2s;
   cursor: pointer;
 }
 
 .header__signinup:hover {
   background-color: #9CBDBD;
-  transition-duration: 0.2s;
 }
 
 .signout__button {
@@ -96,14 +94,12 @@ hr {
   background-color: #124040;
   padding: 23px;
   text-decoration: none;
-  transition-duration: 0.2s;
   border: none;
   cursor: pointer;
 }
 
 .signout__button:hover {
   background-color: #9CBDBD;
-  transition-duration: 0.2s;
 }
 
 .frontpage {
@@ -669,14 +665,12 @@ label {
   flex-direction: row;
   align-items: center;
   justify-content: start;
-  transition-duration: 0.1s;
   margin: 20px;
 }
 
 .user__box:hover {
   background-color: #124040;
   color: #FFFFFF;
-  transition-duration: 0.1s;
 }
 
 .user__box:hover .user__box__tag {
@@ -732,7 +726,6 @@ label {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  transition-duration: 0.3s;
   margin: 20px;
 }
 
@@ -811,7 +804,6 @@ label {
 
 .expand__button {
   display: flex;
-  transition-duration: 0.5s;
   cursor: pointer;
 }
 
@@ -844,8 +836,7 @@ label {
   padding-left: 15px;
   padding-right: 15px;
   margin: 5px;
-  width:auto;
-  transition: 0.2s ease-out;
+  width: auto;
 }
 
 .plan__tag:hover {
@@ -1059,12 +1050,10 @@ label {
   color: #FFFFFF;
   padding-top: 10px;
   padding-bottom: 10px;
-  transition-duration: 0.2s;
 }
 
 .bar__option:hover {
   background-color: #9CBDBD;
-  transition-duration: 0.2s;
 }
 
 .bar__icon {
@@ -1101,8 +1090,12 @@ label {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  transition-duration: 0.1s;
   margin: 20px;
+}
+
+.inbox__box:hover {
+  border: 3px solid #124040;
+  margin: 18px;
 }
 
 .inbox__ellipse {
@@ -1141,15 +1134,13 @@ label {
   align-items: center;
   justify-content: center;
   margin-right: 5px;
-  padding: 15px;
+  padding: 16px;
   text-decoration: none;
-  transition-duration: 0.2s;
   cursor: pointer;
 }
 
 .inbox__icon__container:hover {
   background-color: #9CBDBD;
-  transition-duration: 0.2s;
 }
 
 .inbox__icon {
@@ -1342,12 +1333,10 @@ label {
   border-radius: 3px;
   margin-right: 15px;
   cursor: pointer;
-  transition-duration: 0.2s;
 }
 
 .milestone__done:hover {
   border: 2px solid #124040;
-  transition-duration: 0.2s;
 }
 
 .message__top__bar {
@@ -1406,6 +1395,10 @@ label {
   color: #FFFFFF;
   align-self: flex-end;
   padding: 5px;
+}
+
+#hidden__message1, #hidden__message2, #message__typing, #dot1, #dot2, #dot3 {
+  visibility: hidden;
 }
 
 .message__text__1 {
