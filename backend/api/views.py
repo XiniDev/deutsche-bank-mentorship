@@ -1,6 +1,6 @@
 from lib2to3.pgen2 import token
 from django.contrib.auth.models import User
-from .models import UserDetails
+from .models import Mentors, UserDetails
 from .models import MentorMentees
 from .models import Milestones
 from .models import Events
@@ -10,7 +10,7 @@ from .models import Interests
 from .models import Reviews
 from .models import Chat
 from .models import ChatMessages
-from .serializers import UserSerializer,UserDetailSerializer,MentorMenteeSerializer, MilestoneSerializer,EventSerializer,EventMenteesSerializer,SpecialtySerializer,InterestSerializer,ReviewsSerializer,ChatSerializer,MessageSerializer, authToken
+from .serializers import MentorSerializer, UserSerializer,UserDetailSerializer,MentorMenteeSerializer, MilestoneSerializer,EventSerializer,EventMenteesSerializer,SpecialtySerializer,InterestSerializer,ReviewsSerializer,ChatSerializer,MessageSerializer, authToken
 from rest_framework import viewsets
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
@@ -34,6 +34,7 @@ class UserViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
     authentication_classes = (TokenAuthentication,)
     #permission_classes = [IsAuthenticated]
+    
 
 class UserDetailsViewSet(viewsets.ModelViewSet):
     queryset = UserDetails.objects.all()
@@ -98,6 +99,11 @@ class MessageViewSet(viewsets.ModelViewSet):
     authentication_classes = (TokenAuthentication,)
     #permission_classes = [IsAuthenticated]
 
+class MentorViewSet(viewsets.ModelViewSet):
+    queryset = Mentors.objects.all()
+    serializer_class = MentorSerializer
+    authentication_classes = (TokenAuthentication,)
+    #permission_classes = [IsAuthenticated]
 
 
 

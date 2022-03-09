@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import UserDetails
+from .models import Mentors, UserDetails
 from .models import MentorMentees
 from .models import Milestones
 from .models import Events
@@ -64,13 +64,13 @@ class EventMenteesSerializer(serializers.ModelSerializer):
 class SpecialtySerializer(serializers.ModelSerializer):
     class Meta:
         model = Specialties
-        fields = ['id', 'userID', 'specialty', 'description']
+        fields = ['id', 'userID', 'topic', 'description']
 
 
 class InterestSerializer(serializers.ModelSerializer):
     class Meta:
         model = Interests
-        fields = ['id', 'userID', 'interest', 'description']
+        fields = ['id', 'userID', 'topic', 'description']
 
 
 class ReviewsSerializer(serializers.ModelSerializer):
@@ -90,5 +90,8 @@ class MessageSerializer(serializers.ModelSerializer):
         model = ChatMessages
         fields = ['id', 'chatID', 'userID','content','date_sent']
 
-
+class MentorSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Mentors
+        fields = ['id']
 

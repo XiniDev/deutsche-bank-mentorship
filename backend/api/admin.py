@@ -35,12 +35,12 @@ class EventMentees(admin.ModelAdmin):
     list_display = ("menteeID","eventID")
 @admin.register(Specialties)
 class Specialties(admin.ModelAdmin):
-    list_filter = ("userID","specialty")
-    list_display = ("userID","specialty")
+    list_filter = ("userID","topic")
+    list_display = ("userID","topic")
 @admin.register(Interests)
 class Interests(admin.ModelAdmin):
-    list_filter = ("userID","interest")
-    list_display = ("userID","interest")
+    list_filter = ("userID","topic")
+    list_display = ("userID","topic")
 @admin.register(Reviews)
 class Reviews(admin.ModelAdmin):
     list_filter = ("reviewerID","reviewedID","rating")

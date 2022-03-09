@@ -30,6 +30,20 @@ export default class APIService {
 
     }
 
+    static RegisterMentor(body) {
+
+      return fetch('http://127.0.0.1:8000/api/Mentors/', {
+        'method':'POST',
+        headers: {
+            'Content-Type':'application/json',
+            
+        }, 
+        body:JSON.stringify(body)
+
+      }).then(resp => resp.json())
+
+    }
+
     
     static getUserID(tokenString,token) {
       return fetch('http://127.0.0.1:8000/api/userID/'+tokenString, {
@@ -75,8 +89,8 @@ export default class APIService {
       .then(resp => resp.json())
     }
 
-    static getInterests(userID, token) {
-      return fetch('http://127.0.0.1:8000/api/interests/'+userID, {
+    static getInterests(token) {
+      return fetch('http://127.0.0.1:8000/api/interests/', {
         'method':'GET',
         headers: {
             'Content-Type':'application/json',
@@ -85,6 +99,19 @@ export default class APIService {
       })
       .then(resp => resp.json())
     }
+
+    static getMentors(token) {
+      return fetch('http://127.0.0.1:8000/api/mentors/', {
+        'method':'GET',
+        headers: {
+            'Content-Type':'application/json',
+            'Authorization':`Token ${token}` 
+        }
+      })
+      .then(resp => resp.json())
+    }
+
+    
 
 
 }

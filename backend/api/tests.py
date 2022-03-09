@@ -36,6 +36,8 @@ except:
                         pronouns = "He",
                         title = "Mrs")
     test.save()
+    
+    
 
     test =  MentorMentees(mentorID = UserDetails.objects.get(id=1), 
                     menteeID = UserDetails.objects.get(id=2))
@@ -59,20 +61,20 @@ except:
     test.save()
 
     test =  Specialties(userID = UserDetails.objects.get(id=1), 
-                    specialty="Jumping",
+                    topic="Jumping",
                     description="Jumping is the act of elevating ones-self")
     test.save()
     test =  Specialties(userID = UserDetails.objects.get(id=2), 
-                    specialty="Falling",
+                    topic="Falling",
                     description="falling is the act of de-elevating ones-self")
     test.save()
 
     test =  Interests(userID = UserDetails.objects.get(id=1), 
-                    interest="Falling",
+                    topic="Falling",
                     description="falling is the act of de-elevating ones-self")
     test.save()
     test =  Interests(userID = UserDetails.objects.get(id=2), 
-                    interest="Jumping",
+                    topic="Jumping",
                     description="Jumping is the act of elevating ones-self")
     test.save()
 
@@ -82,6 +84,8 @@ except:
                     description="Best Teacher Ever")
     test.save()
 
+    test = Mentors(userID = UserDetails.objects.get(id=1),)
+    test.save()
 class TestUrls(SimpleTestCase):
     def test_userslist_url_is_resolved(self):
         url = reverse('api:users-list')
@@ -185,20 +189,20 @@ class TestUser(TestCase):
 
 
         Specialties.objects.create(userID = UserDetails.objects.get(id=1), 
-                        specialty="Jumping",
+                        topic="Jumping",
                         description="Jumping is the act of elevating ones-self")
 
         Specialties.objects.create(userID = UserDetails.objects.get(id=2), 
-                        specialty="Falling",
+                        topic="Falling",
                         description="falling is the act of de-elevating ones-self")
 
 
         Interests.objects.create(userID = UserDetails.objects.get(id=1), 
-                        interest="Falling",
+                        topic="Falling",
                         description="falling is the act of de-elevating ones-self")
 
         Interests.objects.create(userID = UserDetails.objects.get(id=2), 
-                        interest="Jumping",
+                        topic="Jumping",
                         description="Jumping is the act of elevating ones-self")
 
 

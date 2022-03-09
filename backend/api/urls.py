@@ -2,7 +2,7 @@
 
 from argparse import Namespace
 from django.urls import path, include
-from .views import UserViewSet,UserDetailsViewSet,MentorMenteeViewSet,MilestoneViewSet,EventViewSet,EventMenteeViewSet,SpecialtyViewSet,InterestViewSet,ReviewViewSet,ChatViewSet,MessageViewSet,UserID
+from .views import MentorViewSet, UserViewSet,UserDetailsViewSet,MentorMenteeViewSet,MilestoneViewSet,EventViewSet,EventMenteeViewSet,SpecialtyViewSet,InterestViewSet,ReviewViewSet,ChatViewSet,MessageViewSet,UserID
 from rest_framework.routers import DefaultRouter
 
 #article_list, article_details, ArticleList, ArticleDetails
@@ -21,6 +21,7 @@ router.register('reviews', ReviewViewSet, basename = "reviews")
 router.register('chats', ChatViewSet, basename = "chats")
 router.register('messages', MessageViewSet, basename = "messages")
 router.register('userID', UserID, basename = "userID")
+router.register('mentors', MentorViewSet, basename = "mentors")
 
 
 
