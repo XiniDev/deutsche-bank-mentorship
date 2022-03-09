@@ -1,10 +1,10 @@
-import React, { Component, useState, useEffect } from 'react';
-import {useCookies} from 'react-cookie';
-import {useNavigate} from 'react-router-dom';
 import Bar from './Bar';
 import rattusProfile from '../images/rattusProfile.png';
 import pencil from '../images/pencil.svg';
 
+import React, { Component, useState, useEffect } from 'react';
+import {useCookies} from 'react-cookie';
+import {useNavigate} from 'react-router-dom';
 import { Link, Navigate } from "react-router-dom";
 import APIService from '../APIService';
 
@@ -21,6 +21,51 @@ function GetGroupByUserID(userID: any,array: any){
     return group
 }
 
+function RenderGroup(group:any){
+        
+    if(group.length == 1){
+        return(
+            <div className='profile__specialisations'>
+                <div className='tag__wrapper'>
+                    <div className='specialisation__tag'>{group[0].topic}</div>
+                        <p>{group[0].description}</p>
+                </div>
+            </div>
+        )
+    }else if(group.length == 2){
+        return(
+            <div className='profile__specialisations'>
+                <div className='tag__wrapper'>
+                    <div className='specialisation__tag'>{group[0].topic}</div>
+                        <p>{group[0].description}</p>
+                </div>
+                <div className='tag__wrapper'>
+                    <div className='specialisation__tag'>{group[1].topic}</div>
+                        <p>{group[1].description}</p>
+                </div>
+            </div>
+        )
+        
+    }else if(group.length == 3){
+        return(
+            <div className='profile__specialisations'>
+                <div className='tag__wrapper'>
+                    <div className='specialisation__tag'>{group[0].topic}</div>
+                        <p>{group[0].description}</p>
+                </div>
+                <div className='tag__wrapper'>
+                    <div className='specialisation__tag'>{group[1].topic}</div>
+                        <p>{group[1].description}</p>
+                </div>
+                <div className='tag__wrapper'>
+                    <div className='specialisation__tag'>{group[2].topic}</div>
+                        <p>{group[2].description}</p>
+                </div>
+            </div>
+        )
+    }
+    return (<div className='tag__wrapper'>Click edit to add some entries!</div>)
+}
 const Profile = () => {
 
     const [userID, setID] = useState<any>([])
@@ -32,51 +77,7 @@ const Profile = () => {
 
     
 
-    function RenderGroup(group:any){
-        
-        if(group.length == 1){
-            return(
-                <div className='profile__specialisations'>
-                    <div className='tag__wrapper'>
-                        <div className='specialisation__tag'>{group[0].topic}</div>
-                            <p>{group[0].description}</p>
-                    </div>
-                </div>
-            )
-        }else if(group.length == 2){
-            return(
-                <div className='profile__specialisations'>
-                    <div className='tag__wrapper'>
-                        <div className='specialisation__tag'>{group[0].topic}</div>
-                            <p>{group[0].description}</p>
-                    </div>
-                    <div className='tag__wrapper'>
-                        <div className='specialisation__tag'>{group[1].topic}</div>
-                            <p>{group[1].description}</p>
-                    </div>
-                </div>
-            )
-            
-        }else if(group.length == 3){
-            return(
-                <div className='profile__specialisations'>
-                    <div className='tag__wrapper'>
-                        <div className='specialisation__tag'>{group[0].topic}</div>
-                            <p>{group[0].description}</p>
-                    </div>
-                    <div className='tag__wrapper'>
-                        <div className='specialisation__tag'>{group[1].topic}</div>
-                            <p>{group[1].description}</p>
-                    </div>
-                    <div className='tag__wrapper'>
-                        <div className='specialisation__tag'>{group[2].topic}</div>
-                            <p>{group[2].description}</p>
-                    </div>
-                </div>
-            )
-        }
-        return (<div className='tag__wrapper'>Click edit to add some entries!</div>)
-    }
+    
 
     
     useEffect(() => {

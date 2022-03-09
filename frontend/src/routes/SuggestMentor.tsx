@@ -1,11 +1,76 @@
-import React from 'react';
 import Bar from './Bar';
 import snalProfile from '../images/snalProfile.png';
 import beaProfile from '../images/beaProfile.png';
 
-import { Link } from "react-router-dom";
+import React, { Component, useState, useEffect } from 'react';
+import {useCookies} from 'react-cookie';
+import {useNavigate} from 'react-router-dom';
+import { Link, Navigate } from "react-router-dom";
+import APIService from '../APIService';
+
+function GetGroupByUserID(userID: any,array: any){
+    const group = new Array()
+    let n = 0
+    for (let i = 0; i < array.length; i++){
+        if(array[i].userID == userID){
+            group[n] = array[i] 
+            n += 1
+        }
+    }
+    return group
+}
+
+function RenderGroup(group:any){
+    if(group.length == 1){
+        return(
+            <div className='topics__container'>
+                You are interested in learning: 
+                <span className='user__box__tag'>{group[0].topic}</span>
+            </div>
+        )
+    }else if(group.length == 2){
+        return(
+            <div className='topics__container'>
+                You are interested in learning: 
+                <span className='user__box__tag'>{group[0].topic}</span>
+                <span className='user__box__tag'>{group[1].topic}</span>
+            </div>
+        )
+    }else if(group.length == 3){
+        return(
+            <div className='topics__container'>
+                You are interested in learning: 
+                <span className='user__box__tag'>{group[0].topic}</span>
+                <span className='user__box__tag'>{group[1].topic}</span>
+                <span className='user__box__tag'>{group[2].topic}</span>
+            </div>
+        )
+    }else{
+        return (<div className='tag__wrapper'>Error</div>)
+    }
+}
+
 
 const SuggestMentor = () => {
+
+    const [userID, setID] = useState<any>([])
+    const [userDetails, setDetails] = useState<any>([])
+    const [profile, setProfile] = useState<any>([])
+    const [specs, setSpecs] = useState<any>([])
+    const [interests, setInterests] = useState<any>([])
+    const [token] = useCookies(['mytoken'])
+
+    useEffect(() => {
+        
+        APIService.getUserID(`${token['mytoken']}`,token['mytoken']).then(resp => setID(resp.user))
+        APIService.getProfile(userID, token['mytoken']).then(resp => setProfile(resp))
+        APIService.getUserDetails(userID, token['mytoken']).then(resp => setDetails(resp))
+        APIService.getSpecialties(token['mytoken']).then(resp => setSpecs(GetGroupByUserID(userID,resp)))
+        APIService.getInterests(token['mytoken']).then(resp => setInterests(GetGroupByUserID(userID,resp)))
+        
+        
+    }, [userID])
+
     return (
         <div className='background'>
             <div className='container'>
@@ -20,11 +85,7 @@ const SuggestMentor = () => {
                         <h1>Mentor Suggestions</h1>
                         <hr />
 
-                        <div className='topics__container'>
-                            You are interested in learning: 
-                            <span className='user__box__tag'>Fine Art</span>
-                            <span className='user__box__tag'>Fortune Telling</span>
-                        </div>
+                        {RenderGroup(specs)}
 
                         <div className='suggestion__container'>
 
