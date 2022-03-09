@@ -46,17 +46,17 @@ class EventMentees(models.Model):
 
 class Specialties(models.Model):
     userID = models.ForeignKey(UserDetails, on_delete=models.CASCADE)
-    specialty = models.CharField(max_length=50)
+    topic = models.CharField(max_length=50)
     description = models.CharField(max_length=200)
     def __str__(self):
-        return str(self.userID)  + ": " + str(self.specialty)
+        return str(self.userID)  + ": " + str(self.topic)
 
 class Interests(models.Model):
     userID = models.ForeignKey(UserDetails, on_delete=models.CASCADE)
-    interest = models.CharField(max_length=50)
+    topic = models.CharField(max_length=50)
     description = models.CharField(max_length=200)
     def __str__(self):
-        return str(self.userID)  + ": " + str(self.interest)
+        return str(self.userID)  + ": " + str(self.topic)
 
 class Reviews(models.Model):
     reviewerID = models.ForeignKey(UserDetails, related_name = "reviewer", on_delete=models.CASCADE)

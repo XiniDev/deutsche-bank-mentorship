@@ -8,23 +8,91 @@ import pencil from '../images/pencil.svg';
 import { Link, Navigate } from "react-router-dom";
 import APIService from '../APIService';
 
+
+function GetGroupByUserID(userID: any,array: any){
+    const group = new Array()
+    let n = 0
+    for (let i = 0; i < array.length; i++){
+        if(array[i].userID == userID){
+            group[n] = array[i] 
+            n += 1
+        }
+    }
+    return group
+}
+
 const Profile = () => {
 
     const [userID, setID] = useState<any>([])
     const [userDetails, setDetails] = useState<any>([])
     const [profile, setProfile] = useState<any>([])
     const [specs, setSpecs] = useState<any>([])
+    const [interests, setInterests] = useState<any>([])
     const [token] = useCookies(['mytoken'])
+
+    
+
+    function RenderGroup(group:any){
+        
+        if(group.length == 1){
+            return(
+                <div className='profile__specialisations'>
+                    <div className='tag__wrapper'>
+                        <div className='specialisation__tag'>{group[0].topic}</div>
+                            <p>{group[0].description}</p>
+                    </div>
+                </div>
+            )
+        }else if(group.length == 2){
+            return(
+                <div className='profile__specialisations'>
+                    <div className='tag__wrapper'>
+                        <div className='specialisation__tag'>{group[0].topic}</div>
+                            <p>{group[0].description}</p>
+                    </div>
+                    <div className='tag__wrapper'>
+                        <div className='specialisation__tag'>{group[1].topic}</div>
+                            <p>{group[1].description}</p>
+                    </div>
+                </div>
+            )
+            
+        }else if(group.length == 3){
+            return(
+                <div className='profile__specialisations'>
+                    <div className='tag__wrapper'>
+                        <div className='specialisation__tag'>{group[0].topic}</div>
+                            <p>{group[0].description}</p>
+                    </div>
+                    <div className='tag__wrapper'>
+                        <div className='specialisation__tag'>{group[1].topic}</div>
+                            <p>{group[1].description}</p>
+                    </div>
+                    <div className='tag__wrapper'>
+                        <div className='specialisation__tag'>{group[2].topic}</div>
+                            <p>{group[2].description}</p>
+                    </div>
+                </div>
+            )
+        }
+        return (<div className='tag__wrapper'>Click edit to add some entries!</div>)
+    }
+
     
     useEffect(() => {
-
-        APIService.getUserID(`${token['mytoken']}`,token['mytoken']).then(resp => setID(resp.user));
-        APIService.getProfile(userID, token['mytoken']).then(resp => setProfile(resp));
-        APIService.getUserDetails(userID, token['mytoken']).then(resp => setDetails(resp));
-        APIService.getSpecialties(userID, token['mytoken']).then(resp => setSpecs(resp)).catch(error => console.log(error));
-    
+        
+        APIService.getUserID(`${token['mytoken']}`,token['mytoken']).then(resp => setID(resp.user))
+        APIService.getProfile(userID, token['mytoken']).then(resp => setProfile(resp))
+        APIService.getUserDetails(userID, token['mytoken']).then(resp => setDetails(resp))
+        APIService.getSpecialties(token['mytoken']).then(resp => setSpecs(GetGroupByUserID(userID,resp)))
+        APIService.getInterests(token['mytoken']).then(resp => setInterests(GetGroupByUserID(userID,resp)))
+        
+        
     }, [userID])   
 
+    
+        
+    
     
     return (
         <div className='background'>
@@ -57,30 +125,9 @@ const Profile = () => {
                                 Edit
                             </Link>
                         </div>
-                        <div className='profile__specialisations'>
-                            {console.log(specs)}
-                            {/* {specs && specs.map((spec:any) => {
-                                return (
-                                    <div className='tag__wrapper'>
-                                        <div className='specialisation__tag'>{spec.specialty}</div>
-                                        <p>{spec.description}</p>
-                                    </div>
-                                )
-                            })} */}
-                            <div className='tag__wrapper'>
-                                <div className='specialisation__tag'>Jump</div>
-                                <p>I am very good at jumping especially through hoops.</p>
-                            </div>
-                            <div className='tag__wrapper'>
-                                <div className='specialisation__tag'>Cheese and Wine</div>
-                                <p>I have 5+ years of experience working at a winery.</p>
-                            </div>
-                            <div className='tag__wrapper'>
-                                <div className='specialisation__tag'>Other Things</div>
-                                <p>I am also skilled at doing other things.</p>
-                            </div>
-                        </div>
+                        {RenderGroup(specs)}
                         <hr />
+
                         <div className="profile__headers">
                             <h2>Interested In</h2>
                             <Link to="/editinterests" className="editprofile">
@@ -88,16 +135,7 @@ const Profile = () => {
                                 Edit
                             </Link>
                         </div>
-                        <div className='profile__interests'>
-                            <div className='tag__wrapper'>
-                                <div className='interest__tag'>Fine Art</div>
-                                <p>Interested in picking up life drawing.</p>
-                            </div>
-                            <div className='tag__wrapper'>
-                                <div className='interest__tag'>Fortune Telling</div>
-                                <p>Want to learn how to read tarot cards.</p>
-                            </div>
-                        </div>
+                        {RenderGroup(interests)}
                         <hr />
                     </div>
                 </div>

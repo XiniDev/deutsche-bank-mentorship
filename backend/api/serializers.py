@@ -64,13 +64,13 @@ class EventMenteesSerializer(serializers.ModelSerializer):
 class SpecialtySerializer(serializers.ModelSerializer):
     class Meta:
         model = Specialties
-        fields = ['id', 'userID', 'specialty', 'description']
+        fields = ['id', 'userID', 'topic', 'description']
 
 
 class InterestSerializer(serializers.ModelSerializer):
     class Meta:
         model = Interests
-        fields = ['id', 'userID', 'interest', 'description']
+        fields = ['id', 'userID', 'topic', 'description']
 
 
 class ReviewsSerializer(serializers.ModelSerializer):

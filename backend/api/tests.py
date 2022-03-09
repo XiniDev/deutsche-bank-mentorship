@@ -58,20 +58,20 @@ class TestConstraints(TestCase):
         test.save()
 
         test =  Specialties(userID = UserDetails.objects.get(id=1), 
-                specialty="Jumping",
+                topic="Jumping",
                 description="Jumping is the act of elevating ones-self")
         test.save()
         test =  Specialties(userID = UserDetails.objects.get(id=2), 
-                specialty="Falling",
+                topic="Falling",
                 description="falling is the act of de-elevating ones-self")
         test.save()
 
         test =  Interests(userID = UserDetails.objects.get(id=1), 
-                interest="Falling",
+                topic="Falling",
                 description="falling is the act of de-elevating ones-self")
         test.save()
         test =  Interests(userID = UserDetails.objects.get(id=2), 
-                interest="Jumping",
+                topic="Jumping",
                 description="Jumping is the act of elevating ones-self")
         test.save()
 
@@ -110,7 +110,7 @@ class TestConstraints(TestCase):
                 interests = Interests.objects.filter(userID=user.id)
                 match = False
                 for i in interests:
-                    if e.topic == i.interest:
+                    if e.topic == i.topic:
                         match = True
                 if not match:
                     self.assertFalse(True)
@@ -141,7 +141,7 @@ class TestConstraints(TestCase):
             match = False
             for i in specialties:
                 for j in interests:
-                    if i.specialty == j.interest:
+                    if i.topic == j.topic:
                         match = True
             if not match:
                 self.assertFalse(True)
@@ -250,20 +250,20 @@ test =  EventMentees(menteeID = UserDetails.objects.get(id=1),
 test.save()
 
 test =  Specialties(userID = UserDetails.objects.get(id=1), 
-                specialty="Jumping",
+                topic="Jumping",
                 description="Jumping is the act of elevating ones-self")
 test.save()
 test =  Specialties(userID = UserDetails.objects.get(id=2), 
-                specialty="Falling",
+                topic="Falling",
                 description="falling is the act of de-elevating ones-self")
 test.save()
 
 test =  Interests(userID = UserDetails.objects.get(id=1), 
-                interest="Falling",
+                topic="Falling",
                 description="falling is the act of de-elevating ones-self")
 test.save()
 test =  Interests(userID = UserDetails.objects.get(id=2), 
-                interest="Jumping",
+                topic="Jumping",
                 description="Jumping is the act of elevating ones-self")
 test.save()
 
