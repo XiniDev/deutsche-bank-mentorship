@@ -75,11 +75,6 @@ const Profile = () => {
     const [interests, setInterests] = useState<any>([])
     const [token] = useCookies(['mytoken'])
 
-    
-
-    
-
-    
     useEffect(() => {
         
         APIService.getUserID(`${token['mytoken']}`,token['mytoken']).then(resp => setID(resp.user))
@@ -91,10 +86,6 @@ const Profile = () => {
         
     }, [userID])   
 
-    
-        
-    
-    
     return (
         <div className='background'>
             <div className='container'>
