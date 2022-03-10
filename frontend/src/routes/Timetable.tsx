@@ -1,29 +1,41 @@
-import React, { Component } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import Bar from './Bar';
 import plus from '../images/plus.svg';
 import $ from 'jquery';
 
-import { Calendar, momentLocalizer } from 'react-big-calendar'
-import moment from "moment"
+import { Calendar, dateFnsLocalizer, Event } from 'react-big-calendar';
+import withDragAndDrop, { withDragAndDropProps } from 'react-big-calendar/lib/addons/dragAndDrop';
+
+import format from 'date-fns/format';
+import parse from 'date-fns/parse';
+import startOfWeek from 'date-fns/startOfWeek';
+import getDay from 'date-fns/getDay';
+import enUS from 'date-fns/locale/en-US';
+import addHours from 'date-fns/addHours';
+import startOfHour from 'date-fns/startOfHour';
 
 import '../styles/react-big-calendar.css';
 
-const localizer = momentLocalizer(moment);
+const locales = {
+    'en-US': enUS,
+}
 
-class Timetable extends Component {
-    state = {
-        events: [
-            {
-                start: moment().toDate(),
-                end: moment()
-                    .add(1, "days")
-                    .toDate(),
-                title: "Some title"
-            }
-        ]
-    };
-    
-    componentDidMount() {
+const endOfHour = (date: Date): Date => addHours(startOfHour(date), 1)
+const now = new Date()
+const start = endOfHour(now)
+const end = addHours(start, 2)
+
+const localizer = dateFnsLocalizer({
+    format,
+    parse,
+    startOfWeek,
+    getDay,
+    locales,
+})
+const DnDCalendar = withDragAndDrop(Calendar as any)
+
+const Timetable: FC = () => {
+    useEffect(() => {
         $(function() {
             $(".expand__button").on("click", function() {
                 console.log("I have been clicked");
@@ -47,52 +59,76 @@ class Timetable extends Component {
                 $(this).toggleClass("active");
             });
         });
-    }
-    render() {
-        return (
-            <div className='background'>
-                <div className='container'>
-                    <Bar />
-                    <div className='content__background'>
-                        <div className='content'>
-                            <h1>Timetable</h1>
-                            <hr />
-                            <h2>Today's Sessions</h2>
-                            <div className='session__box--timetable'>
-                                <div className='session__overview'>
-                                    <div className='session__info'>
-                                        <div className='session__title'>
-                                            Tuesday, Feburary 1st 
-                                            <div className='user__box__tag'>Fine Art</div>
-                                        </div>
-                                        Focus: First set of landscape sketches
+    }, []);
+
+    const [events, setEvents] = useState<Event[]>([
+        {
+            title: 'Learn cool stuff',
+            start,
+            end,
+        },
+    ]);
+
+    const onEventResize: withDragAndDropProps['onEventResize'] = data => {
+        const { start, end } = data;
+    
+        setEvents(currentEvents => {
+            const firstEvent = {
+                start: new Date(start),
+                end: new Date(end),
+            }
+        return [...currentEvents, firstEvent]
+        })
+    };
+    
+    const onEventDrop: withDragAndDropProps['onEventDrop'] = data => {
+        console.log(data);
+    };
+    return (
+        <div className='background'>
+            <div className='container'>
+                <Bar />
+                <div className='content__background'>
+                    <div className='content'>
+                        <h1>Timetable</h1>
+                        <hr />
+                        <h2>Today's Sessions</h2>
+                        <div className='session__box--timetable'>
+                            <div className='session__overview'>
+                                <div className='session__info'>
+                                    <div className='session__title'>
+                                        Tuesday, Feburary 1st 
+                                        <div className='user__box__tag'>Fine Art</div>
                                     </div>
-                                    <img src={plus} className="expand__button"/>
+                                    Focus: First set of landscape sketches
                                 </div>
-                                <div className="plan__of__action">
-                                    <div className='plan__tag'>Straighten back</div>
-                                    <div className='plan__tag'>Jumping position</div>
-                                    <div className='plan__tag'>Make the jump</div>
-                                    <div className='plan__tag'>Land without fail</div>
-                                </div>
+                                <img src={plus} className="expand__button"/>
                             </div>
-                            <hr />
-                            <div className='timetable'>
-                            <Calendar
-                                localizer={localizer}
-                                defaultDate={new Date()}
-                                defaultView="month"
-                                events={this.state.events}
-                                style={{ height: "600px" }}
-                            />
+                            <div className="plan__of__action">
+                                <div className='plan__tag'>Straighten back</div>
+                                <div className='plan__tag'>Jumping position</div>
+                                <div className='plan__tag'>Make the jump</div>
+                                <div className='plan__tag'>Land without fail</div>
                             </div>
-                            <hr />
                         </div>
+                        <hr />
+                        <div className='timetable'>
+                        <DnDCalendar
+                            defaultView='week'
+                            events={events}
+                            localizer={localizer}
+                            onEventDrop={onEventDrop}
+                            onEventResize={onEventResize}
+                            resizable
+                            style={{ height: '600px' }}
+                        />
+                        </div>
+                        <hr />
                     </div>
                 </div>
             </div>
-        );
-    }
+        </div>
+    );
 }
 
 export default Timetable;
