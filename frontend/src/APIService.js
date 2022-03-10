@@ -30,7 +30,35 @@ export default class APIService {
 
     }
 
-    
+    static ChangeProfile(body, userID, token) {
+
+      return fetch('http://127.0.0.1:8000/api/updateProfileUser/'+userID+'/', {
+        'method':'PUT',
+        headers: {
+            'Content-Type':'application/json',
+            'Authorization':`Token ${token}`
+        }, 
+        body:JSON.stringify(body)
+
+      }).then(resp => resp.json())
+
+    }
+
+    static ChangeUserDetails(body, userID, token) {
+
+      return fetch('http://127.0.0.1:8000/api/updateProfileUserDetails/'+userID+'/', {
+        'method':'PUT',
+        headers: {
+            'Content-Type':'application/json',
+            'Authorization':`Token ${token}`
+        }, 
+        body:JSON.stringify(body)
+
+      }).then(resp => resp.json())
+
+    }
+
+
     static getUserID(tokenString,token) {
       return fetch('http://127.0.0.1:8000/api/userID/'+tokenString, {
         'method':'GET',

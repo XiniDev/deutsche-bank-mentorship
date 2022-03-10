@@ -17,17 +17,56 @@ const EditProfile = () => {
     const [specs, setSpecs] = useState<any>([])
     const [token] = useCookies(['mytoken'])
     let navigate = useNavigate()
+
+    const [first_name, setFirstName] = useState<any>([])
+    const [last_name, setLastName] = useState<any>([])
+    const [pronouns, setPronouns] = useState<any>([])
+    const [department, setDepartment] = useState<any>([])
+    const [email, setEmail] = useState<any>([])
+
+    // sus stuff
+    const [password, setPassword] = useState<any>([])
     
     useEffect(() => {
 
         APIService.getUserID(`${token['mytoken']}`,token['mytoken']).then(resp => setID(resp.user));
-        APIService.getProfile(userID,token['mytoken']).then(resp => setProfile(resp));
-        APIService.getUserDetails(userID,token['mytoken']).then(resp => setDetails(resp));
+        APIService.getProfile(userID,token['mytoken']).then(resp => {
+            setFirstName(resp.first_name)
+            setLastName(resp.last_name)
+            setEmail(resp.email)
+        });
+        APIService.getUserDetails(userID,token['mytoken']).then(resp => {
+            setPronouns(resp.pronouns)
+            setDepartment(resp.department)
+        });
     
     }, [userID])
+        
+    const emailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
     const EditProfileBtn = async (e: React.FormEvent<HTMLInputElement>) => {
         e.preventDefault()
+        var conditions = 0
+        if (!first_name || !last_name || !email || !pronouns || !department) {
+            conditions += 1
+            console.log("PLEASE FILL IN ALL DETAILS")
+        }
+        if (!email.match(emailformat)) {
+            conditions += 1
+            console.log("Email invalid")
+        }
+        if (conditions == 0) {
+            const username = email.split("@")[0]
+            APIService.ChangeProfile({first_name, last_name, email, username}, userID, token['mytoken'])
+            .then( () => console.log())
+            .catch( error => console.log(error))
+            APIService.ChangeUserDetails({pronouns, department}, userID, token['mytoken'])
+            .then( () => {
+                navigate('/Profile')
+                console.log()
+            })
+            .catch( error => console.log(error))
+        }
     }
 
     return (
@@ -44,15 +83,15 @@ const EditProfile = () => {
                         <hr />
                         <form className="editprofile__form">
                             <label htmlFor="editFirstName" className="editprofile__form__labels">First Name</label>
-                            <input type="text" className="editprofile__form__inputs" name="firstname" id="editFirstName" placeholder="Your First Name" value={profile.first_name} onChange = {e => setProfile({first_name: e.target.value})}/><br/>
+                            <input type="text" className="editprofile__form__inputs" name="firstname" id="editFirstName" placeholder="Your First Name" value={first_name} onChange = {e => setFirstName(e.target.value)}/><br/>
                             <label htmlFor="editLastName" className="editprofile__form__labels">Last Name</label>
-                            <input type="text" className="editprofile__form__inputs" name="lastname" id="editLastName" placeholder="Your Last Name" value={profile.last_name} onChange = {e => setProfile({last_name: e.target.value})}/><br/>
+                            <input type="text" className="editprofile__form__inputs" name="lastname" id="editLastName" placeholder="Your Last Name" value={last_name} onChange = {e => setLastName(e.target.value)}/><br/>
                             <label htmlFor="editPronouns" className="editprofile__form__labels">Pronouns</label>
-                            <input type="text" className="editprofile__form__inputs" name="pronouns" id="editPronouns" placeholder="Your Pronouns" value={userDetails.pronouns} onChange = {e => setDetails({pronouns: e.target.value})}/><br/>
+                            <input type="text" className="editprofile__form__inputs" name="pronouns" id="editPronouns" placeholder="Your Pronouns" value={pronouns} onChange = {e => setPronouns(e.target.value)}/><br/>
                             <label htmlFor="editCompanyTitle" className="editprofile__form__labels">Company Title</label>
-                            <input type="text" className="editprofile__form__inputs" name="companytitle" id="editCompanyTitle" placeholder="Your Company Title" value={userDetails.department} onChange = {e => setDetails({department: e.target.value})}/><br/>
+                            <input type="text" className="editprofile__form__inputs" name="companytitle" id="editCompanyTitle" placeholder="Your Company Title" value={department} onChange = {e => setDepartment(e.target.value)}/><br/>
                             <label htmlFor="editEmail" className="editprofile__form__labels">Email</label>
-                            <input type="text" className="editprofile__form__inputs" name="email" id="editEmail" placeholder="Your Email" value={profile.email} onChange = {e => setProfile({email: e.target.value})}/><br/>
+                            <input type="text" className="editprofile__form__inputs" name="email" id="editEmail" placeholder="Your Email" value={email} onChange = {e => setEmail(e.target.value)}/><br/>
                             <hr />
                             <label htmlFor="editAvatar" className="editprofile__form__labels">Avatar</label>
                             <div className="editprofile__avatar__previews">

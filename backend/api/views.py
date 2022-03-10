@@ -19,6 +19,7 @@ from rest_framework import status
 from django.shortcuts import get_object_or_404
 from rest_framework.authtoken.models import Token
 
+from .serializers import UpdateProfileUser, UpdateProfileUserDetails
 
 class UserID(viewsets.ModelViewSet):
     
@@ -34,6 +35,7 @@ class UserViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
     authentication_classes = (TokenAuthentication,)
     #permission_classes = [IsAuthenticated]
+
 
 class UserDetailsViewSet(viewsets.ModelViewSet):
     queryset = UserDetails.objects.all()
@@ -100,16 +102,16 @@ class MessageViewSet(viewsets.ModelViewSet):
 
 
 
+class UpdateProfileUser(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UpdateProfileUser
+    authentication_classes = (TokenAuthentication,)
 
-
-
-
-
-
-
-
-
-
+class UpdateProfileUserDetails(viewsets.ModelViewSet):
+    queryset = UserDetails.objects.all()
+    serializer_class = UpdateProfileUserDetails
+    authentication_classes = (TokenAuthentication,)
+    lookup_field = 'userID'
 
 
 
