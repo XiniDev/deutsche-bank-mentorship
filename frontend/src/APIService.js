@@ -58,11 +58,11 @@ export default class APIService {
 
     }
 
-    static GetGroupByUserID(userID, array, type) {
+    static GetGroupByID(userID, array, IDtype) {
       const group = new Array()
       let n = 0
       for (let i = 0; i < array.length; i++){
-        switch (type) {
+        switch (IDtype) {
           case "userID":
             if(array[i].userID == userID){
               group[n] = array[i] 
