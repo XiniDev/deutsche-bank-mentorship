@@ -3,6 +3,8 @@ from django.urls import path, include
 from .views import UserViewSet,UserDetailsViewSet,MentorMenteeViewSet,MilestoneViewSet,EventViewSet,EventMenteeViewSet,SpecialtyViewSet,InterestViewSet,ReviewViewSet,ChatViewSet,MessageViewSet,UserID
 from rest_framework.routers import DefaultRouter
 
+from .views import UpdateProfileUser, UpdateProfileUserDetails
+
 #article_list, article_details, ArticleList, ArticleDetails
 
 router = DefaultRouter()
@@ -19,6 +21,10 @@ router.register('reviews', ReviewViewSet, basename = "reviews")
 router.register('chats', ChatViewSet, basename = "chats")
 router.register('messages', MessageViewSet, basename = "messages")
 router.register('userID', UserID, basename = "userID")
+
+
+router.register('updateProfileUser', UpdateProfileUser, basename = "updateProfileUser")
+router.register('updateProfileUserDetails', UpdateProfileUserDetails, basename = "updateProfileUserDetails")
 
 urlpatterns = [
     path('api/', include((router.urls,'api'),namespace='api'),)

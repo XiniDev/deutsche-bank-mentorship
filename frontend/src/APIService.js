@@ -32,7 +32,7 @@ export default class APIService {
 
     static ChangeProfile(body, userID, token) {
 
-      return fetch('http://127.0.0.1:8000/api/users/'+userID+'/', {
+      return fetch('http://127.0.0.1:8000/api/updateProfileUser/'+userID+'/', {
         'method':'PUT',
         headers: {
             'Content-Type':'application/json',
@@ -46,7 +46,7 @@ export default class APIService {
 
     static ChangeUserDetails(body, userID, token) {
 
-      return fetch('http://127.0.0.1:8000/api/userDetails/'+userID+'/', {
+      return fetch('http://127.0.0.1:8000/api/updateProfileUserDetails/'+userID+'/', {
         'method':'PUT',
         headers: {
             'Content-Type':'application/json',
