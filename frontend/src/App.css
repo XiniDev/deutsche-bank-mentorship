@@ -401,9 +401,10 @@ label {
 
 .editprofile {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
+  color: #124040;
 }
 
 .editprofile__img {
