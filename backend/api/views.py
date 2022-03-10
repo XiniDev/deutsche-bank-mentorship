@@ -22,12 +22,10 @@ from rest_framework.authtoken.models import Token
 from .serializers import UpdateProfileUser, UpdateProfileUserDetails
 
 class UserID(viewsets.ModelViewSet):
-    
     queryset = Token.objects.all()
     serializer_class = authToken
     authentication_classes = (TokenAuthentication,)
     #permission_classes = [IsAuthenticated]
-
 
 
 class UserViewSet(viewsets.ModelViewSet):

@@ -3,7 +3,26 @@ import Bar from './Bar';
 import plus from '../images/plus.svg';
 import $ from 'jquery';
 
+import { Calendar, momentLocalizer } from 'react-big-calendar'
+import moment from "moment"
+
+import '../styles/react-big-calendar.css';
+
+const localizer = momentLocalizer(moment);
+
 class Timetable extends Component {
+    state = {
+        events: [
+            {
+                start: moment().toDate(),
+                end: moment()
+                    .add(1, "days")
+                    .toDate(),
+                title: "Some title"
+            }
+        ]
+    };
+    
     componentDidMount() {
         $(function() {
             $(".expand__button").on("click", function() {
@@ -39,7 +58,7 @@ class Timetable extends Component {
                             <h1>Timetable</h1>
                             <hr />
                             <h2>Today's Sessions</h2>
-                            <div className='session__box'>
+                            <div className='session__box--timetable'>
                                 <div className='session__overview'>
                                     <div className='session__info'>
                                         <div className='session__title'>
@@ -58,7 +77,15 @@ class Timetable extends Component {
                                 </div>
                             </div>
                             <hr />
-                            <h2>Upcoming Sessions</h2>
+                            <div className='timetable'>
+                            <Calendar
+                                localizer={localizer}
+                                defaultDate={new Date()}
+                                defaultView="month"
+                                events={this.state.events}
+                                style={{ height: "600px" }}
+                            />
+                            </div>
                             <hr />
                         </div>
                     </div>
