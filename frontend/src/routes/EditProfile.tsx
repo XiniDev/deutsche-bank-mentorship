@@ -23,9 +23,6 @@ const EditProfile = () => {
     const [pronouns, setPronouns] = useState<any>([])
     const [department, setDepartment] = useState<any>([])
     const [email, setEmail] = useState<any>([])
-
-    // sus stuff
-    const [password, setPassword] = useState<any>([])
     
     useEffect(() => {
 
