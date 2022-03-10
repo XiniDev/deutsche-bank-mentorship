@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Alegreya&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alegreya:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 
 a {
@@ -850,6 +850,19 @@ label {
   z-index: 1;
 }
 
+.session__box--timetable {
+  border: 2px solid #9CBDBD;
+  border-radius: 3px;
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 15px;
+  padding-bottom: 5px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
 .plan__of__action {
   padding: 0 18px;
   max-height: 0;
@@ -873,6 +886,12 @@ label {
 .plan__tag:hover {
   border: 2px solid #124040;
   margin: 3px;
+}
+
+.timetable {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  font-family: 'Alegreya', serif;
 }
 
 .session__feedback__title {
