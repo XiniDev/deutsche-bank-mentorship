@@ -19,8 +19,6 @@ from rest_framework import status
 from django.shortcuts import get_object_or_404
 from rest_framework.authtoken.models import Token
 
-from .serializers import UpdateProfileUser, UpdateProfileUserDetails
-
 class UserID(viewsets.ModelViewSet):
     
     queryset = Token.objects.all()
