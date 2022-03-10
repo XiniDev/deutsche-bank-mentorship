@@ -1555,3 +1555,9 @@ label {
 .add__milestone__button:hover {
   background-color: #9CBDBD;
 }
+
+.error__message {
+  color: rgb(214, 56, 56);
+  font-size: 12px;
+  display: none;
+}
