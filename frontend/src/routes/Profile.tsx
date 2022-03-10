@@ -112,7 +112,10 @@ const Profile = () => {
                         <div className='profile__overview'>
                             <img src={rattusProfile} className="profile__picture"/>
                             <div className='profile__info'>
-                                <h1>{profile.first_name} {profile.last_name}</h1>
+                                <div className='profile__name__pronouns'>
+                                    <h1>{profile.first_name} {profile.last_name}</h1>
+                                    <p>{userDetails.pronouns}</p>
+                                </div>
                                 <hr />
                                 <div className='profile__title'>{userDetails.department}</div>
                                 <div className='profile__email'>{profile.email}</div>

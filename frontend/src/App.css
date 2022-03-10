@@ -380,6 +380,19 @@ label {
   align-items: start;
 }
 
+.profile__name__pronouns{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.profile__name__pronouns p {
+  color: #124040;
+  margin: 0px 0px 9px 10px;
+  padding: 0px;
+}
+
 .profile__title {
   font-size: 18px;
 }
