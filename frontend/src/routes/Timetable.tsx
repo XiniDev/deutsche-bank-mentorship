@@ -114,7 +114,7 @@ const Timetable: FC = () => {
                         <hr />
                         <div className='timetable'>
                         <DnDCalendar
-                            defaultView='week'
+                            defaultView='month'
                             events={events}
                             localizer={localizer}
                             onEventDrop={onEventDrop}

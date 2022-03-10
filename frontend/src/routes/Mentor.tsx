@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { FC, useEffect } from 'react';
 import Bar from './Bar';
 import beaProfile from '../images/beaProfile.png';
 import plus from '../images/plus.svg';
@@ -10,8 +10,8 @@ import { Link } from "react-router-dom";
 
 import $ from 'jquery';
 
-class Mentor extends Component {
-    componentDidMount() {
+const Mentor: FC = () => {
+    useEffect(() => {
         $(function() {
             $(".expand__button").on("click", function() {
                 console.log("I have been clicked");
@@ -35,131 +35,129 @@ class Mentor extends Component {
                 $(this).toggleClass("active");
             });
         });
-    }
-    render() {
-        return (
-            <div className='background'>
-                <div className='container'>
-                    <Bar />
-                    <div className='content__background'>
-                        <div className='content'>
+    }, []);
+    return (
+        <div className='background'>
+            <div className='container'>
+                <Bar />
+                <div className='content__background'>
+                    <div className='content'>
 
-                            <Link to="/mentors">
-                                 <div className='back__button'>&#171; BACK</div>
+                        <Link to="/mentors">
+                                <div className='back__button'>&#171; BACK</div>
+                        </Link>
+
+                        <div className='upcoming__sessions'>
+                            <h1>Mentor</h1>
+                            <Link to="/timeline" className="timeline__link">
+                                <img src={pin} className="timeline__img"/>
+                                View Timeline
                             </Link>
-
-                            <div className='upcoming__sessions'>
-                                <h1>Mentor</h1>
-                                <Link to="/timeline" className="timeline__link">
-                                    <img src={pin} className="timeline__img"/>
-                                    View Timeline
-                                </Link>
-                            </div>
-                            <hr />
-
-                            <div className='mentee__box'>
-                                <div className='user__info'>
-                                    <img src={beaProfile} className="user__box__icon"/>
-                                    <div className='user__box__info'>
-                                        <h2>Bea</h2>
-                                        <p>She/Her</p>
-                                        <div className='user__box__title'>HR (Honey Resources)</div>
-                                    </div>
-                                </div>
-                                <div className='cancel__relationship__button'>Cancel Relationship</div>
-                            </div>
-                            <hr />
-                            
-                            <div className='upcoming__sessions'>
-                                <h1>Course Information</h1>
-                                <Link to="/editmilestones" className='edit__milestone__button'>
-                                    <img src={pencil} className="edit__symbol"/>
-                                    Edit Milestones
-                                </Link>
-                            </div>
-
-                            <div className='relationship__info__box'>
-                                <p>Topic: Fine Art</p>
-                                <p>Started course on: 22/01/2022</p>
-                                <p>Milestones:</p>
-                                <ol>
-                                    <li>Make 10 sketches</li>
-                                    <li>Make 5 oil paintings</li>
-                                    <li>Hold small exhibition at office</li>
-                                </ol>
-                            </div>
-                            <hr />
-
-                            <div className='upcoming__sessions'>
-                                <h1>Upcoming Sessions</h1>
-                                <Link to="/requestsession">
-                                    <div className='add__session__button'>
-                                        <img src={plus} className="plus__symbol"/>
-                                        Request Session
-                                    </div>
-                                </Link>
-                            </div>
-
-                            <div className='session__box'>
-                                <div className='session__overview'>
-                                    <div className='session__info'>
-                                        <div className='session__title'>
-                                            Tuesday, Feburary 1st 
-                                            <div className='user__box__tag'>Fine Art</div>
-                                        </div>
-                                        Focus: First set of landscape sketches
-                                    </div>
-                                    <img src={plus} className="expand__button"/>
-                                </div>
-                                <div className="plan__of__action">
-                                    <div className='plan__tag'>Straighten back</div>
-                                    <div className='plan__tag'>Jumping position</div>
-                                    <div className='plan__tag'>Make the jump</div>
-                                    <div className='plan__tag'>Land without fail</div>
-                                </div>
-                            </div>
-
-                            <hr/>
-                            <h1>Previous Sessions</h1>
-
-                            <div className='session__box'>
-                                <div className='session__overview'>
-                                    <div className='session__info'>
-                                        <div className='session__title'>
-                                            Tuesday, January 25th 
-                                            <div className='user__box__tag'>Fine Art</div>
-                                        </div>
-                                        Focus: Talk about art history
-                                    </div>
-                                    <img src={plus} className="expand__button"/>
-                                </div>
-                                <div className="plan__of__action">
-                                    <div className='plan__tag'>Straighten back</div>
-                                    <div className='plan__tag'>Jumping position</div>
-                                    <div className='plan__tag'>Make the jump</div>
-                                    <div className='plan__tag'>Land without fail</div>
-                                    <hr/>
-                                    <div className="session__feedback__title">Session Feedback</div>
-                                    <div className='session__feedback'>
-                                        <div className='session__feedback__text'>
-                                            Talked about famous artists and their lives. Rattus has some good knowledge and that can be further expanded by reading some of the books I recommended to them. They should also have a look art supplies that fall into their budget.
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <hr />
-
-                            <Link to="/ratementor" className='center'>
-                                <div className='general__button'>Rate Mentor</div>
-                            </Link>
-
                         </div>
+                        <hr />
+
+                        <div className='mentee__box'>
+                            <div className='user__info'>
+                                <img src={beaProfile} className="user__box__icon"/>
+                                <div className='user__box__info'>
+                                    <h2>Bea</h2>
+                                    <p>She/Her</p>
+                                    <div className='user__box__title'>HR (Honey Resources)</div>
+                                </div>
+                            </div>
+                            <div className='cancel__relationship__button'>Cancel Relationship</div>
+                        </div>
+                        <hr />
+                        
+                        <div className='upcoming__sessions'>
+                            <h1>Course Information</h1>
+                            <Link to="/editmilestones" className='edit__milestone__button'>
+                                <img src={pencil} className="edit__symbol"/>
+                                Edit Milestones
+                            </Link>
+                        </div>
+
+                        <div className='relationship__info__box'>
+                            <p>Topic: Fine Art</p>
+                            <p>Started course on: 22/01/2022</p>
+                            <p>Milestones:</p>
+                            <ol>
+                                <li>Make 10 sketches</li>
+                                <li>Make 5 oil paintings</li>
+                                <li>Hold small exhibition at office</li>
+                            </ol>
+                        </div>
+                        <hr />
+
+                        <div className='upcoming__sessions'>
+                            <h1>Upcoming Sessions</h1>
+                            <Link to="/requestsession">
+                                <div className='add__session__button'>
+                                    <img src={plus} className="plus__symbol"/>
+                                    Request Session
+                                </div>
+                            </Link>
+                        </div>
+
+                        <div className='session__box'>
+                            <div className='session__overview'>
+                                <div className='session__info'>
+                                    <div className='session__title'>
+                                        Tuesday, Feburary 1st 
+                                        <div className='user__box__tag'>Fine Art</div>
+                                    </div>
+                                    Focus: First set of landscape sketches
+                                </div>
+                                <img src={plus} className="expand__button"/>
+                            </div>
+                            <div className="plan__of__action">
+                                <div className='plan__tag'>Straighten back</div>
+                                <div className='plan__tag'>Jumping position</div>
+                                <div className='plan__tag'>Make the jump</div>
+                                <div className='plan__tag'>Land without fail</div>
+                            </div>
+                        </div>
+
+                        <hr/>
+                        <h1>Previous Sessions</h1>
+
+                        <div className='session__box'>
+                            <div className='session__overview'>
+                                <div className='session__info'>
+                                    <div className='session__title'>
+                                        Tuesday, January 25th 
+                                        <div className='user__box__tag'>Fine Art</div>
+                                    </div>
+                                    Focus: Talk about art history
+                                </div>
+                                <img src={plus} className="expand__button"/>
+                            </div>
+                            <div className="plan__of__action">
+                                <div className='plan__tag'>Straighten back</div>
+                                <div className='plan__tag'>Jumping position</div>
+                                <div className='plan__tag'>Make the jump</div>
+                                <div className='plan__tag'>Land without fail</div>
+                                <hr/>
+                                <div className="session__feedback__title">Session Feedback</div>
+                                <div className='session__feedback'>
+                                    <div className='session__feedback__text'>
+                                        Talked about famous artists and their lives. Rattus has some good knowledge and that can be further expanded by reading some of the books I recommended to them. They should also have a look art supplies that fall into their budget.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr />
+
+                        <Link to="/ratementor" className='center'>
+                            <div className='general__button'>Rate Mentor</div>
+                        </Link>
+
                     </div>
                 </div>
             </div>
-        );
-    }
+        </div>
+    );
 }
 
 export default Mentor;
