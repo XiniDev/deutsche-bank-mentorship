@@ -1,6 +1,8 @@
 import React from 'react';
 import Bar from './Bar';
 
+import { Link } from "react-router-dom";
+
 const EditMilestones = () => {
     return (
         <div className='background'>
@@ -8,6 +10,11 @@ const EditMilestones = () => {
                 <Bar />
                 <div className='content__background'>
                     <div className='content'>
+
+                        <Link to="/mentor">
+                            <div className='back__button'>&#171; BACK</div>
+                        </Link>
+
                         <h1>Edit Milestones</h1>
                         <hr />
                         <div className='milestones__edit'>

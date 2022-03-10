@@ -20,7 +20,7 @@ const Feedback = () => {
                                 <input type="text" name="title"/><br/>
                                 <textarea name="message"></textarea><br/>
                                 <input type="checkbox" name="anon"/><br/>
-                                <input type="submit" className="submit__button" value="Create Session"/>
+                                <input type="submit" className="submit__button" value="Submit Feedback"/>
                             </form>
                         </div>
                         <hr />
