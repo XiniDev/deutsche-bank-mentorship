@@ -51,7 +51,7 @@ const Login = () => {
                     </div>
                     <form className="login__form">
                         <label>
-                            <input type="username" name="username" id="username" placeholder="username"
+                            <input type="username" name="username" id="username" placeholder="Username"
                             value = {username} onChange = {e => setUsername(e.target.value)}/><br/>
                         </label>
                         <label>
