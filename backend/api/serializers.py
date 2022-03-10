@@ -90,15 +90,3 @@ class MessageSerializer(serializers.ModelSerializer):
         model = ChatMessages
         fields = ['id', 'chatID', 'userID','content','date_sent']
 
-
-
-
-class UpdateProfileUser(serializers.ModelSerializer):
-    class Meta:
-        model = User
-        fields = ['username', 'email', 'first_name', 'last_name']
-
-class UpdateProfileUserDetails(serializers.ModelSerializer):
-    class Meta:
-        model = UserDetails
-        fields = ['department', 'pronouns']

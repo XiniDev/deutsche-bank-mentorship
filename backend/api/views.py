@@ -102,18 +102,3 @@ class MessageViewSet(viewsets.ModelViewSet):
 
 
 
-class UpdateProfileUser(viewsets.ModelViewSet):
-    queryset = User.objects.all()
-    serializer_class = UpdateProfileUser
-    authentication_classes = (TokenAuthentication,)
-
-class UpdateProfileUserDetails(viewsets.ModelViewSet):
-    queryset = UserDetails.objects.all()
-    serializer_class = UpdateProfileUserDetails
-    authentication_classes = (TokenAuthentication,)
-    lookup_field = 'userID'
-
-
-
-
-
