@@ -114,5 +114,16 @@ export default class APIService {
       .then(resp => resp.json())
     }
 
+    static getEvents(userID, token) {
+      return fetch('http://127.0.0.1:8000/api/events/'+userID, {
+        'method':'GET',
+        headers: {
+            'Content-Type':'application/json',
+            'Authorization':`Token ${token}` 
+        }
+      })
+      .then(resp => resp.json())
+    }
+
 
 }
