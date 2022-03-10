@@ -58,6 +58,7 @@ class EventViewSet(viewsets.ModelViewSet):
     queryset = Events.objects.all()
     serializer_class = EventSerializer
     authentication_classes = (TokenAuthentication,)
+    lookup_field = 'mentorID'
     #permission_classes = [IsAuthenticated]
 
 class EventMenteeViewSet(viewsets.ModelViewSet):

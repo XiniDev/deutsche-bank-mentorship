@@ -53,7 +53,7 @@ class MilestoneSerializer(serializers.ModelSerializer):
 class EventSerializer(serializers.ModelSerializer):
     class Meta:
         model = Events
-        fields = ['eventID', 'mentorID', 'topic','description','start_time','end_time','location']
+        fields = ['mentorID', 'topic','description','start_time','end_time','location']
 
 
 class EventMenteesSerializer(serializers.ModelSerializer):
