@@ -78,32 +78,57 @@ const EditProfile = () => {
                             <h2>Edit Profile</h2>
                         </div>
                         <hr />
-                        <form className="editprofile__form">
-                            <label htmlFor="editFirstName" className="editprofile__form__labels">First Name</label>
-                            <input type="text" className="editprofile__form__inputs" name="firstname" id="editFirstName" placeholder="Your First Name" value={first_name} onChange = {e => setFirstName(e.target.value)}/><br/>
-                            <label htmlFor="editLastName" className="editprofile__form__labels">Last Name</label>
-                            <input type="text" className="editprofile__form__inputs" name="lastname" id="editLastName" placeholder="Your Last Name" value={last_name} onChange = {e => setLastName(e.target.value)}/><br/>
-                            <label htmlFor="editPronouns" className="editprofile__form__labels">Pronouns</label>
-                            <input type="text" className="editprofile__form__inputs" name="pronouns" id="editPronouns" placeholder="Your Pronouns" value={pronouns} onChange = {e => setPronouns(e.target.value)}/><br/>
-                            <label htmlFor="editCompanyTitle" className="editprofile__form__labels">Company Title</label>
-                            <input type="text" className="editprofile__form__inputs" name="companytitle" id="editCompanyTitle" placeholder="Your Company Title" value={department} onChange = {e => setDepartment(e.target.value)}/><br/>
-                            <label htmlFor="editEmail" className="editprofile__form__labels">Email</label>
-                            <input type="text" className="editprofile__form__inputs" name="email" id="editEmail" placeholder="Your Email" value={email} onChange = {e => setEmail(e.target.value)}/><br/>
-                            <hr />
-                            <label htmlFor="editAvatar" className="editprofile__form__labels">Avatar</label>
-                            <div className="editprofile__avatar__previews">
-                                <img src={rattusProfile} className="editprofile__avatar__preview--large"/>
-                                <img src={rattusProfile} className="editprofile__avatar__preview--medium"/>
-                                <img src={rattusProfile} className="editprofile__avatar__preview--small"/>
-                            </div>
-                            <input type="file" className="editprofile__form__inputs--file" name="avatar" id="editAvatar"/><br/>
-                            <hr />
-                            <div className="editprofile__form__buttons">
-                                <Link to="/profile" className="editprofile__form__buttons__cancel">Cancel</Link>
-                                <input type="submit" className="submit__button" value="Done" onClick = {EditProfileBtn}/>
-                            </div>
-                            
-                        </form>
+                        <div className='editprofile'>
+                            <form className="editprofile__form">
+
+                                <div className='editprofile__fields'>
+
+                                    <div className='editprofile__field'>
+                                        <label htmlFor="editFirstName" className="editprofile__form__labels">First Name</label>
+                                        <input type="text" className="editprofile__form__inputs" name="firstname" id="editFirstName" placeholder="Your First Name" value={first_name} onChange = {e => setFirstName(e.target.value)}/>
+                                    </div>
+
+                                    <div className='editprofile__field'>
+                                        <label htmlFor="editLastName" className="editprofile__form__labels">Last Name</label>
+                                        <input type="text" className="editprofile__form__inputs" name="lastname" id="editLastName" placeholder="Your Last Name" value={last_name} onChange = {e => setLastName(e.target.value)}/>
+                                    </div>
+
+                                    <div className='editprofile__field'>
+                                        <label htmlFor="editPronouns" className="editprofile__form__labels">Pronouns</label>
+                                        <input type="text" className="editprofile__form__inputs" name="pronouns" id="editPronouns" placeholder="Your Pronouns" value={pronouns} onChange = {e => setPronouns(e.target.value)}/>
+                                    </div>
+
+                                    <div className='editprofile__field'>
+                                        <label htmlFor="editCompanyTitle" className="editprofile__form__labels">Company Title</label>
+                                        <input type="text" className="editprofile__form__inputs" name="companytitle" id="editCompanyTitle" placeholder="Your Company Title" value={department} onChange = {e => setDepartment(e.target.value)}/>
+                                    </div>
+
+                                    <div className='editprofile__field'>
+                                        <label htmlFor="editEmail" className="editprofile__form__labels">Email</label>
+                                        <input type="text" className="editprofile__form__inputs" name="email" id="editEmail" placeholder="Your Email" value={email} onChange = {e => setEmail(e.target.value)}/>
+                                    </div>
+                                
+                                </div>
+
+                                <hr />
+                                
+                                <span className='avatar__title'>Avatar</span>
+                                <div className="editprofile__avatar__previews">
+                                    <img src={rattusProfile} className="editprofile__avatar__preview--large"/>
+                                    <img src={rattusProfile} className="editprofile__avatar__preview--medium"/>
+                                    <img src={rattusProfile} className="editprofile__avatar__preview--small"/>
+                                </div>
+                                <input type="file" className="editprofile__form__inputs--file" name="avatar" id="editAvatar"/><br/>
+
+                                <hr />
+
+                                <div className="editprofile__form__buttons">
+                                    <Link to="/profile" className="editprofile__form__buttons__cancel">Cancel</Link>
+                                    <input type="submit" className="submit__button" value="Done" onClick = {EditProfileBtn}/>
+                                </div>
+
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

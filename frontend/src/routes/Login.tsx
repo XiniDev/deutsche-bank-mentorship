@@ -21,8 +21,13 @@ const Login = () => {
         .then(resp => {
             console.log(resp.token)
             if (resp.token) setToken('mytoken',resp.token)
-            else console.log(resp)
-        }).catch(error => console.log(error))
+            else {
+                console.log(resp)
+                document.getElementById('err__msg')!.style.display = "block";
+            }
+        }).catch(error => {
+            console.log(error)
+        })
         console.log(token)
     }
     
@@ -58,6 +63,7 @@ const Login = () => {
                             <input type="password" name="password" id="password" placeholder="Password"
                             value = {password} onChange = {e => setPassword(e.target.value)}/><br/>
                         </label>
+                        <div className='error__message' id='err__msg'>Incorrect details. Please try again.</div>
                         <input type="submit" className="submit__button" value="Sign In" onClick = {loginBtn}/>
                     </form>
                 </div>

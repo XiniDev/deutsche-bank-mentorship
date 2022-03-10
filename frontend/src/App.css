@@ -400,12 +400,10 @@ label {
 }
 
 .editprofile {
-  height: 20px;
-  margin-bottom: 11px;
   display: flex;
-  flex-direction: row;
-  font-size: 18px;
-  color: #124040;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .editprofile__img {
@@ -417,20 +415,40 @@ label {
 }
 
 .editprofile__form {
-  margin: 30px 0px 0px 0px;
+  margin-top: 30px;
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .editprofile__form > hr {
   margin: 20px 0px;
 }
 
+.editprofile__fields {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.editprofile__field {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .editprofile__form__labels {
   display: block;
   float: left;
-  width: 170px;
   margin-right: 10px;
   text-align: right;
-  font-size: 24px;
+  font-size: 18px;
 }
 
 .editprofile__form__labels:after {
@@ -438,26 +456,39 @@ label {
 }
 
 .editprofile__form__inputs {
+  font-family: 'Nunito', sans-serif;
   display: block;
-  width: 710px;
+  width: 300px;
   height: 30px;
   background: #FFFFFF;
   border: 1px solid #9CBDBD;
+  border-radius: 3px;
+  box-sizing: border-box;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.editprofile__form__inputs ::placeholder {
+  margin-left: 10px;
+}
+
+.editprofile__form__inputs--file {
+  font-family: 'Nunito', sans-serif;
+  display: block;
+  height: 35px;
+  padding: 3px;
+  margin-top: 20px;
+  background: #FFFFFF;
+  border: 1px solid #9CBDBD;
+  border-radius: 3px;
   box-sizing: border-box;
   font-size: 18px;
   color: rgba(0, 0, 0, 0.5);
 }
 
-.editprofile__form__inputs--file {
-  display: block;
-  width: 710px;
-  height: 30px;
-  margin: 15px 0px 0px 180px;
-  background: #FFFFFF;
-  border: 1px solid #9CBDBD;
-  box-sizing: border-box;
-  font-size: 18px;
-  color: rgba(0, 0, 0, 0.5);
+.avatar__title {
+  font-size: 20px;
+  margin-bottom: 15px;
 }
 
 .editprofile__avatar__previews {
@@ -490,7 +521,7 @@ label {
 .editprofile__form__buttons__cancel {
   width: 150px;
   height: auto;
-  margin: 10px 0px 25px 0px;
+  margin: 10px 20px 25px 0px;
   padding: 8px 0px;
   background-color: #9CBDBD;
   text-align: center;
