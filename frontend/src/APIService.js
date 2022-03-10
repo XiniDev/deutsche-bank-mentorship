@@ -58,6 +58,19 @@ export default class APIService {
 
     }
 
+    
+    static GetGroupByUserID(userID, array) {
+        const group = new Array()
+        let n = 0
+        for (let i = 0; i < array.length; i++){
+            if(array[i].userID == userID){
+                group[n] = array[i] 
+                n += 1
+            }
+        }
+        return group
+    }
+
 
     static getUserID(tokenString,token) {
       return fetch('http://127.0.0.1:8000/api/userID/'+tokenString, {
@@ -114,8 +127,8 @@ export default class APIService {
       .then(resp => resp.json())
     }
 
-    static getEvents(userID, token) {
-      return fetch('http://127.0.0.1:8000/api/events/'+userID, {
+    static getEvents(token) {
+      return fetch('http://127.0.0.1:8000/api/events/', {
         'method':'GET',
         headers: {
             'Content-Type':'application/json',
@@ -124,6 +137,8 @@ export default class APIService {
       })
       .then(resp => resp.json())
     }
+
+    
 
 
 }

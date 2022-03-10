@@ -8,19 +8,6 @@ import {useNavigate} from 'react-router-dom';
 import { Link, Navigate } from "react-router-dom";
 import APIService from '../APIService';
 
-
-function GetGroupByUserID(userID: any,array: any){
-    const group = new Array()
-    let n = 0
-    for (let i = 0; i < array.length; i++){
-        if(array[i].userID == userID){
-            group[n] = array[i] 
-            n += 1
-        }
-    }
-    return group
-}
-
 function RenderGroup(group:any){
         
     if(group.length == 1){
@@ -80,8 +67,8 @@ const Profile = () => {
         APIService.getUserID(`${token['mytoken']}`,token['mytoken']).then(resp => setID(resp.user))
         APIService.getProfile(userID, token['mytoken']).then(resp => setProfile(resp))
         APIService.getUserDetails(userID, token['mytoken']).then(resp => setDetails(resp))
-        APIService.getSpecialties(token['mytoken']).then(resp => setSpecs(GetGroupByUserID(userID,resp)))
-        APIService.getInterests(token['mytoken']).then(resp => setInterests(GetGroupByUserID(userID,resp)))
+        APIService.getSpecialties(token['mytoken']).then(resp => setSpecs(APIService.GetGroupByUserID(userID,resp)))
+        APIService.getInterests(token['mytoken']).then(resp => setInterests(APIService.GetGroupByUserID(userID,resp)))
         
         
     }, [userID])   
