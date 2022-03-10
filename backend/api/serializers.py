@@ -91,6 +91,7 @@ class MessageSerializer(serializers.ModelSerializer):
         fields = ['id', 'chatID', 'userID','content','date_sent']
 
 
+
 class UpdateProfileUser(serializers.ModelSerializer):
     class Meta:
         model = User
