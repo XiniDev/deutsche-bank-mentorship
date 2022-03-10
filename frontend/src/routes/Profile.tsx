@@ -67,8 +67,8 @@ const Profile = () => {
         APIService.getUserID(`${token['mytoken']}`,token['mytoken']).then(resp => setID(resp.user))
         APIService.getProfile(userID, token['mytoken']).then(resp => setProfile(resp))
         APIService.getUserDetails(userID, token['mytoken']).then(resp => setDetails(resp))
-        APIService.getSpecialties(token['mytoken']).then(resp => setSpecs(APIService.GetGroupByUserID(userID,resp)))
-        APIService.getInterests(token['mytoken']).then(resp => setInterests(APIService.GetGroupByUserID(userID,resp)))
+        APIService.getSpecialties(token['mytoken']).then(resp => setSpecs(APIService.GetGroupByUserID(userID,resp,"userID")))
+        APIService.getInterests(token['mytoken']).then(resp => setInterests(APIService.GetGroupByUserID(userID,resp,"userID")))
         
         
     }, [userID])   

@@ -58,19 +58,35 @@ export default class APIService {
 
     }
 
-    
-    static GetGroupByUserID(userID, array) {
-        const group = new Array()
-        let n = 0
-        for (let i = 0; i < array.length; i++){
+    static GetGroupByUserID(userID, array, type) {
+      const group = new Array()
+      let n = 0
+      for (let i = 0; i < array.length; i++){
+        switch (type) {
+          case "userID":
             if(array[i].userID == userID){
-                group[n] = array[i] 
-                n += 1
+              group[n] = array[i] 
+              n += 1
             }
+            break;
+          case "mentorID":
+            if(array[i].mentorID == userID){
+              group[n] = array[i] 
+              n += 1
+            }
+            break;
+          case "menteeID":
+            if(array[i].menteeID == userID){
+              group[n] = array[i] 
+              n += 1
+            }
+            break;
+          default:
+            break;
         }
-        return group
+      }
+      return group
     }
-
 
     static getUserID(tokenString,token) {
       return fetch('http://127.0.0.1:8000/api/userID/'+tokenString, {
