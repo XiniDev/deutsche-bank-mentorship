@@ -14,6 +14,7 @@ import parse from 'date-fns/parse';
 import startOfWeek from 'date-fns/startOfWeek';
 import getDay from 'date-fns/getDay';
 import enUS from 'date-fns/locale/en-US';
+import isSameDay from 'date-fns/isSameDay'
 
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import '../styles/react-big-calendar.css';
@@ -56,6 +57,7 @@ const Timetable: FC = () => {
     }, [userID])
 
     const [events, setEvents] = useState<Event[]>([]);
+    const [eventsToday] = useState<any[]>([]);
 
     useEffect(() => {
         for (let i = 0; i < eventsDB.length; i++) {
@@ -65,6 +67,7 @@ const Timetable: FC = () => {
                 end: new Date(eventsDB[i].end_time),
             }
             events.push(newEvent as Event)
+            if (isSameDay(new Date(eventsDB[i].start_time), new Date())) eventsToday.push(eventsDB[i])
         }
     }, [eventsDB])
 
@@ -128,33 +131,33 @@ const Timetable: FC = () => {
                         </div>
                         <hr />
                         <div className='timetable'>
-                        <DnDCalendar
-                            defaultView='month'
-                            events={events}
-                            localizer={localizer}
-                            onEventDrop={onEventDrop}
-                            onEventResize={onEventResize}
-                            resizable
-                            messages={{
-                                date: 'Date',
-                                time: 'Time',
-                                event: 'Event',
-                                allDay: 'All Day',
-                                week: 'Week',
-                                work_week: 'Work Week',
-                                day: 'Day',
-                                month: 'Month',
-                                previous: 'Back',
-                                next: 'Next',
-                                yesterday: 'Yesterday',
-                                tomorrow: 'Tomorrow',
-                                today: 'Today',
-                                agenda: 'Agenda',
-                                noEventsInRange: 'There are no events in this range.',
-                                showMore: total => `+${total} more`,
-                            }}
-                            style={{ height: '600px' }}
-                        />
+                            <DnDCalendar
+                                defaultView='month'
+                                events={events}
+                                localizer={localizer}
+                                onEventDrop={onEventDrop}
+                                onEventResize={onEventResize}
+                                resizable
+                                messages={{
+                                    date: 'Date',
+                                    time: 'Time',
+                                    event: 'Event',
+                                    allDay: 'All Day',
+                                    week: 'Week',
+                                    work_week: 'Work Week',
+                                    day: 'Day',
+                                    month: 'Month',
+                                    previous: 'Back',
+                                    next: 'Next',
+                                    yesterday: 'Yesterday',
+                                    tomorrow: 'Tomorrow',
+                                    today: 'Today',
+                                    agenda: 'Agenda',
+                                    noEventsInRange: 'There are no events in this range.',
+                                    showMore: total => `+${total} more`,
+                                }}
+                                style={{ height: '600px' }}
+                            />
                         </div>
                         <hr />
                     </div>
