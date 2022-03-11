@@ -2,10 +2,9 @@ import Bar from './Bar';
 import rattusProfile from '../images/rattusProfile.png';
 import pencil from '../images/pencil.svg';
 
-import React, { Component, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import {useCookies} from 'react-cookie';
-import {useNavigate} from 'react-router-dom';
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import APIService from '../APIService';
 
 function RenderGroup(group:any){
