@@ -3,6 +3,9 @@ import Bar from './Bar';
 import plus from '../images/plus.svg';
 import $ from 'jquery';
 
+import {useCookies} from 'react-cookie';
+import APIService from '../APIService';
+
 import { Calendar, dateFnsLocalizer, Event } from 'react-big-calendar';
 import withDragAndDrop, { withDragAndDropProps } from 'react-big-calendar/lib/addons/dragAndDrop';
 
@@ -14,25 +17,8 @@ import enUS from 'date-fns/locale/en-US';
 import addHours from 'date-fns/addHours';
 import startOfHour from 'date-fns/startOfHour';
 
+import 'react-big-calendar/lib/css/react-big-calendar.css';
 import '../styles/react-big-calendar.css';
-
-const locales = {
-    'en-US': enUS,
-}
-
-const endOfHour = (date: Date): Date => addHours(startOfHour(date), 1)
-const now = new Date()
-const start = endOfHour(now)
-const end = addHours(start, 2)
-
-const localizer = dateFnsLocalizer({
-    format,
-    parse,
-    startOfWeek,
-    getDay,
-    locales,
-})
-const DnDCalendar = withDragAndDrop(Calendar as any)
 
 const Timetable: FC = () => {
     useEffect(() => {
@@ -61,6 +47,35 @@ const Timetable: FC = () => {
         });
     }, []);
 
+    const [userID, setID] = useState<any>([])
+    const [eventsDB, setEventsDB] = useState<any>([])
+
+    const [token] = useCookies(['mytoken'])
+
+    useEffect(() => {
+        APIService.getUserID(`${token['mytoken']}`,token['mytoken']).then(resp => setID(resp.user))
+        APIService.getEvents(token['mytoken']).then(resp => setEventsDB(APIService.GetGroupByID(userID, resp, "mentorID")))
+        console.log(token['mytoken'], userID, eventsDB)
+    }, [userID])
+
+    const locales = {
+        'en-US': enUS,
+    }
+
+    const endOfHour = (date: Date): Date => addHours(startOfHour(date), 1)
+    const now = new Date()
+    const start = endOfHour(now)
+    const end = addHours(start, 2)
+
+    const localizer = dateFnsLocalizer({
+        format,
+        parse,
+        startOfWeek,
+        getDay,
+        locales,
+    })
+    const DnDCalendar = withDragAndDrop(Calendar as any)
+
     const [events, setEvents] = useState<Event[]>([
         {
             title: 'Learn cool stuff',
@@ -84,6 +99,7 @@ const Timetable: FC = () => {
     const onEventDrop: withDragAndDropProps['onEventDrop'] = data => {
         console.log(data);
     };
+    
     return (
         <div className='background'>
             <div className='container'>
