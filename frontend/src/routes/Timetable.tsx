@@ -82,7 +82,9 @@ const Timetable: FC = () => {
     const localizer = dateFnsLocalizer({
         format,
         parse,
-        startOfWeek,
+        startOfWeek: () => {
+			return startOfWeek(new Date(), { weekStartsOn: 1 });
+		},
         getDay,
         locales,
     })
