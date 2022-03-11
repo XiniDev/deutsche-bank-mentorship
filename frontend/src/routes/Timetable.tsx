@@ -71,6 +71,8 @@ const Timetable: FC = () => {
         }
     }, [eventsDB])
 
+    const today = format(new Date(), "EEEE, LLLL do")
+
     const locales = {
         'en-US': enUS,
     }
@@ -115,7 +117,7 @@ const Timetable: FC = () => {
                             <div className='session__overview'>
                                 <div className='session__info'>
                                     <div className='session__title'>
-                                        Tuesday, Feburary 1st 
+                                        {today}
                                         <div className='user__box__tag'>Fine Art</div>
                                     </div>
                                     Focus: First set of landscape sketches
