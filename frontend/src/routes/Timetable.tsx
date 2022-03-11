@@ -14,8 +14,6 @@ import parse from 'date-fns/parse';
 import startOfWeek from 'date-fns/startOfWeek';
 import getDay from 'date-fns/getDay';
 import enUS from 'date-fns/locale/en-US';
-import addHours from 'date-fns/addHours';
-import startOfHour from 'date-fns/startOfHour';
 
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import '../styles/react-big-calendar.css';
@@ -73,11 +71,6 @@ const Timetable: FC = () => {
     const locales = {
         'en-US': enUS,
     }
-
-    // const endOfHour = (date: Date): Date => addHours(startOfHour(date), 1)
-    // const now = new Date()
-    // const start = endOfHour(now)
-    // const end = addHours(start, 2)
 
     const localizer = dateFnsLocalizer({
         format,
@@ -142,6 +135,24 @@ const Timetable: FC = () => {
                             onEventDrop={onEventDrop}
                             onEventResize={onEventResize}
                             resizable
+                            messages={{
+                                date: 'Date',
+                                time: 'Time',
+                                event: 'Event',
+                                allDay: 'All Day',
+                                week: 'Week',
+                                work_week: 'Work Week',
+                                day: 'Day',
+                                month: 'Month',
+                                previous: 'Back',
+                                next: 'Next',
+                                yesterday: 'Yesterday',
+                                tomorrow: 'Tomorrow',
+                                today: 'Today',
+                                agenda: 'Agenda',
+                                noEventsInRange: 'There are no events in this range.',
+                                showMore: total => `+${total} more`,
+                            }}
                             style={{ height: '600px' }}
                         />
                         </div>
