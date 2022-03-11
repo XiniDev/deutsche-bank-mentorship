@@ -15,6 +15,12 @@ const Register = () => {
     const [isLogin, setLogin] = useState(false)
     let navigate = useNavigate()
 
+    let userID = 0;
+    let department = "Employee"
+    let is_mentor = false
+    let pronouns = "Unknown"
+    let title = "XX."
+
     const emailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
     const RegisterBtn = async (e: React.FormEvent<HTMLInputElement>) => {
@@ -62,9 +68,16 @@ const Register = () => {
             const username = email.split("@")[0]
             const password = confpassword
             APIService.RegisterUser({first_name, last_name, email, username, password})
-            .then( () => {
-                navigate('/')
-                console.log()
+            .then( resp => {
+                console.log(resp)
+                userID = resp.id
+                console.log(userID)
+                APIService.RegisterUserDetails({userID, department, is_mentor, pronouns, title})
+                .then( resp2 => {
+                    navigate('/')
+                    console.log(resp2)
+                })
+                .catch(error2 => console.log(error2))
             })
             .catch( error => console.log(error))
         }
