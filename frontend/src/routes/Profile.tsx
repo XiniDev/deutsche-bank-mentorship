@@ -2,24 +2,10 @@ import Bar from './Bar';
 import rattusProfile from '../images/rattusProfile.png';
 import pencil from '../images/pencil.svg';
 
-import React, { Component, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import {useCookies} from 'react-cookie';
-import {useNavigate} from 'react-router-dom';
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import APIService from '../APIService';
-
-
-function GetGroupByUserID(userID: any,array: any){
-    const group = new Array()
-    let n = 0
-    for (let i = 0; i < array.length; i++){
-        if(array[i].userID == userID){
-            group[n] = array[i] 
-            n += 1
-        }
-    }
-    return group
-}
 
 function RenderGroup(group:any){
         
@@ -75,26 +61,17 @@ const Profile = () => {
     const [interests, setInterests] = useState<any>([])
     const [token] = useCookies(['mytoken'])
 
-    
-
-    
-
-    
     useEffect(() => {
         
         APIService.getUserID(`${token['mytoken']}`,token['mytoken']).then(resp => setID(resp.user))
         APIService.getProfile(userID, token['mytoken']).then(resp => setProfile(resp))
         APIService.getUserDetails(userID, token['mytoken']).then(resp => setDetails(resp))
-        APIService.getSpecialties(token['mytoken']).then(resp => setSpecs(GetGroupByUserID(userID,resp)))
-        APIService.getInterests(token['mytoken']).then(resp => setInterests(GetGroupByUserID(userID,resp)))
+        APIService.getSpecialties(token['mytoken']).then(resp => setSpecs(APIService.GetGroupByID(userID,resp,"userID")))
+        APIService.getInterests(token['mytoken']).then(resp => setInterests(APIService.GetGroupByID(userID,resp,"userID")))
         
         
     }, [userID])   
 
-    
-        
-    
-    
     return (
         <div className='background'>
             <div className='container'>
@@ -112,7 +89,10 @@ const Profile = () => {
                         <div className='profile__overview'>
                             <img src={rattusProfile} className="profile__picture"/>
                             <div className='profile__info'>
-                                <h1>{profile.first_name} {profile.last_name}</h1>
+                                <div className='profile__name__pronouns'>
+                                    <h1>{profile.first_name} {profile.last_name}</h1>
+                                    <p>{userDetails.pronouns}</p>
+                                </div>
                                 <hr />
                                 <div className='profile__title'>{userDetails.department}</div>
                                 <div className='profile__email'>{profile.email}</div>

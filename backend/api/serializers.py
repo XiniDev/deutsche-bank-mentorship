@@ -53,7 +53,7 @@ class MilestoneSerializer(serializers.ModelSerializer):
 class EventSerializer(serializers.ModelSerializer):
     class Meta:
         model = Events
-        fields = ['eventID', 'mentorID', 'topic','description','start_time','end_time','location']
+        fields = ['mentorID', 'topic','description','start_time','end_time','location']
 
 
 class EventMenteesSerializer(serializers.ModelSerializer):
@@ -92,3 +92,12 @@ class MessageSerializer(serializers.ModelSerializer):
 
 
 
+class UpdateProfileUser(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['username','email', 'first_name', 'last_name']
+
+class UpdateProfileUserDetails(serializers.ModelSerializer):
+    class Meta:
+        model = UserDetails
+        fields = ['department', 'pronouns']

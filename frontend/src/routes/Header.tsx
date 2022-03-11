@@ -15,13 +15,13 @@ const Header = () => {
     
     useEffect(() => {
         console.log(window.location.href)
-        if(window.location.href == "http://localhost:3000/") {
+        if(window.location.pathname == "/") {
             setLogin(true)
 
-        } else if(window.location.href == "http://localhost:3000/register") {
+        } else if(window.location.pathname == "/register") {
             setLogin(true)
 
-        } else if(window.location.href == "http://localhost:3000/profile") {
+        } else {
             setLogin(false)
 
         } 

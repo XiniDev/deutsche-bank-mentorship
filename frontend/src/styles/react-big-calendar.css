@@ -1,0 +1,21 @@
+/* css we changed compared to the original css */
+
+@charset "UTF-8";
+.rbc-event, .rbc-day-slot .rbc-background-event {
+  background-color: #9CBDBD;
+}
+
+.rbc-event.rbc-selected, .rbc-day-slot .rbc-selected.rbc-background-event {
+  background-color: #124040;
+}
+.rbc-event:focus, .rbc-day-slot .rbc-background-event:focus {
+  outline: 5px auto #124040;
+}
+
+.rbc-today {
+  background-color: rgba(156, 189, 189, 0.25);
+}
+
+.rbc-toolbar-label {
+  font-size: 30px;
+}
