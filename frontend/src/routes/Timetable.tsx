@@ -55,17 +55,29 @@ const Timetable: FC = () => {
     useEffect(() => {
         APIService.getUserID(`${token['mytoken']}`,token['mytoken']).then(resp => setID(resp.user))
         APIService.getEvents(token['mytoken']).then(resp => setEventsDB(APIService.GetGroupByID(userID, resp, "mentorID")))
-        console.log(token['mytoken'], userID, eventsDB)
     }, [userID])
+
+    const [events, setEvents] = useState<Event[]>([]);
+
+    useEffect(() => {
+        for (let i = 0; i < eventsDB.length; i++) {
+            const newEvent = {
+                title: eventsDB[i].topic,
+                start: new Date(eventsDB[i].start_time),
+                end: new Date(eventsDB[i].end_time),
+            }
+            events.push(newEvent as Event)
+        }
+    }, [eventsDB])
 
     const locales = {
         'en-US': enUS,
     }
 
-    const endOfHour = (date: Date): Date => addHours(startOfHour(date), 1)
-    const now = new Date()
-    const start = endOfHour(now)
-    const end = addHours(start, 2)
+    // const endOfHour = (date: Date): Date => addHours(startOfHour(date), 1)
+    // const now = new Date()
+    // const start = endOfHour(now)
+    // const end = addHours(start, 2)
 
     const localizer = dateFnsLocalizer({
         format,
@@ -76,14 +88,6 @@ const Timetable: FC = () => {
     })
     const DnDCalendar = withDragAndDrop(Calendar as any)
 
-    const [events, setEvents] = useState<Event[]>([
-        {
-            title: 'Learn cool stuff',
-            start,
-            end,
-        },
-    ]);
-
     const onEventResize: withDragAndDropProps['onEventResize'] = data => {
         const { start, end } = data;
     
@@ -92,7 +96,7 @@ const Timetable: FC = () => {
                 start: new Date(start),
                 end: new Date(end),
             }
-        return [...currentEvents, firstEvent]
+            return [...currentEvents, firstEvent]
         })
     };
     
