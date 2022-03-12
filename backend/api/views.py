@@ -112,7 +112,10 @@ class UpdateProfileUserDetails(viewsets.ModelViewSet):
     authentication_classes = (TokenAuthentication,)
     lookup_field = 'userID'
 
-
-
+class GetMentorsByMentee(viewsets.ModelViewSet):
+    queryset = MentorMentees.objects.all()
+    serializer_class = MentorMenteeSerializer
+    authentication_classes = (TokenAuthentication,)
+    lookup_field = 'menteeID'
 
 

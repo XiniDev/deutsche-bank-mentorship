@@ -30,6 +30,20 @@ export default class APIService {
 
     }
 
+    static RegisterUserDetails(body) {
+
+      return fetch('http://127.0.0.1:8000/api/userDetails/', {
+        'method':'POST',
+        headers: {
+            'Content-Type':'application/json',
+            
+        }, 
+        body:JSON.stringify(body)
+
+      }).then(resp => resp.json())
+
+    }
+
     static ChangeProfile(body, userID, token) {
 
       return fetch('http://127.0.0.1:8000/api/updateProfileUser/'+userID+'/', {
@@ -147,6 +161,28 @@ export default class APIService {
 
     static getEvents(token) {
       return fetch('http://127.0.0.1:8000/api/events/', {
+        'method':'GET',
+        headers: {
+            'Content-Type':'application/json',
+            'Authorization':`Token ${token}` 
+        }
+      })
+      .then(resp => resp.json())
+    }
+
+    static getUsers(token) {
+      return fetch('http://127.0.0.1:8000/api/users/', {
+        'method':'GET',
+        headers: {
+            'Content-Type':'application/json',
+            'Authorization':`Token ${token}` 
+        }
+      })
+      .then(resp => resp.json())
+    }
+
+    static getPairings(token) {
+      return fetch('http://127.0.0.1:8000/api/pairings/', {
         'method':'GET',
         headers: {
             'Content-Type':'application/json',

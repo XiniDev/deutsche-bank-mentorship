@@ -43,7 +43,7 @@ class UserDetailSerializer(serializers.ModelSerializer):
 class MentorMenteeSerializer(serializers.ModelSerializer):
     class Meta:
         model = MentorMentees
-        fields = ['pairingID', 'mentorID', 'menteeID']
+        fields = ['mentorID', 'menteeID']
 
 class MilestoneSerializer(serializers.ModelSerializer):
     class Meta:

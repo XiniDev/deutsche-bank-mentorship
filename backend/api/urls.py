@@ -5,6 +5,8 @@ from rest_framework.routers import DefaultRouter
 
 from .views import UpdateProfileUser, UpdateProfileUserDetails
 
+from .views import GetMentorsByMentee
+
 #article_list, article_details, ArticleList, ArticleDetails
 
 router = DefaultRouter()
@@ -25,6 +27,8 @@ router.register('userID', UserID, basename = "userID")
 
 router.register('updateProfileUser', UpdateProfileUser, basename = "updateProfileUser")
 router.register('updateProfileUserDetails', UpdateProfileUserDetails, basename = "updateProfileUserDetails")
+
+router.register('getMentorsByMentee', GetMentorsByMentee, basename = "getMentorsByMentee")
 
 urlpatterns = [
     path('api/', include((router.urls,'api'),namespace='api'),)
