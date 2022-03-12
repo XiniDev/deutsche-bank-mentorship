@@ -83,7 +83,7 @@ function RenderMentor(MentorProfile:any,MentorSpecs:any,MentorDetails:any){
     if(MentorSpecs.length > 0){
         return(
             <div className='suggestion__box'>
-            <img src={beaProfile} className="suggested__mentor__profile"/>
+            <img src={rattusProfile} className="suggested__mentor__profile"/>
             <h2>{MentorProfile.first_name + ' ' + MentorProfile.last_name}</h2>
             {MentorDetails.department}
             {RenderInterests(MentorSpecs)}
@@ -100,7 +100,8 @@ function GetUserIDs(MentorSpecs:any){
     for (let i = 0; i < MentorSpecs.length; i++){
         IDs[i] = MentorSpecs[i].userID
     }
-    return IDs
+    //return IDs
+    return [1,2,3,4,5,6]
 }
 
 
@@ -141,9 +142,9 @@ const SuggestMentor = () => {
     const [MentorSpecs2, setMSpecs2] = useState<any>([])
     
     const [counter, setCounter] = useState(0);
-    const incrementCounter = () => setCounter(counter + 1);
-    let n = 0
-    console.log(counter)
+    const incrementCounter = () => {if(counter > ValidMentors.length){setCounter(0)}else{setCounter(counter + 3)}}
+    let ratings = ["5/5","4.5/5","4.0/5","2.5/5","1/5","0.5/5"]
+    
         
       
     
@@ -189,7 +190,7 @@ const SuggestMentor = () => {
             APIService.getUserDetails(MentorUserIDs[counter+2], token['mytoken']).then(resp => setMDetails2(resp))
             APIService.getSpecialties(token['mytoken']).then(resp => setMSpecs2(APIService.GetGroupByID(MentorUserIDs[counter+2],resp,"userID")))
         }catch{}
-        
+        console.log(ValidMentors)
 
     }, [MentorUserIDs])
     
@@ -212,18 +213,35 @@ const SuggestMentor = () => {
                         Your interests Include :{RenderInterests(interests)}
                         <div className='suggestion__container'>
 
-                            <Link to="/newmentor">
-                            {RenderMentor(MentorProfile,MentorSpecs,MentorDetails)}
+                            <Link to="/Rattus">
                             
+                            <div className='suggestion__box'>
+                            <img src={rattusProfile} className="suggested__mentor__profile"/>
+                            <h2>{MentorProfile.first_name + ' ' + MentorProfile.last_name}</h2>
+                            {MentorDetails.department}
+                            {RenderInterests(MentorSpecs)}
+                            {ratings[counter]}
+                            </div>
+                            </Link>
 
+                            <Link to="/Beetty">
+                            <div className='suggestion__box'>
+                            <img src={beaProfile} className="suggested__mentor__profile"/>
+                            <h2>{MentorProfile1.first_name + ' ' + MentorProfile1.last_name}</h2>
+                            {MentorDetails1.department}
+                            {RenderInterests(MentorSpecs1)}
+                            {ratings[counter+1]}
+                            </div>
                             </Link>
 
                             <Link to="/newmentor">
-                            {RenderMentor(MentorProfile1,MentorSpecs1,MentorDetails1)}
-                            </Link>
-
-                            <Link to="/newmentor">
-                            {RenderMentor(MentorProfile2,MentorSpecs2,MentorDetails2)}
+                            <div className='suggestion__box'>
+                            <img src={beaProfile} className="suggested__mentor__profile"/>
+                            <h2>{MentorProfile2.first_name + ' ' + MentorProfile2.last_name}</h2>
+                            {MentorDetails2.department}
+                            {RenderInterests(MentorSpecs2)}
+                            {ratings[counter+2]}
+                            </div>
                             </Link>
 
                         </div>
@@ -233,7 +251,7 @@ const SuggestMentor = () => {
                     
         
                     </div>
-                    <input className="submit__button" value="More Mentors" onClick = {incrementCounter}  />
+                    <input className="More__button" value="      More Mentors" onClick = {incrementCounter}  />
                 </div>
             </div>
         </div>

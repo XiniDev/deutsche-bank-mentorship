@@ -20,7 +20,8 @@ import Feedback from './routes/Feedback';
 import Inbox from './routes/Inbox';
 import AddGroupSession from './routes/AddGroupSession';
 import Timeline from './routes/Timeline';
-import NewMentor from './routes/NewMentor';
+import Rattus from './routes/Rattus';
+import Beetty from './routes/Beetty';
 import RateMentor from './routes/RateMentor';
 import EditMilestones from './routes/EditMilestones';
 import Error from './routes/Error';
@@ -51,7 +52,8 @@ function App() {
                     <Route path="/inbox" element={<Inbox/>}/>
                     <Route path="/addgroupsession" element={<AddGroupSession/>}/>
                     <Route path="/timeline" element={<Timeline/>}/>
-                    <Route path="/newmentor" element={<NewMentor/>}/>
+                    <Route path="/Rattus" element={<Rattus/>}/>
+                    <Route path="/Beetty" element={<Beetty/>}/>
                     <Route path="/ratementor" element={<RateMentor/>}/>
                     <Route path="/editmilestones" element={<EditMilestones/>}/>
                     <Route element={<Error/>}/>

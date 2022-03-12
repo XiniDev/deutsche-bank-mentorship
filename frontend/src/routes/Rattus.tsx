@@ -2,10 +2,15 @@ import React from 'react';
 import Bar from './Bar';
 import snalProfile from '../images/snalProfile.png';
 import beaProfile from '../images/beaProfile.png';
-
+import rattusProfile from '../images/rattusProfile.png';
 import { Link } from "react-router-dom";
-
+import APIService from '../APIService';
 const NewMentor = () => {
+    let menteeID = 6
+    let mentorID = 1
+    const mentorBtn = async (e: React.FormEvent<HTMLInputElement>) => {
+        APIService.RegisterPairing({menteeID,mentorID})
+    }
     return (
         <div className='background'>
             <div className='container'>
@@ -22,14 +27,14 @@ const NewMentor = () => {
 
                         <div className='mentee__box'>
                             <div className='user__info'>
-                                <img src={beaProfile} className="user__box__icon"/>
+                                <img src={rattusProfile} className="user__box__icon"/>
                                 <div className='user__box__info'>
-                                    <h2>Bea</h2>
-                                    <p>She/Her</p>
+                                    <h2>Rattus Cattus</h2>
+                                    <p>He/Him</p>
                                     <div className='user__box__title'>HR (Honey Resources)</div>
                                 </div>
                             </div>
-                            <div className='request__mentor__button'>Request to be Mentor</div>
+                            <input className='request__mentor__button' value="Request to be Mentor" onClick = {mentorBtn}  />
                         </div>
                         <hr />
                         
@@ -37,12 +42,12 @@ const NewMentor = () => {
 
                         <div className='profile__specialisations'>
                             <div className='tag__wrapper'>
-                                <div className='specialisation__tag'>Fine Art</div>
-                                <p>Years of experience teaching at AA (Anthophila Arts).</p>
+                                <div className='specialisation__tag'>Jumping</div>
+                                <p>Jumping is the act of elevating ones-self</p>
                             </div>
                             <div className='tag__wrapper'>
-                                <div className='specialisation__tag'>Cooking</div>
-                                <p>I can tell you the names of at least 7 dishes.</p>
+                                <div className='specialisation__tag'>Climbing</div>
+                                <p>Climbing entails prolonged sticky jumping</p>
                             </div>
                         </div>
 

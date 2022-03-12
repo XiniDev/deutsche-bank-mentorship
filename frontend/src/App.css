@@ -230,6 +230,26 @@ label {
   border-style: inset;
 }
 
+.More__button {
+  width: 150px;
+  height: auto;
+  margin: 10px 100px 100px 400px;
+  padding: 8px 0px;
+  background-color: #124040;
+  font-size: 16px;
+  color: #FFFFFF;
+  border: 4px solid #124040;
+  border-style: outset;
+  border-radius: 3px;
+}
+
+.More__button:hover {
+  cursor: pointer;
+  background-color: #9CBDBD; 
+  border: 4px solid #9CBDBD;
+  border-style: inset;
+}
+
 .register__form__area {
   position: absolute;
   display: flex;

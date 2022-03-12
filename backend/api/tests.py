@@ -8,6 +8,170 @@ from django.test import Client
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium.webdriver.chrome.webdriver import WebDriver
 
+test = User(
+            username="rattus",
+            password="pbkdf2_sha256$320000$iQ3NjYl4VKG2LdlDP5gXPR$LLIPSLWWCS9cEj0+yDjHhtsHdyt/Jk6q2uORd+Sbm7M=",
+            first_name="Rattus",
+            last_name="Cattus",
+            email="snel@gmail.com",
+            is_superuser=0,
+            is_staff=0)
+test.save()
+test = UserDetails(userID = User.objects.get(id=1),
+                    department = "Swiss Chess",
+                    is_mentor = True,
+                    pronouns = "He",
+                    title = "Mr")
+test.save()
+test =  Specialties(userID = UserDetails.objects.get(id=1), 
+                    topic="Jumping",
+                    description="Jumping is the act of elevating ones-self")
+test.save()
+test =  Specialties(userID = UserDetails.objects.get(id=1), 
+                    topic="Climbing",
+                    description="Climbing entails prolonged sticky jumping")
+test.save()
+test =  Interests(userID = UserDetails.objects.get(id=1), 
+                    topic="Falling",
+                    description="falling is the act of de-elevating ones-self")
+test.save()
+test = User(
+            username="Snelder",
+            password="pbkdf2_sha256$320000$iQ3NjYl4VKG2LdlDP5gXPR$LLIPSLWWCS9cEj0+yDjHhtsHdyt/Jk6q2uORd+Sbm7M=",
+            first_name="Snelder",
+            last_name="Shelly",
+            email="snel@gmail.com",
+            is_superuser=0,
+            is_staff=0)
+test.save()
+test = UserDetails(userID = User.objects.get(id=2),
+                    department = "Sliming",
+                    is_mentor = True,
+                    pronouns = "He",
+                    title = "Mr")
+test.save()
+test =  Specialties(userID = UserDetails.objects.get(id=2), 
+                    topic="Procrastinating",
+                    description="How i spend most of my time")
+test.save()
+test =  Specialties(userID = UserDetails.objects.get(id=2), 
+                    topic="Zooming",
+                    description="Zooming is like running but fancier")
+test.save()
+test =  Specialties(userID = UserDetails.objects.get(id=2), 
+                    topic="Jumping",
+                    description="Jumping is the act of elevating ones-self")
+test.save()
+test =  Interests(userID = UserDetails.objects.get(id=2), 
+                    topic="Falling",
+                    description="falling is the act of de-elevating ones-self")
+test.save()
+
+test = User(
+            username="Snel",
+            password="pbkdf2_sha256$320000$iQ3NjYl4VKG2LdlDP5gXPR$LLIPSLWWCS9cEj0+yDjHhtsHdyt/Jk6q2uORd+Sbm7M=",
+            first_name="Zebra",
+            last_name="Xebra",
+            email="snel@gmail.com",
+            is_superuser=0,
+            is_staff=0)
+test.save()
+test = UserDetails(userID = User.objects.get(id=3),
+                    department = "Sliming",
+                    is_mentor = True,
+                    pronouns = "He",
+                    title = "Mr")
+test.save()
+test =  Specialties(userID = UserDetails.objects.get(id=3), 
+                    topic="Jumping",
+                    description="Jumping is the act of elevating ones-self")
+test.save()
+test =  Interests(userID = UserDetails.objects.get(id=3), 
+                    topic="Falling",
+                    description="falling is the act of de-elevating ones-self")
+test.save()
+
+test = User(
+            username="Bec",
+            password="pbkdf2_sha256$320000$iQ3NjYl4VKG2LdlDP5gXPR$LLIPSLWWCS9cEj0+yDjHhtsHdyt/Jk6q2uORd+Sbm7M=",
+            first_name="Bec",
+            last_name="Bzzton",
+            email="Bec@gmail.com",
+            is_superuser=0,
+            is_staff=0)
+test.save()
+test = UserDetails(userID = User.objects.get(id=4),
+                    department = "Beenance",
+                    is_mentor = True,
+                    pronouns = "She",
+                    title = "Mrs")
+test.save()
+test =  Specialties(userID = UserDetails.objects.get(id=4), 
+                    topic="Jumping",
+                    description="Jumping is the act of elevating ones-self")
+test.save()
+test =  Interests(userID = UserDetails.objects.get(id=4), 
+                    topic="Falling",
+                    description="falling is the act of de-elevating ones-self")
+test.save()
+
+test = User(
+            username="Stan",
+            password="pbkdf2_sha256$320000$iQ3NjYl4VKG2LdlDP5gXPR$LLIPSLWWCS9cEj0+yDjHhtsHdyt/Jk6q2uORd+Sbm7M=",
+            first_name="Stan",
+            last_name="Dandles",
+            email="Stan@gmail.com",
+            is_superuser=0,
+            is_staff=0)
+test.save()
+test = UserDetails(userID = User.objects.get(id=5),
+                    department = "Stapling",
+                    is_mentor = True,
+                    pronouns = "He",
+                    title = "Mr")
+test.save()
+test =  Specialties(userID = UserDetails.objects.get(id=5), 
+                    topic="Jumping",
+                    description="Jumping is the act of elevating ones-self")
+test.save()
+test =  Interests(userID = UserDetails.objects.get(id=5), 
+                    topic="Falling",
+                    description="falling is the act of de-elevating ones-self")
+test.save()
+
+test =  Reviews(reviewerID = UserDetails.objects.get(id=2), 
+                    reviewedID = UserDetails.objects.get(id=1),
+                    rating=5,
+                    description="Best Teacher Ever")
+test.save()
+test =  Reviews(reviewerID = UserDetails.objects.get(id=2), 
+                    reviewedID = UserDetails.objects.get(id=1),
+                    rating=0,
+                    description="Worst Teacher Ever")
+test.save()
+test =  Reviews(reviewerID = UserDetails.objects.get(id=2), 
+                    reviewedID = UserDetails.objects.get(id=2),
+                    rating=4,
+                    description="Best Teacher Ever")
+test.save()
+test =  Reviews(reviewerID = UserDetails.objects.get(id=2), 
+                    reviewedID = UserDetails.objects.get(id=3),
+                    rating=3,
+                    description="Best Teacher Ever")
+test.save()
+test =  Reviews(reviewerID = UserDetails.objects.get(id=2), 
+                    reviewedID = UserDetails.objects.get(id=4),
+                    rating=3,
+                    description="Best Teacher Ever")
+test.save()
+test =  Reviews(reviewerID = UserDetails.objects.get(id=2), 
+                    reviewedID = UserDetails.objects.get(id=5),
+                    rating=3,
+                    description="Best Teacher Ever")
+test.save()
+
+test.save()
+'''
 class MySeleniumTests(StaticLiveServerTestCase):
 
 
@@ -285,3 +449,4 @@ class TestUrls(SimpleTestCase):
 
     
 # Create your tests here.
+'''
