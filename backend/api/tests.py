@@ -8,194 +8,6 @@ from django.test import Client
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium.webdriver.chrome.webdriver import WebDriver
 
-test = User(
-            username="bea",
-            password="pbkdf2_sha256$320000$iQ3NjYl4VKG2LdlDP5gXPR$LLIPSLWWCS9cEj0+yDjHhtsHdyt/Jk6q2uORd+Sbm7M=",
-            first_name="Bea",
-            last_name="Bettre",
-            email="bea@gmail.com",
-            is_superuser=0,
-            is_staff=0)
-test.save()
-test = UserDetails(userID = User.objects.get(id=1),
-                    department = "HR (Honey Department)",
-                    is_mentor = True,
-                    pronouns = "She/Her",
-                    title = "Ms")
-test.save()
-test =  Specialties(userID = UserDetails.objects.get(id=1), 
-                    topic="Fine Art",
-                    description="Studied in the Royal Arts Institution.")
-test.save()
-test =  Specialties(userID = UserDetails.objects.get(id=1), 
-                    topic="Flying",
-                    description="I mean. It just makes sense, doesn't it?")
-test.save()
-test = User(
-            username="Beetty",
-            password="pbkdf2_sha256$320000$iQ3NjYl4VKG2LdlDP5gXPR$LLIPSLWWCS9cEj0+yDjHhtsHdyt/Jk6q2uORd+Sbm7M=",
-            first_name="Beetty",
-            last_name="Beeson",
-            email="Beetty@gmail.com",
-            is_superuser=0,
-            is_staff=0)
-test.save()
-test = UserDetails(userID = User.objects.get(id=2),
-                    department = "Sliming",
-                    is_mentor = True,
-                    pronouns = "He",
-                    title = "Mr")
-test.save()
-test =  Specialties(userID = UserDetails.objects.get(id=2), 
-                    topic="Procrastinating",
-                    description="How i spend most of my time")
-test.save()
-test =  Specialties(userID = UserDetails.objects.get(id=2), 
-                    topic="Zooming",
-                    description="Zooming is like running but fancier")
-test.save()
-test =  Specialties(userID = UserDetails.objects.get(id=2), 
-                    topic="Jumping",
-                    description="Jumping is the act of elevating ones-self")
-test.save()
-test =  Interests(userID = UserDetails.objects.get(id=2), 
-                    topic="Falling",
-                    description="falling is the act of de-elevating ones-self")
-test.save()
-
-test = User(
-            username="Snel",
-            password="pbkdf2_sha256$320000$iQ3NjYl4VKG2LdlDP5gXPR$LLIPSLWWCS9cEj0+yDjHhtsHdyt/Jk6q2uORd+Sbm7M=",
-            first_name="Zebra",
-            last_name="Xebra",
-            email="snel@gmail.com",
-            is_superuser=0,
-            is_staff=0)
-test.save()
-test = UserDetails(userID = User.objects.get(id=3),
-                    department = "Sliming",
-                    is_mentor = True,
-                    pronouns = "He",
-                    title = "Mr")
-test.save()
-test =  Specialties(userID = UserDetails.objects.get(id=3), 
-                    topic="Jumping",
-                    description="Jumping is the act of elevating ones-self")
-test.save()
-test =  Interests(userID = UserDetails.objects.get(id=3), 
-                    topic="Falling",
-                    description="falling is the act of de-elevating ones-self")
-test.save()
-
-test = User(
-            username="Bec",
-            password="pbkdf2_sha256$320000$iQ3NjYl4VKG2LdlDP5gXPR$LLIPSLWWCS9cEj0+yDjHhtsHdyt/Jk6q2uORd+Sbm7M=",
-            first_name="Bec",
-            last_name="Bzzton",
-            email="Bec@gmail.com",
-            is_superuser=0,
-            is_staff=0)
-test.save()
-test = UserDetails(userID = User.objects.get(id=4),
-                    department = "Beenance",
-                    is_mentor = True,
-                    pronouns = "She",
-                    title = "Mrs")
-test.save()
-test =  Specialties(userID = UserDetails.objects.get(id=4), 
-                    topic="Jumping",
-                    description="Jumping is the act of elevating ones-self")
-test.save()
-test =  Interests(userID = UserDetails.objects.get(id=4), 
-                    topic="Falling",
-                    description="falling is the act of de-elevating ones-self")
-test.save()
-
-test = User(
-            username="Stan",
-            password="pbkdf2_sha256$320000$iQ3NjYl4VKG2LdlDP5gXPR$LLIPSLWWCS9cEj0+yDjHhtsHdyt/Jk6q2uORd+Sbm7M=",
-            first_name="Stan",
-            last_name="Dandles",
-            email="Stan@gmail.com",
-            is_superuser=0,
-            is_staff=0)
-test.save()
-test = UserDetails(userID = User.objects.get(id=5),
-                    department = "Stapling",
-                    is_mentor = True,
-                    pronouns = "He",
-                    title = "Mr")
-test.save()
-test =  Specialties(userID = UserDetails.objects.get(id=5), 
-                    topic="Jumping",
-                    description="Jumping is the act of elevating ones-self")
-test.save()
-test =  Interests(userID = UserDetails.objects.get(id=5), 
-                    topic="Falling",
-                    description="falling is the act of de-elevating ones-self")
-test.save()
-
-test = User(
-            username="DogMan",
-            password="pbkdf2_sha256$320000$iQ3NjYl4VKG2LdlDP5gXPR$LLIPSLWWCS9cEj0+yDjHhtsHdyt/Jk6q2uORd+Sbm7M=",
-            first_name="Dog",
-            last_name="Man",
-            email="Dog@gmail.com",
-            is_superuser=0,
-            is_staff=0)
-test.save()
-test = UserDetails(userID = User.objects.get(id=6),
-                    department = "Cat Replacement",
-                    is_mentor = True,
-                    pronouns = "He",
-                    title = "Mr")
-test.save()
-test =  Specialties(userID = UserDetails.objects.get(id=1), 
-                    topic="Jumping",
-                    description="Jumping is the act of elevating ones-self")
-test.save()
-test =  Specialties(userID = UserDetails.objects.get(id=1), 
-                    topic="Climbing",
-                    description="Climbing entails prolonged sticky jumping")
-test.save()
-test =  Interests(userID = UserDetails.objects.get(id=1), 
-                    topic="Falling",
-                    description="falling is the act of de-elevating ones-self")
-test.save()
-
-test =  Reviews(reviewerID = UserDetails.objects.get(id=2), 
-                    reviewedID = UserDetails.objects.get(id=1),
-                    rating=5,
-                    description="Best Teacher Ever")
-test.save()
-test =  Reviews(reviewerID = UserDetails.objects.get(id=2), 
-                    reviewedID = UserDetails.objects.get(id=1),
-                    rating=0,
-                    description="Worst Teacher Ever")
-test.save()
-test =  Reviews(reviewerID = UserDetails.objects.get(id=2), 
-                    reviewedID = UserDetails.objects.get(id=2),
-                    rating=4,
-                    description="Best Teacher Ever")
-test.save()
-test =  Reviews(reviewerID = UserDetails.objects.get(id=2), 
-                    reviewedID = UserDetails.objects.get(id=3),
-                    rating=3,
-                    description="Best Teacher Ever")
-test.save()
-test =  Reviews(reviewerID = UserDetails.objects.get(id=2), 
-                    reviewedID = UserDetails.objects.get(id=4),
-                    rating=3,
-                    description="Best Teacher Ever")
-test.save()
-test =  Reviews(reviewerID = UserDetails.objects.get(id=2), 
-                    reviewedID = UserDetails.objects.get(id=5),
-                    rating=3,
-                    description="Best Teacher Ever")
-test.save()
-
-test.save()
-'''
 class MySeleniumTests(StaticLiveServerTestCase):
 
 
@@ -211,12 +23,28 @@ class MySeleniumTests(StaticLiveServerTestCase):
         super().tearDownClass()
         
     def test_login(self):
-        self.selenium.get('%s%s' % (self.live_server_url, '/api/users'))
+        self.selenium.get('%s%s' % ("http://localhost:3000", ''))
+        self.selenium.find_element_by_link_text("Register").click
         username_input = self.selenium.find_element_by_name("username")
         username_input.send_keys('zak')
         password_input = self.selenium.find_element_by_name("password")
         password_input.send_keys('zak12345')
-        self.selenium.find_element_by_xpath("//form[1]").click()
+        self.selenium.find_element_by_class_name("submit__button").click()
+        self.selenium.find_element_by_class_name("editprofile").click()
+
+    def test_register(self):
+        self.selenium.get("http://localhost:3000/register")
+        fname_input = self.selenium.find_element_by_name("fname")
+        fname_input.send_keys('Big')
+        lname_input = self.selenium.find_element_by_name("lname")
+        lname_input.send_keys('Chungus')
+        email_input = self.selenium.find_element_by_name("email")
+        email_input.send_keys('bingus@gmail.com')
+        password1_input = self.selenium.find_element_by_name("password")
+        password1_input.send_keys('chung1234')
+        password2_input = self.selenium.find_element_by_name("cpassword")
+        password2_input.send_keys('chung1234')
+        self.selenium.find_element_by_class_name("submit__button").click()
 
 
 class TestConstraints(TestCase):
@@ -254,8 +82,8 @@ class TestConstraints(TestCase):
             test = UserDetails(userID = User.objects.get(id=2),
                         department = "CEO",
                         is_mentor = False,
-                        pronouns = "They/Them",
-                        title = "Mx")
+                        pronouns = "He",
+                        title = "Mrs")
             test.save()
         try:
             MentorMentees.objects.get(id=1)
@@ -473,4 +301,3 @@ class TestUrls(SimpleTestCase):
 
     
 # Create your tests here.
-'''
