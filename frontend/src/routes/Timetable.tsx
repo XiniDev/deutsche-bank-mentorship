@@ -20,7 +20,34 @@ import 'react-big-calendar/lib/css/react-big-calendar.css';
 import '../styles/react-big-calendar.css';
 
 const ShowEventsToday = (event:any) => {
+    useEffect(() => {
+        $(function() {
+            $(".expand__button").on("click", function() {
+                console.log("I have been clicked");
+                $(this).parent().parent().toggleClass("active");
+                var content = $(this).parent().parent().children().last();
+                if (content.css("max-height") == "0px"){
+                    content.css("max-height", content.prop("scrollHeight")+ "px");
+                } else {
+                    content.css("max-height", "0px");
+                } 
+            });
+        });
+        $(function() {
+            $(".plan__tag").on("click", function() {
+                console.log("I have been clicked");
+                if ($(this).hasClass("active")) {
+                    $(this).css("background-color", "#9CBDBD");
+                } else {
+                    $(this).css("background-color", "#124040");
+                }
+                $(this).toggleClass("active");
+            });
+        });
+    }, []);
+
     const today = format(new Date(), "EEEE, LLLL do")
+    
     return (
         <div className='session__box--timetable'>
             <div className='session__overview'>
@@ -48,32 +75,6 @@ const ShowEventsTodayFail = () => {
 }
 
 const Timetable: FC = () => {
-    useEffect(() => {
-        $(function() {
-            $(".expand__button").on("click", function() {
-                console.log("I have been clicked");
-                $(this).parent().parent().toggleClass("active");
-                var content = $(this).parent().parent().children().last();
-                if (content.css("max-height") == "0px"){
-                    content.css("max-height", content.prop("scrollHeight")+ "px");
-                } else {
-                    content.css("max-height", "0px");
-                } 
-            });
-        });
-        $(function() {
-            $(".plan__tag").on("click", function() {
-                console.log("I have been clicked");
-                if ($(this).hasClass("active")) {
-                    $(this).css("background-color", "#9CBDBD");
-                } else {
-                    $(this).css("background-color", "#124040");
-                }
-                $(this).toggleClass("active");
-            });
-        });
-    }, []);
-
     const [token] = useCookies(['mytoken'])
 
     const [userID, setID] = useState<any>([])
@@ -97,7 +98,7 @@ const Timetable: FC = () => {
         })
     }, [userID])
 
-    const list = eventsToday ? eventsToday.map((event) => <ShowEventsToday key={event.topic} event={event}/>) : <ShowEventsToday/>
+    const list = eventsToday ? eventsToday.map((event) => <ShowEventsToday key={event.topic} event={event}/>) : <ShowEventsTodayFail/>
 
     const locales = {
         'en-US': enUS,
