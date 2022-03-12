@@ -71,7 +71,7 @@ const Profile = () => {
         
         
     }, [userID])   
-
+    console.log(profile)
     return (
         <div className='background'>
             <div className='container'>

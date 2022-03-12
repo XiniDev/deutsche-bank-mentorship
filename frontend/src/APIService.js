@@ -132,6 +132,8 @@ export default class APIService {
       .then(resp => resp.json())
     }
 
+    
+
     static getInterests(token) {
       return fetch('http://127.0.0.1:8000/api/interests/', {
         'method':'GET',
