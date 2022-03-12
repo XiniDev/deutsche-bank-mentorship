@@ -39,8 +39,8 @@ const RateMentor: FC = () => {
                             </div>
                             <div className='feedback__form__container'>
                                 <div className='feedback__form__labels'>
-                                    <p>Rating</p>
-                                    <p>Description</p>
+                                    <p>Rating *</p>
+                                    <p>Comment</p>
                                 </div>
                                 <form className="rating__form" id="feedback">
                                     <Box

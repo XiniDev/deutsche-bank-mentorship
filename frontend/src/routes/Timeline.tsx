@@ -74,7 +74,7 @@ const Timeline: FC = () => {
 
                         <div className='timeline__container'>
 
-                            <div className='timeline__event' id='milestone__complete__3'>
+                            <div className='timeline__milestone' id='milestone__complete__3'>
                                 <div className='timeline__line'>
                                     <div className="dot"></div>
                                     <div className="vl"></div>
@@ -88,7 +88,7 @@ const Timeline: FC = () => {
                                 </div>
                             </div>
 
-                            <div className='timeline__event' id='milestone__complete__2'>
+                            <div className='timeline__milestone' id='milestone__complete__2'>
                                 <div className='timeline__line'>
                                     <div className="dot"></div>
                                     <div className="vl"></div>
@@ -102,7 +102,7 @@ const Timeline: FC = () => {
                                 </div>
                             </div>
 
-                            <div className='timeline__event' id='milestone__complete__1'>
+                            <div className='timeline__milestone' id='milestone__complete__1'>
                                 <div className='timeline__line'>
                                     <div className="dot"></div>
                                     <div className="vl"></div>

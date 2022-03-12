@@ -1313,7 +1313,7 @@ label {
   margin: 50px 0px;
 }
 
-.timeline__event {
+.timeline__event, .timeline__milestone {
   width: 70%;
   display: flex;
   flex-direction: row;
@@ -1690,4 +1690,12 @@ label {
 
 #milestone__complete__1, #milestone__complete__2, #milestone__complete__3 {
   display: none;
+}
+
+.timeline__milestone .vl {
+  height: 150px;
+}
+
+.timeline__milestone .timeline__date {
+  background-color: #9CBDBD;
 }
