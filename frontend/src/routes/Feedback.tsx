@@ -1,7 +1,18 @@
-import React from 'react';
+import React, { FC, useEffect } from 'react';
 import Bar from './Bar';
 
-const Feedback = () => {
+import Alert from '@mui/material/Alert';
+import $ from 'jquery';
+
+const Feedback: FC = () => {
+    useEffect(() => {
+        $(function() {
+            $(".submit__button").on("click", function() {
+                $('#feedback').trigger("reset");
+                $(".success__message").css("display", "block");
+            });
+        });
+    }, []);
     return (
         <div className='background'>
             <div className='container'>
@@ -10,18 +21,23 @@ const Feedback = () => {
                     <div className='content'>
                         <h1>Feedback</h1>
                         <hr />
-                        <div className='feedback__form__container'>
-                            <div className='feedback__form__labels'>
-                                <p>Title</p>
-                                <p>Message</p>
-                                <p>Submit Anonymously</p>
+                        <div className='feedback__container'>
+                            <div className='success__message'>
+                                <Alert severity="success">Form successfully submitted.</Alert>
                             </div>
-                            <form className="feedback__form">
-                                <input type="text" name="title"/><br/>
-                                <textarea name="message"></textarea><br/>
-                                <input type="checkbox" name="anon"/><br/>
-                                <input type="submit" className="submit__button" value="Submit Feedback"/>
-                            </form>
+                            <div className='feedback__form__container'>
+                                <div className='feedback__form__labels'>
+                                    <p>Title *</p>
+                                    <p>Message *</p>
+                                    <p>Submit Anonymously</p>
+                                </div>
+                                <form className="feedback__form" id="feedback">
+                                    <input type="text" name="title"/><br/>
+                                    <textarea name="message"></textarea><br/>
+                                    <input type="checkbox" name="anon"/><br/>
+                                </form>
+                            </div>
+                            <div className='submit__button'>Submit Feedback</div>
                         </div>
                         <hr />
                     </div>

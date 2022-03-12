@@ -221,6 +221,7 @@ label {
   border: 4px solid #124040;
   border-style: outset;
   border-radius: 3px;
+  text-align: center;
 }
 
 .submit__button:hover {
@@ -955,16 +956,18 @@ label {
 
 .new__session__container {
   display: flex;
-  flex-direction: row;
-  align-items: start;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .new__session__labels {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-right: 10px;
 }
 
 .new__session__form {
@@ -1051,7 +1054,7 @@ label {
   width: 130px;
 }
 
-.feedback__form__container {
+.feedback__form__container, .new__session__form__container {
   display: flex;
   flex-direction: row;
   align-items: start;
@@ -1624,4 +1627,26 @@ label {
   color: rgb(214, 56, 56);
   font-size: 12px;
   display: none;
+}
+
+.success__message {
+  margin-top: 10px;
+  display: none;
+}
+
+.feedback__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.subtext {
+  font-size: 13px;
+  color: #124040;
+  cursor: pointer;
+}
+
+.subtext:hover {
+  text-decoration: underline;
 }
