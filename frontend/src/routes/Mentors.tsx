@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Bar from './Bar';
 import snalProfile from '../images/snalProfile.png';
 import beaProfile from '../images/beaProfile.png';
+import noMentor from '../images/noMentor.svg';
 import rattusProfile from '../images/rattusProfile.png';
 
 import { Link } from "react-router-dom";
@@ -27,7 +28,17 @@ function RenderGroup(group:any){
             </Link>
         )
     }
-    return (<div className='tag__wrapper'>No mentors yet! Suggest new mentor below!</div>)
+    return (
+        <div className='deco__container'>
+            <p>You currently have no mentors.</p>
+            <Link to="/suggestmentor">
+                <div className='general__button'>
+                    Find me one!
+                </div>
+            </Link>
+            <img src={noMentor} className="deco__image" alt='decorative image'/>
+        </div>
+    )
 }
 
 const Mentors = () => {
@@ -60,13 +71,6 @@ const Mentors = () => {
                         <hr />
                             {RenderGroup(mentorProfiles)}
                         <hr />
-                        <div className='general__button__container'>
-                            <Link to="/suggestmentor">
-                                <div className='general__button'>
-                                    Suggest New Mentor
-                                </div>
-                            </Link>
-                        </div>
                     </div>
                 </div>
             </div>

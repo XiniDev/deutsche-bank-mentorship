@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Bar from './Bar';
 import snalProfile from '../images/snalProfile.png';
 import beaProfile from '../images/beaProfile.png';
+import noMentee from '../images/noMentee.svg';
 
 import { Link } from "react-router-dom";
 
@@ -25,8 +26,25 @@ const ShowMentees = (mentee:any) => {
     )
 }
 
+const ShowButton = () => {
+    return (
+        <div className='general__button__container'>
+            <Link to="/addgroupsession">
+                <div className='general__button'>
+                    Create Group Session
+                </div>
+            </Link>
+        </div>
+    )
+}
+
 const ShowMenteesFail = () => {
-    return (<div className='tag__wrapper'>No mentees yet!</div>)
+    return (
+        <div className='deco__container'>
+            <p>You don't have any mentees yet. Sit back and relax.</p>
+            <img src={noMentee} className="deco__image" alt='decorative image'/>
+        </div>
+    )
 }
 
 const Mentees = () => {
@@ -48,7 +66,8 @@ const Mentees = () => {
         })
     }, [userID])
     
-    const list = menteeProfiles ? menteeProfiles.map((mentee) => <ShowMentees key={mentee.first_name} mentee={mentee}/>) : <ShowMenteesFail/>
+    const list = menteeProfiles.length != 0 ? menteeProfiles.map((mentee) => <ShowMentees key={mentee.first_name} mentee={mentee}/>)  : <ShowMenteesFail/>
+    const button = menteeProfiles.length != 0 ? <ShowButton/> : null
     
     return (
         <div className='background'>
@@ -59,14 +78,8 @@ const Mentees = () => {
                         <h1>Mentees</h1>
                         <hr />
                             {list}
+                            {button}
                         <hr />
-                        <div className='general__button__container'>
-                            <Link to="/addgroupsession">
-                                <div className='general__button'>
-                                    Create Group Session
-                                </div>
-                            </Link>
-                        </div>
                     </div>
                 </div>
             </div>
