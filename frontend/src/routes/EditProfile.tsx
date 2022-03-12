@@ -1,11 +1,11 @@
-import React, { Component, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import {useCookies} from 'react-cookie';
 import {useNavigate} from 'react-router-dom';
 import Bar from './Bar';
 import rattusProfile from '../images/rattusProfile.png';
 import cheveronRight from '../images/cheveronRight.svg';
 
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import APIService from '../APIService';
 
 

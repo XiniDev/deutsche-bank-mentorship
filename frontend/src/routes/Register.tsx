@@ -1,7 +1,7 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState } from 'react';
 import APIService from '../APIService';
-import {useCookies} from 'react-cookie';
-import {useNavigate} from 'react-router-dom';
+import { useCookies } from 'react-cookie';
+import { useNavigate } from 'react-router-dom';
 
 import Cat from '../images/Cat.svg';
 
@@ -11,8 +11,6 @@ const Register = () => {
     const [email, setEmail] = useState('')
     const [firstpassword, firstPassword] = useState('')
     const [confpassword, confPassword] = useState('')
-    const [token, setToken,removeToken] = useCookies(['mytoken'])
-    const [isLogin, setLogin] = useState(false)
     let navigate = useNavigate()
 
     let userID = 0;
@@ -69,13 +67,10 @@ const Register = () => {
             const password = confpassword
             APIService.RegisterUser({first_name, last_name, email, username, password})
             .then( resp => {
-                console.log(resp)
                 userID = resp.id
-                console.log(userID)
                 APIService.RegisterUserDetails({userID, department, is_mentor, pronouns, title})
-                .then( resp2 => {
+                .then( ()=> {
                     navigate('/')
-                    console.log(resp2)
                 })
                 .catch(error2 => console.log(error2))
             })

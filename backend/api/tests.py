@@ -230,8 +230,8 @@ class TestConstraints(TestCase):
             test = UserDetails(userID = User.objects.get(id=2),
                         department = "CEO",
                         is_mentor = False,
-                        pronouns = "He",
-                        title = "Mrs")
+                        pronouns = "They/Them",
+                        title = "Mx")
             test.save()
         try:
             MentorMentees.objects.get(id=1)

@@ -19,7 +19,7 @@ import isSameDay from 'date-fns/isSameDay'
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import '../styles/react-big-calendar.css';
 
-const Timetable: FC = () => {
+const ShowEventsToday = (event:any) => {
     useEffect(() => {
         $(function() {
             $(".expand__button").on("click", function() {
@@ -46,32 +46,59 @@ const Timetable: FC = () => {
         });
     }, []);
 
-    const [userID, setID] = useState<any>([])
-    const [eventsDB, setEventsDB] = useState<any>([])
+    const today = format(new Date(), "EEEE, LLLL do")
+    
+    return (
+        <div className='session__box--timetable'>
+            <div className='session__overview'>
+                <div className='session__info'>
+                    <div className='session__title'>
+                        {today}
+                        <div className='user__box__tag'>{event.event.topic}</div>
+                    </div>
+                    {event.event.description}
+                </div>
+                <img src={plus} className="expand__button"/>
+            </div>
+            <div className="plan__of__action">
+                <div className='plan__tag'>Straighten back</div>
+                <div className='plan__tag'>Jumping position</div>
+                <div className='plan__tag'>Make the jump</div>
+                <div className='plan__tag'>Land without fail</div>
+            </div>
+        </div>
+    )
+}
 
+const ShowEventsTodayFail = () => {
+    return (<div className='tag__wrapper'>Rest assured, no more work today!</div>)
+}
+
+const Timetable: FC = () => {
     const [token] = useCookies(['mytoken'])
+
+    const [userID, setID] = useState<any>([])
+
+    const [events, setEvents] = useState<Event[]>([])
+    const [eventsToday, setEventsToday] = useState<any[]>([])
 
     useEffect(() => {
         APIService.getUserID(`${token['mytoken']}`,token['mytoken']).then(resp => setID(resp.user))
-        APIService.getEvents(token['mytoken']).then(resp => setEventsDB(APIService.GetGroupByID(userID, resp, "mentorID")))
+        APIService.getEvents(token['mytoken']).then(resp => {
+            const eventsDB = APIService.GetGroupByID(userID, resp, "mentorID")
+            for (let i = 0; i < eventsDB.length; i++) {
+                const newEvent = {
+                    title: eventsDB[i].topic,
+                    start: new Date(eventsDB[i].start_time),
+                    end: new Date(eventsDB[i].end_time),
+                }
+                setEvents(state => [...state, newEvent as Event])
+                if (isSameDay(new Date(eventsDB[i].start_time), new Date())) setEventsToday(state => [...state, eventsDB[i]])
+            }
+        })
     }, [userID])
 
-    const [events, setEvents] = useState<Event[]>([]);
-    const [eventsToday] = useState<any[]>([]);
-
-    useEffect(() => {
-        for (let i = 0; i < eventsDB.length; i++) {
-            const newEvent = {
-                title: eventsDB[i].topic,
-                start: new Date(eventsDB[i].start_time),
-                end: new Date(eventsDB[i].end_time),
-            }
-            events.push(newEvent as Event)
-            if (isSameDay(new Date(eventsDB[i].start_time), new Date())) eventsToday.push(eventsDB[i])
-        }
-    }, [eventsDB])
-
-    const today = format(new Date(), "EEEE, LLLL do")
+    const list = eventsToday ? eventsToday.map((event) => <ShowEventsToday key={event.topic} event={event}/>) : <ShowEventsTodayFail/>
 
     const locales = {
         'en-US': enUS,
@@ -113,24 +140,7 @@ const Timetable: FC = () => {
                         <h1>Timetable</h1>
                         <hr />
                         <h2>Today's Sessions</h2>
-                        <div className='session__box--timetable'>
-                            <div className='session__overview'>
-                                <div className='session__info'>
-                                    <div className='session__title'>
-                                        {today}
-                                        <div className='user__box__tag'>Fine Art</div>
-                                    </div>
-                                    Focus: First set of landscape sketches
-                                </div>
-                                <img src={plus} className="expand__button"/>
-                            </div>
-                            <div className="plan__of__action">
-                                <div className='plan__tag'>Straighten back</div>
-                                <div className='plan__tag'>Jumping position</div>
-                                <div className='plan__tag'>Make the jump</div>
-                                <div className='plan__tag'>Land without fail</div>
-                            </div>
-                        </div>
+                        {list}
                         <hr />
                         <div className='timetable'>
                             <DnDCalendar
