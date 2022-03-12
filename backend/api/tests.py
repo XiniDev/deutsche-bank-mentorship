@@ -36,11 +36,11 @@ test =  Interests(userID = UserDetails.objects.get(id=1),
                     description="falling is the act of de-elevating ones-self")
 test.save()
 test = User(
-            username="Snelder",
+            username="Beetty",
             password="pbkdf2_sha256$320000$iQ3NjYl4VKG2LdlDP5gXPR$LLIPSLWWCS9cEj0+yDjHhtsHdyt/Jk6q2uORd+Sbm7M=",
-            first_name="Snelder",
-            last_name="Shelly",
-            email="snel@gmail.com",
+            first_name="Beetty",
+            last_name="Beeson",
+            email="Beetty@gmail.com",
             is_superuser=0,
             is_staff=0)
 test.save()
@@ -135,6 +135,34 @@ test =  Specialties(userID = UserDetails.objects.get(id=5),
                     description="Jumping is the act of elevating ones-self")
 test.save()
 test =  Interests(userID = UserDetails.objects.get(id=5), 
+                    topic="Falling",
+                    description="falling is the act of de-elevating ones-self")
+test.save()
+
+test = User(
+            username="DogMan",
+            password="pbkdf2_sha256$320000$iQ3NjYl4VKG2LdlDP5gXPR$LLIPSLWWCS9cEj0+yDjHhtsHdyt/Jk6q2uORd+Sbm7M=",
+            first_name="Dog",
+            last_name="Man",
+            email="Dog@gmail.com",
+            is_superuser=0,
+            is_staff=0)
+test.save()
+test = UserDetails(userID = User.objects.get(id=6),
+                    department = "Cat Replacement",
+                    is_mentor = True,
+                    pronouns = "He",
+                    title = "Mr")
+test.save()
+test =  Specialties(userID = UserDetails.objects.get(id=1), 
+                    topic="Jumping",
+                    description="Jumping is the act of elevating ones-self")
+test.save()
+test =  Specialties(userID = UserDetails.objects.get(id=1), 
+                    topic="Climbing",
+                    description="Climbing entails prolonged sticky jumping")
+test.save()
+test =  Interests(userID = UserDetails.objects.get(id=1), 
                     topic="Falling",
                     description="falling is the act of de-elevating ones-self")
 test.save()
