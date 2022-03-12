@@ -8,24 +8,24 @@ import { Link } from "react-router-dom";
 import { useCookies } from 'react-cookie';
 import APIService from '../APIService';
 
-function RenderGroup(group:any){
-        
-    for (let i = 0; i < group.length; i++) {
-        return(
-            <Link to="/mentor">
-                <div className='user__box'>
-                    <img src={beaProfile} className="user__box__icon"/>
-                    <div className='user__box__info'>
-                        <h2>{group[i].first_name} {group[i].last_name}</h2>
-                        <div className='user__box__topic'>
-                            Learning: 
-                            <div className='user__box__tag'>Fine Art</div>
-                        </div>
+const ShowMentees = (mentee:any) => {
+    return(
+        <Link to="/mentee">
+            <div className='user__box'>
+                <img src={beaProfile} className="user__box__icon"/>
+                <div className='user__box__info'>
+                    <h2>{mentee.mentee.first_name} {mentee.mentee.last_name}</h2>
+                    <div className='user__box__topic'>
+                        Learning: 
+                        <div className='user__box__tag'>Fine Art</div>
                     </div>
                 </div>
-            </Link>
-        )
-    }
+            </div>
+        </Link>
+    )
+}
+
+const ShowMenteesFail = () => {
     return (<div className='tag__wrapper'>No mentees yet!</div>)
 }
 
@@ -40,15 +40,16 @@ const Mentees = () => {
         APIService.getUserID(`${token['mytoken']}`,token['mytoken']).then(resp => setID(resp.user))
         APIService.getPairings(token['mytoken']).then(resp => {
             const mentees = APIService.GetGroupByID(userID,resp,"mentorID")
-            console.log(mentees)
             if (mentees) {
                 for (let i = 0; i < mentees.length; i++) {
-                    APIService.getProfile(mentees[i].menteeID, token['mytoken']).then(resp => setMenteeProfiles([resp]))
+                    APIService.getProfile(mentees[i].menteeID, token['mytoken']).then(resp => setMenteeProfiles(state => [...state, resp]))
                 }
             }
         })
         
     }, [userID])
+    
+    const list = menteeProfiles ? menteeProfiles.map((mentee) => <ShowMentees key={mentee.first_name} mentee={mentee}/>) : <ShowMenteesFail/>
     
     return (
         <div className='background'>
@@ -58,7 +59,7 @@ const Mentees = () => {
                     <div className='content'>
                         <h1>Mentees</h1>
                         <hr />
-                            {RenderGroup(menteeProfiles)}
+                            {list}
                         <hr />
                         <div className='general__button__container'>
                             <Link to="/addgroupsession">

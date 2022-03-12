@@ -69,13 +69,10 @@ const Register = () => {
             const password = confpassword
             APIService.RegisterUser({first_name, last_name, email, username, password})
             .then( resp => {
-                console.log(resp)
                 userID = resp.id
-                console.log(userID)
                 APIService.RegisterUserDetails({userID, department, is_mentor, pronouns, title})
-                .then( resp2 => {
+                .then( ()=> {
                     navigate('/')
-                    console.log(resp2)
                 })
                 .catch(error2 => console.log(error2))
             })
