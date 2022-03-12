@@ -26,7 +26,7 @@ const ShowMentors = (mentor:any) => {
 }
 
 const ShowMentorsFail = () => {
-    return (<div className='tag__wrapper'>No mentees yet!</div>)
+    return (<div className='tag__wrapper'>No mentors yet! Suggest a new one below!</div>)
 }
 
 const Mentors = () => {
