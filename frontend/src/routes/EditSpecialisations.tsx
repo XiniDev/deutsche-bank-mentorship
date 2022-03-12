@@ -30,7 +30,7 @@ const customMenuStyles: CSSProperties = {
 type IsMulti = false
 
 const selectStyle: StylesConfig<OptionType, IsMulti> = {
-    control: (provided, state) => {    
+    control: (provided, state) => {
         return {
           ...provided,
           ...customControlStyles
