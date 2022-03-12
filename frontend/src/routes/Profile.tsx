@@ -48,8 +48,8 @@ const Profile = () => {
         
     }, [userID])
 
-    const specsList = specs ? specs.map((spec) => <ShowSpecs key={spec.topic} spec={spec}/>) : <ShowFail/>
-    const intrsList = intrs ? intrs.map((intr) => <ShowIntrs key={intr.topic} intr={intr}/>) : <ShowFail/>
+    const specsList = specs.length != 0 ? specs.map((spec) => <ShowSpecs key={spec.topic} spec={spec}/>) : <ShowFail/>
+    const intrsList = intrs.length != 0 ? intrs.map((intr) => <ShowIntrs key={intr.topic} intr={intr}/>) : <ShowFail/>
 
     return (
         <div className='background'>

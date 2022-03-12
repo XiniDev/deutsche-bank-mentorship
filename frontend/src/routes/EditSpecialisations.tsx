@@ -30,7 +30,7 @@ const customMenuStyles: CSSProperties = {
 type IsMulti = false
 
 const selectStyle: StylesConfig<OptionType, IsMulti> = {
-    control: (provided, state) => {    
+    control: (provided, state) => {
         return {
           ...provided,
           ...customControlStyles
@@ -91,7 +91,7 @@ const EditSpecialisations = () => {
                             {specsList}
                         </div>
                         <form className="editprofile__form--other" id="specialisationForm">
-                            <input type="text" className="editprofile__form__inputs--other" name="specialisationname" id="specialisationName" placeholder="Search..."/><br/>
+                            {/* <input type="text" className="editprofile__form__inputs--other" name="specialisationname" id="specialisationName" placeholder="Search..."/><br/> */}
                             <Select
                                 styles={selectStyle}
                                 defaultValue={selectedOption}
