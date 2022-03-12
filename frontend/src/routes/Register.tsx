@@ -1,7 +1,7 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState } from 'react';
 import APIService from '../APIService';
-import {useCookies} from 'react-cookie';
-import {useNavigate} from 'react-router-dom';
+import { useCookies } from 'react-cookie';
+import { useNavigate } from 'react-router-dom';
 
 import Cat from '../images/Cat.svg';
 
@@ -11,8 +11,6 @@ const Register = () => {
     const [email, setEmail] = useState('')
     const [firstpassword, firstPassword] = useState('')
     const [confpassword, confPassword] = useState('')
-    const [token, setToken,removeToken] = useCookies(['mytoken'])
-    const [isLogin, setLogin] = useState(false)
     let navigate = useNavigate()
 
     let userID = 0;

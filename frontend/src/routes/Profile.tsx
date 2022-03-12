@@ -1,8 +1,8 @@
+import React, { useState, useEffect } from 'react';
 import Bar from './Bar';
 import rattusProfile from '../images/rattusProfile.png';
 import pencil from '../images/pencil.svg';
 
-import React, { useState, useEffect } from 'react';
 import {useCookies} from 'react-cookie';
 import { Link } from "react-router-dom";
 import APIService from '../APIService';

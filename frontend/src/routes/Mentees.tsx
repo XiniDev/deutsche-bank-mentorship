@@ -46,7 +46,6 @@ const Mentees = () => {
                 }
             }
         })
-        
     }, [userID])
     
     const list = menteeProfiles ? menteeProfiles.map((mentee) => <ShowMentees key={mentee.first_name} mentee={mentee}/>) : <ShowMenteesFail/>

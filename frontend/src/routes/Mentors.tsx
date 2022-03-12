@@ -46,7 +46,6 @@ const Mentors = () => {
                 }
             }
         })
-        
     }, [userID])
 
     const list = mentorProfiles ? mentorProfiles.map((mentor) => <ShowMentors key={mentor.first_name} mentor={mentor}/>) : <ShowMentorsFail/>

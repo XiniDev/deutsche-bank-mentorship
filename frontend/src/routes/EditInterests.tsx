@@ -29,7 +29,6 @@ const EditInterests = () => {
 
     const intrsList = intrs.map((intr) => <ShowIntrs key={intr.topic} intr={intr}/>)
 
-
     return (
         <div className='background'>
             <div className='container'>
