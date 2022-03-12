@@ -1,11 +1,34 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Bar from './Bar';
 import rattusProfile from '../images/rattusProfile.png';
 import cheveronRight from '../images/cheveronRight.svg';
 
 import { Link } from "react-router-dom";
 
+import { useCookies } from 'react-cookie';
+import APIService from '../APIService';
+
+const ShowIntrs = (intr:any) => {
+    return (
+        <div className="interests__existing">{intr.intr.topic}</div>
+    )
+}
+
 const EditInterests = () => {
+
+    const [token] = useCookies(['mytoken'])
+
+    const [userID, setID] = useState<any>([])
+
+    const [intrs, setIntrs] = useState<any[]>([])
+
+    useEffect(() => {
+        APIService.getUserID(`${token['mytoken']}`,token['mytoken']).then(resp => setID(resp.user))
+        APIService.getInterests(token['mytoken']).then(resp => setIntrs(APIService.GetGroupByID(userID,resp,"userID")))
+    }, [userID])
+
+    const intrsList = intrs.map((intr) => <ShowIntrs key={intr.topic} intr={intr}/>)
+
 
     return (
         <div className='background'>
@@ -16,12 +39,11 @@ const EditInterests = () => {
                         <div className="profile__headers--edit">
                             <Link className="myprofile__link" to="/profile"><h1>My Profile</h1></Link>
                             <img src={cheveronRight} className="profile__headers--edit__cheveron"/>
-                            <h2>Edit Specialisations</h2>
+                            <h2>Edit Interests</h2>
                         </div>
                         <hr />
                         <div className="interests">
-                            <div className="interests__existing">Fine Art</div>
-                            <div className="interests__existing">Fortune Telling</div>
+                            {intrsList}
                         </div>
                         <form className="editprofile__form--other" id="specialisationForm">
                             <input type="text" className="editprofile__form__inputs--other" name="specialisationname" id="specialisationName" placeholder="Search..."/><br/>
