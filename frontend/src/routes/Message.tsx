@@ -14,12 +14,11 @@ class Inbox extends Component {
     componentDidMount() {
         $(function() {
             $(".message__button3").on("click", function() {
-                console.log("I have been clicked");
-                $(':input','#typing__area')
-                .not(':button, :submit, :reset, :hidden')
-                .val('')
-                .prop('checked', false)
-                .prop('selected', false);
+                
+                var message = $('.message__area').val();
+                $('.message__area').val('');
+                $('.message__text__2').html("" + message);
+
                 var box1 = document.getElementById("hidden__message1");
                 var box2 = document.getElementById("hidden__message2");
                 var typing = document.getElementById("message__typing");

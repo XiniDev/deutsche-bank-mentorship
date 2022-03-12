@@ -42,10 +42,10 @@ const Login = () => {
         <div className="frontpage">
             <div className="frontpage__block">
                 <div className="frontpage__title">
-                    Want to get more work on top of your job?
+                    Work can give you more than just salary.
                 </div>
                 <div className="frontpage__subtitle">
-                    Use our software.
+                    Learn from those around you.
                 </div>
                 <img src={Cat} className="frontpage__img"/>
                 <div className="login__form__area">

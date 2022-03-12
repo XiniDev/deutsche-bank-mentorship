@@ -50,6 +50,7 @@ const RateMentor: FC = () => {
                                         >
                                         <Rating
                                             name="simple-controlled"
+                                            id="rating"
                                             value={value}
                                             onChange={(event, newValue) => {
                                             setValue(newValue);

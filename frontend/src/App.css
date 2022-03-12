@@ -126,8 +126,9 @@ hr {
 
 .frontpage__subtitle {
   position: absolute;
-  width: 200px;
-  margin-top: 230px;
+  width: 300px;
+  margin-top: 240px;
+  margin-left: 5px;
   font-size: 20px;
   font-weight: 600;
   color: #000000;
@@ -137,7 +138,8 @@ hr {
   position: absolute;
   width: 350px;
   height: auto;
-  margin: 200px 0px 0px 500px;
+  margin: 190px 0px 0px 500px;
+  z-index: -1;
 }
 
 .frontpage__background {
