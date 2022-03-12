@@ -1,14 +1,23 @@
-import React from 'react';
+import React, { FC, useEffect } from 'react';
 import Bar from './Bar';
 import snalProfile from '../images/snalProfile.png';
 import beaProfile from '../images/beaProfile.png';
 
+import Alert from '@mui/material/Alert';
+import $ from 'jquery';
+
 import { Link } from "react-router-dom";
 
-const NewMentor = () => {
-    const mentorBtn = async (e: React.FormEvent<HTMLInputElement>) => {
-        alert("You already have a mentor")
-    }
+const NewMentor: FC = () => {
+
+    useEffect(() => {
+        $(function() {
+            $(".request__mentor__button").on("click", function() {
+                $(".failure__message").css("display", "block");
+            });
+        });
+    }, []);
+
     return (
         <div className='background'>
             <div className='container'>
@@ -32,9 +41,14 @@ const NewMentor = () => {
                                     <div className='user__box__title'>HR (Honey Resources)</div>
                                 </div>
                             </div>
-                            <input className='request__mentor__button' value="Request to be Mentor" onClick = {mentorBtn}  />
+                            <input className='request__mentor__button' value="Request to be Mentor"/>
                             
                         </div>
+
+                        <div className='failure__message'>
+                            <Alert severity="error">You already have a mentor!</Alert>
+                        </div>
+
                         <hr />
                         
                         <h2>Specialisations</h2>

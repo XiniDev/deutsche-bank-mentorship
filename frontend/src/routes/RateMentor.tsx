@@ -1,12 +1,24 @@
-import React from 'react';
+import React, { FC, useEffect } from 'react';
 import Bar from './Bar';
 import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
 import { Link } from 'react-router-dom';
 
-const RateMentor = () => {
+import Alert from '@mui/material/Alert';
+import $ from 'jquery';
+
+const RateMentor: FC = () => {
 
     const [value, setValue] = React.useState<number | null>(2);
+
+    useEffect(() => {
+        $(function() {
+            $(".submit__button").on("click", function() {
+                $('#feedback').trigger("reset");
+                $(".success__message").css("display", "block");
+            });
+        });
+    }, []);
 
     return (
         <div className='background'>
@@ -21,28 +33,33 @@ const RateMentor = () => {
                             
                         <h1>Rate This Mentor</h1>
                         <hr />
-                        <div className='feedback__form__container'>
-                            <div className='feedback__form__labels'>
-                                <p>Rating</p>
-                                <p>Description</p>
+                        <div className='feedback__container'>
+                            <div className='success__message'>
+                                <Alert severity="success">Feedback successfully submitted.</Alert>
                             </div>
-                            <form className="rating__form">
-                                <Box
-                                    sx={{
-                                        '& > legend': { mt: 2 },
-                                    }}
-                                    >
-                                    <Rating
-                                        name="simple-controlled"
-                                        value={value}
-                                        onChange={(event, newValue) => {
-                                        setValue(newValue);
+                            <div className='feedback__form__container'>
+                                <div className='feedback__form__labels'>
+                                    <p>Rating</p>
+                                    <p>Description</p>
+                                </div>
+                                <form className="rating__form" id="feedback">
+                                    <Box
+                                        sx={{
+                                            '& > legend': { mt: 2 },
                                         }}
-                                    />
-                                </Box>
-                                <textarea name="message"></textarea><br/>
-                                <input type="submit" className="submit__button" value="Create Session"/>
-                            </form>
+                                        >
+                                        <Rating
+                                            name="simple-controlled"
+                                            value={value}
+                                            onChange={(event, newValue) => {
+                                            setValue(newValue);
+                                            }}
+                                        />
+                                    </Box>
+                                    <textarea name="message"></textarea><br/>
+                                </form>
+                            </div>
+                            <div className='submit__button'>Submit Feedback</div>
                         </div>
                         <hr />
                     </div>

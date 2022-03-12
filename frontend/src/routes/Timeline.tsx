@@ -5,15 +5,36 @@ import { Link, Navigate } from "react-router-dom";
 import $ from 'jquery';
 
 const Timeline: FC = () => {
+
     useEffect(() => {
+
         $(function() {
             $(".milestone__done").on("click", function() {
-                console.log("I have been clicked");
                 $(this).css("background-color", "#124040");
                 $(this).css("border-color", "#124040");
             });
         });
+
+        $(function() {
+            $("#done1").on("click", function() {
+                $("#milestone__complete__1").css("display", "flex");
+            });
+        });
+
+        $(function() {
+            $("#done2").on("click", function() {
+                $("#milestone__complete__2").css("display", "flex");
+            });
+        });
+
+        $(function() {
+            $("#done3").on("click", function() {
+                $("#milestone__complete__3").css("display", "flex");
+            });
+        });
+
     }, []);
+    
     return (
         <div className='background'>
             <div className='container'>
@@ -33,17 +54,17 @@ const Timeline: FC = () => {
                             <div className='milestones__list'>
 
                                 <div className='milestone'>
-                                    <div className='milestone__done'>Complete!</div>
+                                    <div className='milestone__done' id='done1'>Complete!</div>
                                     Make 10 sketches
                                 </div>
 
                                 <div className='milestone'>
-                                    <div className='milestone__done'>Complete!</div>
+                                    <div className='milestone__done' id='done2'>Complete!</div>
                                     Make 5 oil paintings
                                 </div>
 
                                 <div className='milestone'>
-                                    <div className='milestone__done'>Complete!</div>
+                                    <div className='milestone__done' id='done3'>Complete!</div>
                                     Hold small exhibition at office
                                 </div>
 
@@ -52,6 +73,48 @@ const Timeline: FC = () => {
                         <hr />
 
                         <div className='timeline__container'>
+
+                            <div className='timeline__event' id='milestone__complete__3'>
+                                <div className='timeline__line'>
+                                    <div className="dot"></div>
+                                    <div className="vl"></div>
+                                </div>
+                                <div className='timeline__item'>
+                                    <div className='timeline__date'>Mar 13th, 2022</div>
+                                    <div className='timeline__title'>Milestone Completed!</div>
+                                    <div className='timeline__content'>
+                                        <p>Hold small exhibition at office</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className='timeline__event' id='milestone__complete__2'>
+                                <div className='timeline__line'>
+                                    <div className="dot"></div>
+                                    <div className="vl"></div>
+                                </div>
+                                <div className='timeline__item'>
+                                    <div className='timeline__date'>Mar 13th, 2022</div>
+                                    <div className='timeline__title'>Milestone Completed!</div>
+                                    <div className='timeline__content'>
+                                        <p>Make 5 oil paintings</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className='timeline__event' id='milestone__complete__1'>
+                                <div className='timeline__line'>
+                                    <div className="dot"></div>
+                                    <div className="vl"></div>
+                                </div>
+                                <div className='timeline__item'>
+                                    <div className='timeline__date'>Mar 13th, 2022</div>
+                                    <div className='timeline__title'>Milestone Completed!</div>
+                                    <div className='timeline__content'>
+                                        <p>Make 10 sketches</p>
+                                    </div>
+                                </div>
+                            </div>
 
                             <div className='timeline__event'>
                                 <div className='timeline__line'>

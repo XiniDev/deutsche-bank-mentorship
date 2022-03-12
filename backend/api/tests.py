@@ -9,31 +9,27 @@ from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium.webdriver.chrome.webdriver import WebDriver
 
 test = User(
-            username="rattus",
+            username="bea",
             password="pbkdf2_sha256$320000$iQ3NjYl4VKG2LdlDP5gXPR$LLIPSLWWCS9cEj0+yDjHhtsHdyt/Jk6q2uORd+Sbm7M=",
-            first_name="Rattus",
-            last_name="Cattus",
-            email="snel@gmail.com",
+            first_name="Bea",
+            last_name="Bettre",
+            email="bea@gmail.com",
             is_superuser=0,
             is_staff=0)
 test.save()
 test = UserDetails(userID = User.objects.get(id=1),
-                    department = "Swiss Chess",
+                    department = "HR (Honey Department)",
                     is_mentor = True,
-                    pronouns = "He",
-                    title = "Mr")
+                    pronouns = "She/Her",
+                    title = "Ms")
 test.save()
 test =  Specialties(userID = UserDetails.objects.get(id=1), 
-                    topic="Jumping",
-                    description="Jumping is the act of elevating ones-self")
+                    topic="Fine Art",
+                    description="Studied in the Royal Arts Institution.")
 test.save()
 test =  Specialties(userID = UserDetails.objects.get(id=1), 
-                    topic="Climbing",
-                    description="Climbing entails prolonged sticky jumping")
-test.save()
-test =  Interests(userID = UserDetails.objects.get(id=1), 
-                    topic="Falling",
-                    description="falling is the act of de-elevating ones-self")
+                    topic="Flying",
+                    description="I mean. It just makes sense, doesn't it?")
 test.save()
 test = User(
             username="Beetty",

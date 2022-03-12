@@ -213,10 +213,10 @@ const SuggestMentor = () => {
                         Your interests Include :{RenderInterests(interests)}
                         <div className='suggestion__container'>
 
-                            <Link to="/Rattus">
+                            <Link to="/NewMentor">
                             
                             <div className='suggestion__box'>
-                            <img src={rattusProfile} className="suggested__mentor__profile"/>
+                            <img src={beaProfile} className="suggested__mentor__profile"/>
                             <h2>{MentorProfile.first_name + ' ' + MentorProfile.last_name}</h2>
                             {MentorDetails.department}
                             {RenderInterests(MentorSpecs)}
@@ -236,7 +236,7 @@ const SuggestMentor = () => {
 
                             <Link to="/newmentor">
                             <div className='suggestion__box'>
-                            <img src={beaProfile} className="suggested__mentor__profile"/>
+                            <img src={rattusProfile} className="suggested__mentor__profile"/>
                             <h2>{MentorProfile2.first_name + ' ' + MentorProfile2.last_name}</h2>
                             {MentorDetails2.department}
                             {RenderInterests(MentorSpecs2)}

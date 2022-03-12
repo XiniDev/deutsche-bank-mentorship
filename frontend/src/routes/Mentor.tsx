@@ -2,7 +2,6 @@ import React, { FC, useEffect } from 'react';
 import Bar from './Bar';
 import beaProfile from '../images/beaProfile.png';
 import plus from '../images/plus.svg';
-import FormDialog from './test';
 import pencil from '../images/pencil.svg';
 import pin from '../images/pin.svg';
 
@@ -11,6 +10,7 @@ import { Link } from "react-router-dom";
 import $ from 'jquery';
 
 const Mentor: FC = () => {
+    
     useEffect(() => {
         $(function() {
             $(".expand__button").on("click", function() {
@@ -36,6 +36,7 @@ const Mentor: FC = () => {
             });
         });
     }, []);
+
     return (
         <div className='background'>
             <div className='container'>
@@ -111,10 +112,9 @@ const Mentor: FC = () => {
                                 <img src={plus} className="expand__button"/>
                             </div>
                             <div className="plan__of__action">
-                                <div className='plan__tag'>Straighten back</div>
-                                <div className='plan__tag'>Jumping position</div>
-                                <div className='plan__tag'>Make the jump</div>
-                                <div className='plan__tag'>Land without fail</div>
+                                <div className='plan__tag'>Prepare materials</div>
+                                <div className='plan__tag'>Practice sketching lines</div>
+                                <div className='plan__tag'>Sketch 3 small sketches</div>
                             </div>
                         </div>
 
@@ -133,10 +133,9 @@ const Mentor: FC = () => {
                                 <img src={plus} className="expand__button"/>
                             </div>
                             <div className="plan__of__action">
-                                <div className='plan__tag'>Straighten back</div>
-                                <div className='plan__tag'>Jumping position</div>
-                                <div className='plan__tag'>Make the jump</div>
-                                <div className='plan__tag'>Land without fail</div>
+                                <div className='plan__tag'>Base knowledge</div>
+                                <div className='plan__tag'>Famous artists</div>
+                                <div className='plan__tag'>Free chat</div>
                                 <hr/>
                                 <div className="session__feedback__title">Session Feedback</div>
                                 <div className='session__feedback'>

@@ -16,12 +16,12 @@ function RenderGroup(group:any){
         return(
             <Link to="/mentor">
                 <div className='user__box'>
-                    <img src={rattusProfile} className="user__box__icon"/>
+                    <img src={beaProfile} className="user__box__icon"/>
                     <div className='user__box__info'>
                         <h2>{group[i].first_name} {group[i].last_name}</h2>
                         <div className='user__box__topic'>
                             Learning: 
-                            <div className='user__box__tag'>Jumping</div>
+                            <div className='user__box__tag'>Fine Art</div>
                         </div>
                     </div>
                 </div>

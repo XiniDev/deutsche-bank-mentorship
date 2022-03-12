@@ -23,7 +23,7 @@ const Feedback: FC = () => {
                         <hr />
                         <div className='feedback__container'>
                             <div className='success__message'>
-                                <Alert severity="success">Form successfully submitted.</Alert>
+                                <Alert severity="success">Feedback successfully submitted.</Alert>
                             </div>
                             <div className='feedback__form__container'>
                                 <div className='feedback__form__labels'>

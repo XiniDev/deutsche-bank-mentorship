@@ -2,7 +2,6 @@ import React, { FC, useEffect } from 'react';
 import Bar from './Bar';
 import snalProfile from '../images/snalProfile.png';
 import plus from '../images/plus.svg';
-import FormDialog from './test';
 import pencil from '../images/pencil.svg';
 import pin from '../images/pin.svg';
 

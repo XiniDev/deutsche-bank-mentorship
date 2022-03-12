@@ -1321,7 +1321,7 @@ label {
   align-items: flex-start;
 }
 
-.timeline__start {
+.timeline__start, #milestone__complete__1, #milestone__complete__2, #milestone__complete__3 {
   width: 70%;
   display: flex;
   flex-direction: row;
@@ -1649,7 +1649,7 @@ label {
   display: none;
 }
 
-.success__message {
+.success__message, .failure__message {
   margin-top: 10px;
   display: none;
 }
@@ -1682,4 +1682,12 @@ label {
 
 .deco__container p {
   font-size: 20px;
+}
+
+#new__milestone {
+  display: none;
+}
+
+#milestone__complete__1, #milestone__complete__2, #milestone__complete__3 {
+  display: none;
 }
