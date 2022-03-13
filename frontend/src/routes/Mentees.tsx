@@ -10,8 +10,9 @@ import { useCookies } from 'react-cookie';
 import APIService from '../APIService';
 
 const ShowMentees = (mentee:any) => {
+    const menteePage = "/mentee?menteeID=" + mentee.mentee.id
     return(
-        <Link to="/mentee">
+        <Link to={menteePage}>
             <div className='user__box'>
                 <img src={beaProfile} className="user__box__icon"/>
                 <div className='user__box__info'>

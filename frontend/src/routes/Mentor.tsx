@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import Bar from './Bar';
 import beaProfile from '../images/beaProfile.png';
 import plus from '../images/plus.svg';
@@ -6,6 +6,9 @@ import pencil from '../images/pencil.svg';
 import pin from '../images/pin.svg';
 
 import { Link } from "react-router-dom";
+
+import { useCookies } from 'react-cookie';
+import APIService from '../APIService';
 
 import $ from 'jquery';
 
@@ -37,6 +40,20 @@ const Mentor: FC = () => {
         });
     }, []);
 
+    const [token] = useCookies(['mytoken'])
+
+    const [userID, setID] = useState<any>([])
+
+    let mentorID = document.location.search.substring(1).split("=")[1]
+    const [mentorProfile, setMentorProfile] = useState<any>([])
+    const [mentorUserDetails, setMentorUserDetails] = useState<any>([])
+
+    useEffect(() => {
+        APIService.getUserID(`${token['mytoken']}`,token['mytoken']).then(resp => setID(resp.user))
+        APIService.getProfile(mentorID,token['mytoken']).then(resp => {setMentorProfile(resp)})
+        APIService.getUserDetails(mentorID,token['mytoken']).then(resp => {setMentorUserDetails(resp)})
+    }, [userID])
+
     return (
         <div className='background'>
             <div className='container'>
@@ -50,7 +67,7 @@ const Mentor: FC = () => {
 
                         <div className='upcoming__sessions'>
                             <h1>Mentor</h1>
-                            <Link to="/timeline" className="timeline__link">
+                            <Link to={"/timeline?mentorID=" + mentorID} className="timeline__link">
                                 <img src={pin} className="timeline__img"/>
                                 View Timeline
                             </Link>
@@ -61,9 +78,9 @@ const Mentor: FC = () => {
                             <div className='user__info'>
                                 <img src={beaProfile} className="user__box__icon"/>
                                 <div className='user__box__info'>
-                                    <h2>Bea</h2>
-                                    <p>She/Her</p>
-                                    <div className='user__box__title'>HR (Honey Resources)</div>
+                                    <h2>{mentorProfile.first_name}</h2>
+                                    <p>{mentorUserDetails.pronouns}</p>
+                                    <div className='user__box__title'>{mentorUserDetails.department}</div>
                                 </div>
                             </div>
                             <div className='cancel__relationship__button'>Cancel Relationship</div>
@@ -72,7 +89,7 @@ const Mentor: FC = () => {
                         
                         <div className='upcoming__sessions'>
                             <h1>Course Information</h1>
-                            <Link to="/editmilestones" className='edit__milestone__button'>
+                            <Link to={"/editmilestones?mentorID=" + mentorID} className='edit__milestone__button'>
                                 <img src={pencil} className="edit__symbol"/>
                                 Edit Milestones
                             </Link>
@@ -92,7 +109,7 @@ const Mentor: FC = () => {
 
                         <div className='upcoming__sessions'>
                             <h1>Upcoming Sessions</h1>
-                            <Link to="/requestsession">
+                            <Link to={"/requestsession?mentorID=" + mentorID}>
                                 <div className='add__session__button'>
                                     <img src={plus} className="plus__symbol"/>
                                     Request Session
@@ -148,7 +165,7 @@ const Mentor: FC = () => {
 
                         <hr />
 
-                        <Link to="/ratementor" className='center'>
+                        <Link to={"/ratementor?mentorID=" + mentorID} className='center'>
                             <div className='general__button'>Rate Mentor</div>
                         </Link>
 

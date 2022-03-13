@@ -1,7 +1,11 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC, useState, useEffect, } from 'react';
 import Bar from './Bar';
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
+import { useCookies } from 'react-cookie';
+import APIService from '../APIService';
+
 import Alert from '@mui/material/Alert';
 import $ from 'jquery';
 
@@ -14,6 +18,20 @@ const AddSession: FC = () => {
             });
         });
     }, []);
+
+    const [token] = useCookies(['mytoken'])
+    let navigate = useNavigate()
+
+    const [userID, setID] = useState<any>([])
+
+    let menteeID = document.location.search.substring(1).split("=")[1]
+    const [menteeProfile, setMenteeProfile] = useState<any>([])
+
+    useEffect(() => {
+        APIService.getUserID(`${token['mytoken']}`,token['mytoken']).then(resp => setID(resp.user))
+        APIService.getProfile(menteeID,token['mytoken']).then(resp => {setMenteeProfile(resp)})
+    }, [userID])
+
     return (
         <div className='background'>
             <div className='container'>
@@ -21,11 +39,11 @@ const AddSession: FC = () => {
                 <div className='content__background'>
                     <div className='content'>
 
-                        <Link to="/mentee">
+                        <Link to={"/mentee?menteeID=" + menteeID}>
                                 <div className='back__button'>&#171; BACK</div>
                         </Link>
 
-                        <h1>New Session with Snal</h1>
+                        <h1>New Session with {menteeProfile.first_name}</h1>
                         <hr />
                         <div className='new__session__container'>
                             <div className='success__message'>

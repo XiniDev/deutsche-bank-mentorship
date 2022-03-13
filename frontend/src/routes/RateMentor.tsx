@@ -20,6 +20,8 @@ const RateMentor: FC = () => {
         });
     }, []);
 
+    let mentorID = document.location.search.substring(1).split("=")[1]
+
     return (
         <div className='background'>
             <div className='container'>
@@ -27,7 +29,7 @@ const RateMentor: FC = () => {
                 <div className='content__background'>
                     <div className='content'>
 
-                        <Link to="/mentor">
+                        <Link to={"/mentor?mentorID=" + mentorID}>
                             <div className='back__button'>&#171; BACK</div>
                         </Link>
                             

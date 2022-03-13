@@ -10,24 +10,37 @@ import { Link } from "react-router-dom";
 import { useCookies } from 'react-cookie';
 import APIService from '../APIService';
 
-function RenderGroup(group:any){
-        
-    for (let i = 0; i < group.length; i++) {
-        return(
-            <Link to="/mentor">
-                <div className='user__box'>
-                    <img src={beaProfile} className="user__box__icon"/>
-                    <div className='user__box__info'>
-                        <h2>{group[i].first_name} {group[i].last_name}</h2>
-                        <div className='user__box__topic'>
-                            Learning: 
-                            <div className='user__box__tag'>Fine Art</div>
-                        </div>
+const ShowMentors = (mentor:any) => {
+    const mentorPage = "/mentor?mentorID=" + mentor.mentor.id
+    return(
+        <Link to={mentorPage}>
+            <div className='user__box'>
+                <img src={beaProfile} className="user__box__icon"/>
+                <div className='user__box__info'>
+                    <h2>{mentor.mentor.first_name} {mentor.mentor.last_name}</h2>
+                    <div className='user__box__topic'>
+                        Learning: 
+                        <div className='user__box__tag'>Fine Art</div>
                     </div>
                 </div>
+            </div>
+        </Link>
+    )
+}
+
+const ShowButton = () => {
+    return (
+        <div className='general__button__container'>
+            <Link to="/SuggestMentor">
+                <div className='general__button'>
+                    Suggest New Mentors
+                </div>
             </Link>
-        )
-    }
+        </div>
+    )
+}
+
+const ShowMentorsFail = () => {
     return (
         <div className='deco__container'>
             <p>You currently have no mentors.</p>
@@ -61,6 +74,9 @@ const Mentors = () => {
         
     }, [userID])
 
+    const list = mentorProfiles.length != 0 ? mentorProfiles.map((mentor) => <ShowMentors key={mentor.first_name} mentor={mentor}/>)  : <ShowMentorsFail/>
+    const button = mentorProfiles.length != 0 ? <ShowButton/> : null
+
     return (
         <div className='background'>
             <div className='container'>
@@ -69,7 +85,8 @@ const Mentors = () => {
                     <div className='content'>
                         <h1>Mentors</h1>
                         <hr />
-                            {RenderGroup(mentorProfiles)}
+                            {list}
+                            {button}
                         <hr />
                     </div>
                 </div>

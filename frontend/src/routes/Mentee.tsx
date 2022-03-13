@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import Bar from './Bar';
 import snalProfile from '../images/snalProfile.png';
 import plus from '../images/plus.svg';
@@ -6,6 +6,9 @@ import pencil from '../images/pencil.svg';
 import pin from '../images/pin.svg';
 
 import { Link } from "react-router-dom";
+
+import { useCookies } from 'react-cookie';
+import APIService from '../APIService';
 
 import $ from 'jquery';
 import { render } from '@testing-library/react';
@@ -36,6 +39,21 @@ const Mentee: FC = () => {
             });
         });
     }, []);
+    
+    const [token] = useCookies(['mytoken'])
+
+    const [userID, setID] = useState<any>([])
+
+    let menteeID = document.location.search.substring(1).split("=")[1]
+    const [menteeProfile, setMenteeProfile] = useState<any>([])
+    const [menteeUserDetails, setMenteeUserDetails] = useState<any>([])
+
+    useEffect(() => {
+        APIService.getUserID(`${token['mytoken']}`,token['mytoken']).then(resp => setID(resp.user))
+        APIService.getProfile(menteeID,token['mytoken']).then(resp => {setMenteeProfile(resp)})
+        APIService.getUserDetails(menteeID,token['mytoken']).then(resp => {setMenteeUserDetails(resp)})
+    }, [userID])
+
     return (
         <div className='background'>
             <div className='container'>
@@ -60,9 +78,9 @@ const Mentee: FC = () => {
                             <div className='user__info'>
                                 <img src={snalProfile} className="user__box__icon"/>
                                 <div className='user__box__info'>
-                                    <h2>Snal</h2>
-                                    <p>He/Him</p>
-                                    <div className='user__box__title'>IT (Invertebrate Technology)</div>
+                                    <h2>{menteeProfile.first_name}</h2>
+                                    <p>{menteeUserDetails.pronouns}</p>
+                                    <div className='user__box__title'>{menteeUserDetails.department}</div>
                                 </div>
                             </div>
                             <div className='cancel__relationship__button'>Cancel Relationship</div>
@@ -87,7 +105,7 @@ const Mentee: FC = () => {
 
                         <div className='upcoming__sessions'>
                             <h1>Upcoming Sessions</h1>
-                            <Link to="/addsession">
+                            <Link to={"/addsession?menteeID=" + menteeID}>
                                 <div className='add__session__button'>
                                     <img src={plus} className="plus__symbol"/>
                                     New Session
