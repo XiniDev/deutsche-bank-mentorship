@@ -38,11 +38,12 @@ const Header = () => {
     return (
         
         <header className="header">
-           
-            <div className="header__logo">
-                <img src={Rattus1} alt="Rattus1"/>
-                Rattus
-            </div>
+           <Link to="/profile">
+                <div className="header__logo">
+                    <img src={Rattus1} alt="Rattus1"/>
+                    Rattus
+                </div>
+            </Link>
             
             <div className='header__links'>
             

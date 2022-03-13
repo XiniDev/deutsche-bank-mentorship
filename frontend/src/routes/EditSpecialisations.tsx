@@ -91,14 +91,21 @@ const EditSpecialisations = () => {
         e.preventDefault()
 
         var conditions = 0
+
+        var divsToShow = document.getElementsByClassName('error__message') as HTMLCollectionOf<HTMLElement>
+        for(var i = 0; i < divsToShow.length; i++){
+            divsToShow[i].style.display = "none"
+        }
         
         if (!topic || !description ) {
             conditions += 1
             console.log("PLEASE FILL IN ALL DETAILS")
+            divsToShow[1].style.display = "block"
         }
         if (specs.some(e => e.topic == topic)) {
             conditions += 1
             console.log("You already specialise in this field")
+            divsToShow[0].style.display = "block"
         }
         if (conditions == 0) {
             APIService.SetSpecialisation({userID, topic, description}, token['mytoken']).then( () => {
@@ -144,8 +151,10 @@ const EditSpecialisations = () => {
                                 }}
                                 options={options}
                             />
+                            <div className='error__message' id='err0'>You already specialise in this field!</div>
                             <input type="text" className="editprofile__form__inputs--other" name="specialisationname" id="specialisationName" placeholder="Please enter your specialisation..." onChange = {e => setTopic(e.target.value)}/><br/>
                             <textarea className="editprofile__form__textarea--other" name="specialisationdescription" id="specialisationDescription" placeholder="Description..." form="specialisationForm" onChange = {e => setDescription(e.target.value)}/><br/>
+                            <div className='error__message' id='err1'>Please fill in all fields!</div>
                             <hr />
                             <div className="editprofile__form__buttons">
                                 <Link to="/profile" className="editprofile__form__buttons__cancel">Cancel</Link>

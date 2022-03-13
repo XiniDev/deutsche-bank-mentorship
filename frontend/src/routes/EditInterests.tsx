@@ -91,14 +91,21 @@ const EditInterests = () => {
         e.preventDefault()
 
         var conditions = 0
+
+        var divsToShow = document.getElementsByClassName('error__message') as HTMLCollectionOf<HTMLElement>
+        for(var i = 0; i < divsToShow.length; i++){
+            divsToShow[i].style.display = "none"
+        }
         
         if (!topic || !description ) {
             conditions += 1
             console.log("PLEASE FILL IN ALL DETAILS")
+            divsToShow[1].style.display = "block"
         }
         if (intrs.some(e => e.topic == topic)) {
             conditions += 1
             console.log("You already specialise in this field")
+            divsToShow[0].style.display = "block"
         }
         if (conditions == 0) {
             APIService.SetInterests({userID, topic, description}, token['mytoken']).then( () => {
@@ -110,7 +117,7 @@ const EditInterests = () => {
     }
 
     const filterOption = (go:boolean) => {
-        const input = document.getElementById("specialisationName");
+        const input = document.getElementById("interestName");
         if (input) {
             go ? input.setAttribute("style", "display:block;") : input.setAttribute("style", "display:none;");
         }
@@ -144,8 +151,10 @@ const EditInterests = () => {
                                 }}
                                 options={options}
                             />
+                            <div className='error__message' id='err0'>You already specialise in this field!</div>
                             <input type="text" className="editprofile__form__inputs--other" name="interestname" id="interestName" placeholder="Please enter your interest..." onChange = {e => setTopic(e.target.value)}/><br/>
                             <textarea className="editprofile__form__textarea--other" name="interestdescription" id="interestDescription" placeholder="Description..." form="specialisationForm" onChange = {e => setDescription(e.target.value)}/><br/>
+                            <div className='error__message' id='err1'>Please fill in all fields!</div>
                             <hr />
                             <div className="editprofile__form__buttons">
                                 <Link to="/profile" className="editprofile__form__buttons__cancel">Cancel</Link>
