@@ -113,7 +113,7 @@ const AddSession: FC = () => {
             APIService.SetEvents({mentorID, topic, description, start_time, end_time, location}, token['mytoken']).then(resp => {
                 eventID = resp.id
                 APIService.SetAttendees({eventID, menteeID}, token['mytoken']).then(() => {
-                    // navigate("/mentee?menteeID=" + menteeID)
+                    navigate("/mentee?menteeID=" + menteeID)
                     console.log()
                 })
                 .catch( error2 => console.log(error2))
