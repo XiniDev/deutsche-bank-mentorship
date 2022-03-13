@@ -114,6 +114,34 @@ export default class APIService {
 
     }
 
+    static SetEvents(body, token) {
+
+      return fetch('http://127.0.0.1:8000/api/events/', {
+        'method':'POST',
+        headers: {
+            'Content-Type':'application/json',
+            'Authorization':`Token ${token}`
+        }, 
+        body:JSON.stringify(body)
+
+      }).then(resp => resp.json())
+
+    }
+
+    static SetAttendees(body, token) {
+
+      return fetch('http://127.0.0.1:8000/api/attendees/', {
+        'method':'POST',
+        headers: {
+            'Content-Type':'application/json',
+            'Authorization':`Token ${token}`
+        }, 
+        body:JSON.stringify(body)
+
+      }).then(resp => resp.json())
+
+    }
+
 
     static GetGroupByID(userID, array, IDtype) {
       const group = new Array()

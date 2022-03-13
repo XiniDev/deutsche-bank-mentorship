@@ -1,6 +1,6 @@
 import React, { FC, useState, useEffect } from 'react';
 import Bar from './Bar';
-import snalProfile from '../images/snalProfile.png';
+import beaProfile from '../images/beaProfile.png';
 import plus from '../images/plus.svg';
 import pencil from '../images/pencil.svg';
 import pin from '../images/pin.svg';
@@ -76,7 +76,7 @@ const Mentee: FC = () => {
 
                         <div className='mentee__box'>
                             <div className='user__info'>
-                                <img src={snalProfile} className="user__box__icon"/>
+                                <img src={beaProfile} className="user__box__icon"/>
                                 <div className='user__box__info'>
                                     <h2>{menteeProfile.first_name}</h2>
                                     <p>{menteeUserDetails.pronouns}</p>
