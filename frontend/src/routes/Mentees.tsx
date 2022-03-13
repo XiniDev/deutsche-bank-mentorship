@@ -14,7 +14,7 @@ const ShowMentees = (mentee:any) => {
     return(
         <Link to={menteePage}>
             <div className='user__box'>
-                <img src={beaProfile} className="user__box__icon"/>
+                <img src={snalProfile} className="user__box__icon"/>
                 <div className='user__box__info'>
                     <h2>{mentee.mentee.first_name} {mentee.mentee.last_name}</h2>
                     <div className='user__box__topic'>

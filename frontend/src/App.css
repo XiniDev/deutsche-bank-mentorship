@@ -1035,6 +1035,7 @@ label {
 }
 
 .topics__container {
+  overflow: hidden;
   padding: 1px;
   padding-top: 1px;
   padding-bottom: 1px;

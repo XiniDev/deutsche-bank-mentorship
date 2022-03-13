@@ -90,6 +90,7 @@ const AddSession: FC = () => {
     }, [userID])
 
     const CreateSession = async (e: React.FormEvent<HTMLInputElement>) => {
+
         e.preventDefault()
 
         var conditions = 0
@@ -145,7 +146,7 @@ const AddSession: FC = () => {
                                     <p>Date *</p>
                                     <p>Time *</p>
                                     <p>Topic *</p>
-                                    <p>Descripition *</p>
+                                    <p>Description *</p>
                                     <p>Location *</p>
                                 </div>
                                 <form className="new__session__form" id="new__session">

@@ -68,10 +68,10 @@ const EditInterests = () => {
     useEffect(() => {
         APIService.getUserID(`${token['mytoken']}`,token['mytoken']).then(resp => setID(resp.user))
         APIService.getInterests(token['mytoken']).then(resp => {
+            stringSet.add("Add new topic...")
             for (let i = 0; i < resp.length; i++) {
                 stringSet.add(resp[i].topic)
             }
-            stringSet.add("Other")
         }).then(() => {
             setStringArray(Array.from(stringSet))
             for (let i = 0; i < stringArray.length; i++) {
@@ -143,11 +143,11 @@ const EditInterests = () => {
                                 styles={selectStyle}
                                 defaultValue={null}
                                 onChange={e => {
-                                    if (e && e.label != "Other") {
+                                    if (e && e.label != "Add new topic...") {
                                         setTopic(e.value)
                                         filterOption(false)
                                     }
-                                    else if (e?.label == "Other") filterOption(true)
+                                    else if (e?.label == "Add new topic...") filterOption(true)
                                 }}
                                 options={options}
                             />
