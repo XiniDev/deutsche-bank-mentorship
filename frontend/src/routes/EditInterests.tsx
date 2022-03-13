@@ -3,7 +3,7 @@ import Bar from './Bar';
 import rattusProfile from '../images/rattusProfile.png';
 import cheveronRight from '../images/cheveronRight.svg';
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { useCookies } from 'react-cookie';
 import APIService from '../APIService';
@@ -54,6 +54,7 @@ const ShowIntrs = (intr:any) => {
 const EditInterests = () => {
 
     const [token] = useCookies(['mytoken'])
+    let navigate = useNavigate()
 
     const [userID, setID] = useState<any>([])
 
@@ -68,12 +69,36 @@ const EditInterests = () => {
             for (let i = 0; i < resp.length; i++) {
                 setOptions(state => [...state, {value : resp[i].topic, label : resp[i].topic}])
             }
+            setOptions(state => [...state, {value: 'other', label: 'Other'}])
         })
     }, [userID])
 
     const intrsList = intrs.map((intr) => <ShowIntrs key={intr.topic} intr={intr}/>)
 
-    const [selectedOption, setSelectedOption] = useState(null);
+    const [topic, setTopic] = useState('');
+    const [description, setDescription] = useState('')
+
+    const SubmitIntrs = async (e: React.FormEvent<HTMLInputElement>) => {
+
+        e.preventDefault()
+
+        if (!topic || !description ) {
+            console.log("PLEASE FILL IN ALL DETAILS")
+        } else {
+            APIService.SetInterests({userID, topic, description}, token['mytoken']).then( () => {
+                navigate('/profile')
+                console.log()
+            })
+            .catch( error => console.log(error))
+        }
+    }
+
+    const filterOption = (go:boolean) => {
+        const input = document.getElementById("interestName");
+        if (input) {
+            go ? input.setAttribute("style", "display:block;") : input.setAttribute("style", "display:none;");
+        }
+    }
 
     return (
         <div className='background'>
@@ -91,18 +116,24 @@ const EditInterests = () => {
                             {intrsList}
                         </div>
                         <form className="editprofile__form--other" id="specialisationForm">
-                            <input type="text" className="editprofile__form__inputs--other" name="specialisationname" id="specialisationName" placeholder="Search..."/><br/>
                             <Select
                                 styles={selectStyle}
-                                defaultValue={selectedOption}
-                                onChange={() => setSelectedOption}
+                                defaultValue={null}
+                                onChange={e => {
+                                    if (e && e.label != "Other") {
+                                        setTopic(e.value)
+                                        filterOption(false)
+                                    }
+                                    else if (e?.label == "Other") filterOption(true)
+                                }}
                                 options={options}
                             />
-                            <textarea className="editprofile__form__textarea--other" name="specialisationdescription" id="specialisationDescription" placeholder="Description..." form="specialisationForm"/><br/>
+                            <input type="text" className="editprofile__form__inputs--other" name="interestname" id="interestName" placeholder="Search..." onChange = {e => setTopic(e.target.value)}/><br/>
+                            <textarea className="editprofile__form__textarea--other" name="interestdescription" id="interestDescription" placeholder="Description..." form="specialisationForm" onChange = {e => setDescription(e.target.value)}/><br/>
                             <hr />
                             <div className="editprofile__form__buttons">
                                 <Link to="/profile" className="editprofile__form__buttons__cancel">Cancel</Link>
-                                <input type="submit" className="submit__button" value="Done"/>
+                                <input type="submit" className="submit__button" value="Done" onClick = {SubmitIntrs}/>
                             </div>
                         </form>
                     </div>

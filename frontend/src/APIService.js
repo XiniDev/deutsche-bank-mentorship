@@ -86,6 +86,35 @@ export default class APIService {
 
     }
 
+    static SetSpecialisation(body, token) {
+
+      return fetch('http://127.0.0.1:8000/api/specialties/', {
+        'method':'POST',
+        headers: {
+            'Content-Type':'application/json',
+            'Authorization':`Token ${token}`
+        }, 
+        body:JSON.stringify(body)
+
+      }).then(resp => resp.json())
+
+    }
+
+    static SetInterests(body, token) {
+
+      return fetch('http://127.0.0.1:8000/api/interests/', {
+        'method':'POST',
+        headers: {
+            'Content-Type':'application/json',
+            'Authorization':`Token ${token}`
+        }, 
+        body:JSON.stringify(body)
+
+      }).then(resp => resp.json())
+
+    }
+
+
     static GetGroupByID(userID, array, IDtype) {
       const group = new Array()
       let n = 0
