@@ -7,9 +7,22 @@ from api.urls import *
 from django.test import Client
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium.webdriver.chrome.webdriver import WebDriver
+import random
+import string
+
 
 class MySeleniumTests(StaticLiveServerTestCase):
 
+    rand_username = ''.join(random.choice(string.ascii_letters) for _ in range(10))
+    while True:
+        try:
+            User.object.get(username=rand_username)
+        except:
+            break
+        rand_username = ''.join(random.choice(string.ascii_letters) for _ in range(10))
+    print(rand_username)
+    rand_password = ''.join(random.choice(string.ascii_letters) for _ in range(10)) + '12345'
+    print(rand_password)
 
     @classmethod
     def setUpClass(cls):
@@ -23,28 +36,84 @@ class MySeleniumTests(StaticLiveServerTestCase):
         super().tearDownClass()
         
     def test_login(self):
-        self.selenium.get('%s%s' % ("http://localhost:3000", ''))
-        self.selenium.find_element_by_link_text("Register").click
+        self.selenium.get("http://localhost:3000")
+        WebDriver().implicitly_wait(0)
         username_input = self.selenium.find_element_by_name("username")
-        username_input.send_keys('zak')
+        username_input.send_keys('admin')
         password_input = self.selenium.find_element_by_name("password")
-        password_input.send_keys('zak12345')
+        password_input.send_keys('admin123')
         self.selenium.find_element_by_class_name("submit__button").click()
-        self.selenium.find_element_by_class_name("editprofile").click()
+        WebDriver().implicitly_wait(0)
+        self.assertEquals(self.selenium.current_url,'http://localhost:3000/profile')
+        print("Login of existing user successful")
+
 
     def test_register(self):
         self.selenium.get("http://localhost:3000/register")
+        WebDriver().implicitly_wait(10)
         fname_input = self.selenium.find_element_by_name("fname")
-        fname_input.send_keys('Big')
+        fname_input.send_keys(''.join(random.choice(string.ascii_letters) for _ in range(10)))
         lname_input = self.selenium.find_element_by_name("lname")
-        lname_input.send_keys('Chungus')
+        lname_input.send_keys(''.join(random.choice(string.ascii_letters) for _ in range(10)))
         email_input = self.selenium.find_element_by_name("email")
-        email_input.send_keys('bingus@gmail.com')
+        email_input.send_keys(self.rand_username + '@gmail.com')
         password1_input = self.selenium.find_element_by_name("password")
-        password1_input.send_keys('chung1234')
+        password1_input.send_keys(self.rand_password)
         password2_input = self.selenium.find_element_by_name("cpassword")
-        password2_input.send_keys('chung1234')
+        password2_input.send_keys(self.rand_password)
         self.selenium.find_element_by_class_name("submit__button").click()
+        WebDriver().implicitly_wait(0)
+        self.selenium.find_element_by_class_name("signout__button").click()
+        self.assertEquals(self.selenium.current_url,'http://localhost:3000/')
+        username_input = self.selenium.find_element_by_name("username")
+        username_input.send_keys('admin')
+        password_input = self.selenium.find_element_by_name("password")
+        password_input.send_keys('admin123')
+        self.selenium.find_element_by_class_name("submit__button").click()
+        WebDriver().implicitly_wait(0)
+        self.assertEquals(self.selenium.current_url,'http://localhost:3000/profile')
+
+    def test_edit_profile(self):
+        self.selenium.get("http://localhost:3000")
+        WebDriver().implicitly_wait(0)
+        username_input = self.selenium.find_element_by_name("username")
+        username_input.send_keys('admin')
+        password_input = self.selenium.find_element_by_name("password")
+        password_input.send_keys('admin123')
+        self.selenium.find_element_by_class_name("submit__button").click()
+        WebDriver().implicitly_wait(0)
+        self.selenium.find_element_by_class_name("editprofile").click()
+        WebDriver().implicitly_wait(0)
+        self.assertEquals(self.selenium.current_url,'http://localhost:3000/editprofile')
+        f_name_rand = ''.join(random.choice(string.ascii_letters) for _ in range(10))
+        fname_input = self.selenium.find_element_by_name("firstname")
+        fname_input.send_keys(f_name_rand)
+        l_name_rand = ''.join(random.choice(string.ascii_letters) for _ in range(10))
+        lname_input = self.selenium.find_element_by_name("lastname")
+        lname_input.send_keys(l_name_rand)
+        email_rand = ''.join(random.choice(string.ascii_letters) for _ in range(10))
+        email_input = self.selenium.find_element_by_name("email")
+        email_input.send_keys(email_rand)
+        pronoun_rand = ''.join(random.choice(string.ascii_letters) for _ in range(10))
+        pronoun_input = self.selenium.find_element_by_name("pronouns")
+        pronoun_input.send_keys(pronoun_rand)
+        title_rand = ''.join(random.choice(string.ascii_letters) for _ in range(10))
+        title_input = self.selenium.find_element_by_name("companytitle")
+        title_input.send_keys(title_rand)
+        dep_rand = ''.join(random.choice(string.ascii_letters) for _ in range(10))
+        dep_input = self.selenium.find_element_by_name("companydepartment")
+        dep_input.send_keys(dep_rand)
+        self.selenium.find_element_by_class_name("submit__button").click()
+        WebDriver().implicitly_wait(0)
+        self.assertEquals(self.selenium.current_url,'http://localhost:3000/profile')
+        user = User.objects.get(username="admin")
+        self.assertEquals(f_name_rand, user.first_name)
+        self.assertEquals(l_name_rand, user.last_name)
+        self.assertEquals(email_rand, user.email)
+        user_details = UserDetails.objects.get(id = user.id)
+        self.assertEquals(pronoun_rand, user_details.pronouns)
+        self.assertEquals(dep_rand, user_details.department)
+        self.assertEquals(f_name_rand, user_details.title)
 
 
 class TestConstraints(TestCase):
