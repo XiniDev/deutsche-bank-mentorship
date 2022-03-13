@@ -23,7 +23,8 @@ const EditProfile = () => {
     const [pronouns, setPronouns] = useState<any>([])
     const [department, setDepartment] = useState<any>([])
     const [email, setEmail] = useState<any>([])
-    
+    const [title, setTitle] = useState<any>([])
+
     useEffect(() => {
 
         APIService.getUserID(`${token['mytoken']}`,token['mytoken']).then(resp => setID(resp.user));
@@ -35,6 +36,7 @@ const EditProfile = () => {
         APIService.getUserDetails(userID,token['mytoken']).then(resp => {
             setPronouns(resp.pronouns)
             setDepartment(resp.department)
+            setTitle(resp.title)
         });
     
     }, [userID])
@@ -44,7 +46,7 @@ const EditProfile = () => {
     const EditProfileBtn = async (e: React.FormEvent<HTMLInputElement>) => {
         e.preventDefault()
         var conditions = 0
-        if (!first_name || !last_name || !email || !pronouns || !department) {
+        if (!first_name || !last_name || !email || !pronouns || !department || !title) {
             conditions += 1
             console.log("PLEASE FILL IN ALL DETAILS")
         }
@@ -100,7 +102,12 @@ const EditProfile = () => {
 
                                     <div className='editprofile__field'>
                                         <label htmlFor="editCompanyTitle" className="editprofile__form__labels">Company Title</label>
-                                        <input type="text" className="editprofile__form__inputs" name="companytitle" id="editCompanyTitle" placeholder="Your Company Title" value={department} onChange = {e => setDepartment(e.target.value)}/>
+                                        <input type="text" className="editprofile__form__inputs" name="companytitle" id="editCompanyTitle" placeholder="Your Company Title" value={title} onChange = {e => setTitle(e.target.value)}/>
+                                    </div>
+
+                                    <div className='editprofile__field'>
+                                        <label htmlFor="editCompanyTitle" className="editprofile__form__labels">Department</label>
+                                        <input type="text" className="editprofile__form__inputs" name="companydepartment" id="editDepartment" placeholder="Your Department" value={department} onChange = {e => setDepartment(e.target.value)}/>
                                     </div>
 
                                     <div className='editprofile__field'>
