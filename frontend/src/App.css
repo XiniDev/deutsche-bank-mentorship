@@ -641,7 +641,8 @@ label {
 
 .editprofile__form__inputs--other {
   display: none;
-  padding-left: 27px;
+  /* padding-left: 27px; */
+  margin-top: 20px;
   width: 710px;
   height: 30px;
   background: #FFFFFF;
@@ -649,7 +650,7 @@ label {
   box-sizing: border-box;
   font-size: 18px;
   color: rgba(0, 0, 0, 0.5);
-  background-image: url(images/search.svg);
+  /* background-image: url(images/search.svg); */
   background-repeat: no-repeat;
   background-position: 6px center;
 }

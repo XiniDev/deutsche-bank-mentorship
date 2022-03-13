@@ -62,15 +62,23 @@ const EditSpecialisations = () => {
 
     const [options, setOptions] = useState<OptionType[]>([])
 
+    const [stringSet] = useState<Set<string>>(new Set<string>())
+    const [stringArray, setStringArray] = useState<string[]>([])
+
     useEffect(() => {
         APIService.getUserID(`${token['mytoken']}`,token['mytoken']).then(resp => setID(resp.user))
         APIService.getSpecialties(token['mytoken']).then(resp => {
-            setSpecs(APIService.GetGroupByID(userID,resp,"userID"))
             for (let i = 0; i < resp.length; i++) {
-                setOptions(state => [...state, {value : resp[i].topic, label : resp[i].topic}])
+                stringSet.add(resp[i].topic)
             }
-            setOptions(state => [...state, {value: 'other', label: 'Other'}])
+            stringSet.add("Other")
+        }).then(() => {
+            setStringArray(Array.from(stringSet))
+            for (let i = 0; i < stringArray.length; i++) {
+                setOptions(state => [...state, {value : stringArray[i], label : stringArray[i]}])
+            }
         })
+        APIService.getSpecialties(token['mytoken']).then(resp => setSpecs(APIService.GetGroupByID(userID,resp,"userID")))
     }, [userID])
 
     const specsList = specs.map((spec) => <ShowSpecs key={spec.topic} spec={spec}/>)
@@ -82,9 +90,17 @@ const EditSpecialisations = () => {
 
         e.preventDefault()
 
+        var conditions = 0
+        
         if (!topic || !description ) {
+            conditions += 1
             console.log("PLEASE FILL IN ALL DETAILS")
-        } else {
+        }
+        if (specs.some(e => e.topic == topic)) {
+            conditions += 1
+            console.log("You already specialise in this field")
+        }
+        if (conditions == 0) {
             APIService.SetSpecialisation({userID, topic, description}, token['mytoken']).then( () => {
                 navigate('/profile')
                 console.log()
@@ -128,7 +144,7 @@ const EditSpecialisations = () => {
                                 }}
                                 options={options}
                             />
-                            <input type="text" className="editprofile__form__inputs--other" name="specialisationname" id="specialisationName" placeholder="Search..." onChange = {e => setTopic(e.target.value)}/><br/>
+                            <input type="text" className="editprofile__form__inputs--other" name="specialisationname" id="specialisationName" placeholder="Please enter your specialisation..." onChange = {e => setTopic(e.target.value)}/><br/>
                             <textarea className="editprofile__form__textarea--other" name="specialisationdescription" id="specialisationDescription" placeholder="Description..." form="specialisationForm" onChange = {e => setDescription(e.target.value)}/><br/>
                             <hr />
                             <div className="editprofile__form__buttons">

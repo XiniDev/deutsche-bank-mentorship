@@ -62,15 +62,23 @@ const EditInterests = () => {
 
     const [options, setOptions] = useState<OptionType[]>([])
 
+    const [stringSet] = useState<Set<string>>(new Set<string>())
+    const [stringArray, setStringArray] = useState<string[]>([])
+
     useEffect(() => {
         APIService.getUserID(`${token['mytoken']}`,token['mytoken']).then(resp => setID(resp.user))
         APIService.getInterests(token['mytoken']).then(resp => {
-            setIntrs(APIService.GetGroupByID(userID,resp,"userID"))
             for (let i = 0; i < resp.length; i++) {
-                setOptions(state => [...state, {value : resp[i].topic, label : resp[i].topic}])
+                stringSet.add(resp[i].topic)
             }
-            setOptions(state => [...state, {value: 'other', label: 'Other'}])
+            stringSet.add("Other")
+        }).then(() => {
+            setStringArray(Array.from(stringSet))
+            for (let i = 0; i < stringArray.length; i++) {
+                setOptions(state => [...state, {value : stringArray[i], label : stringArray[i]}])
+            }
         })
+        APIService.getInterests(token['mytoken']).then(resp => setIntrs(APIService.GetGroupByID(userID,resp,"userID")))
     }, [userID])
 
     const intrsList = intrs.map((intr) => <ShowIntrs key={intr.topic} intr={intr}/>)
@@ -82,9 +90,17 @@ const EditInterests = () => {
 
         e.preventDefault()
 
+        var conditions = 0
+        
         if (!topic || !description ) {
+            conditions += 1
             console.log("PLEASE FILL IN ALL DETAILS")
-        } else {
+        }
+        if (intrs.some(e => e.topic == topic)) {
+            conditions += 1
+            console.log("You already specialise in this field")
+        }
+        if (conditions == 0) {
             APIService.SetInterests({userID, topic, description}, token['mytoken']).then( () => {
                 navigate('/profile')
                 console.log()
@@ -94,7 +110,7 @@ const EditInterests = () => {
     }
 
     const filterOption = (go:boolean) => {
-        const input = document.getElementById("interestName");
+        const input = document.getElementById("specialisationName");
         if (input) {
             go ? input.setAttribute("style", "display:block;") : input.setAttribute("style", "display:none;");
         }
@@ -128,7 +144,7 @@ const EditInterests = () => {
                                 }}
                                 options={options}
                             />
-                            <input type="text" className="editprofile__form__inputs--other" name="interestname" id="interestName" placeholder="Search..." onChange = {e => setTopic(e.target.value)}/><br/>
+                            <input type="text" className="editprofile__form__inputs--other" name="interestname" id="interestName" placeholder="Please enter your interest..." onChange = {e => setTopic(e.target.value)}/><br/>
                             <textarea className="editprofile__form__textarea--other" name="interestdescription" id="interestDescription" placeholder="Description..." form="specialisationForm" onChange = {e => setDescription(e.target.value)}/><br/>
                             <hr />
                             <div className="editprofile__form__buttons">
