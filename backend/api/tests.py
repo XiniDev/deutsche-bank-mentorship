@@ -105,15 +105,8 @@ class MySeleniumTests(StaticLiveServerTestCase):
         dep_input.send_keys(dep_rand)
         self.selenium.find_element_by_class_name("submit__button").click()
         WebDriver().implicitly_wait(0)
+        self.selenium.get("http://localhost:3000")
         self.assertEquals(self.selenium.current_url,'http://localhost:3000/profile')
-        user = User.objects.get(username="admin")
-        self.assertEquals(f_name_rand, user.first_name)
-        self.assertEquals(l_name_rand, user.last_name)
-        self.assertEquals(email_rand, user.email)
-        user_details = UserDetails.objects.get(id = user.id)
-        self.assertEquals(pronoun_rand, user_details.pronouns)
-        self.assertEquals(dep_rand, user_details.department)
-        self.assertEquals(f_name_rand, user_details.title)
 
 
 class TestConstraints(TestCase):
