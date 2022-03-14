@@ -1,7 +1,7 @@
 *****
 # How To Make Thing Work
 
-Hi! This documentation is designed to help you set up the environment needed for the system. Please install everything listen under Installations and follow the step-by-step guide to get the program running. Best of luck!
+Hi! This documentation is designed to help you set up the environment needed for the system. Please install everything listen under Installations and follow the step-by-step guide to get the program running. It's a bit long, we didn't manage to write a script for it - sorry. Best of luck!
 
 *****
 
