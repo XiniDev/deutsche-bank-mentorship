@@ -16,6 +16,11 @@ Then install the following:
 - Install React via `sudo apt install npm`
 - Install React Typescript via `npm install -g typescript`
 
+If React is missing libraries, type in the following: 
+
+- `npm install --save react-scripts  jquery react-router-dom react-select react-big-calendar date-fns moment`
+- `npm install --save typescript @types/node @types/react @types/react-dom @types/jest @types/react-router-dom @types/jquery @types/react-select @types/react-big-calendar @types/date-fns @types/moment`
+
 ### Backend Requirements
 
 First, cd to ./backend. 
